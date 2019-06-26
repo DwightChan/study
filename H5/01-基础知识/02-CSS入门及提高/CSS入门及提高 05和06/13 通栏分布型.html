@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通栏分布型</title>
+    <style>
+        * {
+
+            margin: 0;
+            /* 清除内外边距 css 第一讲句话 */
+            padding: 0;
+
+        }
+        .top,
+        .banner,
+        .main,
+        .footer {
+            width: 960px;
+            margin: 0 auto;
+            border: 1px dashed #cccccc;
+            text-align: center;
+            background-color: red;
+            margin-bottom: 8px;
+        }
+
+        .top {
+            height: 100px;
+        }
+        .banner {
+            height: 150px;
+
+        }
+
+        .main {
+            height: 500px;
+
+        }
+        .main ul {
+            list-style: none;
+        }
+        .main ul li {
+            width: 240px;
+            height: 200px;
+            background-color: pink;
+            /* 浮动的目的让多个块级li 一行显示 而且没有缝隙呦 */
+            float: left;
+        }
+        /* even 偶数  个  odd  奇数 */
+        .main ul li:nth-child(even) {
+
+            background-color: purple;
+        }
+        .footer {
+            height: 120px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="top">top</div>
+<div class="banner">banner</div>
+<div class="main">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</div>
+<div class="footer">footer</div>
+
+
+</body>
+</html>

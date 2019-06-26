@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>after元素清楚浮动</title>
+    <style>
+        .box1 {
+            /* height: 200px; 很多情况下，我们父级盒子，不方便给高度 考虑孩子高度会变
+    这里不设置高度, 是因为可以根据子控件的高度为自己的高度*/
+            width: 600px;
+            background-color: pink;
+        }
+        .box2 {
+            width: 600px;
+            height: 240px;
+            background-color: purple;
+
+        }
+        .son1 {
+            width: 150px;
+            height: 100px;
+            background-color: skyblue;
+            float: left;
+        }
+
+        .son2 {
+            width: 300px;
+            height: 300px;
+            background-color: hotpink;
+            float: left;
+        }
+        /* 以下这种去除浮动的最好方法*/
+        /*	伪元素产生出的是  行内元素
+            在整个父元素后面内容   转成块元素
+            高度为0   隐藏掉点  清除浮动*/
+        .clearfix:after {
+            /* 内容为小点， 尽量加不要空， 否则旧版本浏览器有空隙 */
+            content: ".";
+            /* 转为块级元素*/
+            display: block;
+            /* 高度为0 */
+            height: 0;
+            /* 隐藏盒子*/
+            visibility: hidden;
+            /* 清除浮动*/
+            clear: both;
+        }
+        .clearfix {
+            *zoom: 1;
+            /*  * 代表ie6.7能识别的特殊符号  带有这个*的属性 只有ie6.7才执行
+			 zoom 就是ie6.7 清除浮动的方法 */
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="box1 clearfix">
+    <div class="son1"></div>
+    <div class="son2"></div>
+</div>
+<div class="box2"></div>
+
+</body>
+</html>
