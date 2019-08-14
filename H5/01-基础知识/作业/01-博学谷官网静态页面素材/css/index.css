@@ -7,16 +7,16 @@
     background: url(../images/web.jpg) no-repeat center; 
     background-color: #363f8d;
 }
-.coupons {
+/* .coupons {
     height: 100px;
-   
-}
+} */
 .coupns_view {
     overflow: hidden;
     position: relative;
     margin-left: 220px;
     margin-top: 10px;
-    border-radius: 5px;
+    width: 960px;
+    border-radius: 5px 5px;
 }
 
 .coupons li {
@@ -42,6 +42,6 @@
 .coupns_view .coupons_subtitle {
     margin-top: 10px;
 }
-.coupns_view h5 {
+.coupns_view h6 {
     font-weight: 400;
 }
