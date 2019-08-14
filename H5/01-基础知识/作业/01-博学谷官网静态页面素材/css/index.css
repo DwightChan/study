@@ -1,4 +1,47 @@
 /* 首页css */
-.short-title {
-    
+.main {
+    height: 320px;
+    margin: 0 auto;
+    width: 100%;
+    /* background-color: #383F89; */
+    background: url(../images/web.jpg) no-repeat center; 
+    background-color: #363f8d;
+}
+.coupons {
+    height: 100px;
+   
+}
+.coupns_view {
+    overflow: hidden;
+    position: relative;
+    margin-left: 220px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.coupons li {
+    float: left;
+    width: 240px;
+    height: 100px;
+    background-color: #fff;
+    /* border-radius: 5px; */
+}
+.coupns_view i {
+    float: left;
+    background: url(../images/infos.png) no-repeat;
+    margin-left: 30px;
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    margin-top: 28px;
+}
+.coupns_view .coupons_title {
+    float: left;
+    margin: 28px 0 0 10px;
+}
+.coupns_view .coupons_subtitle {
+    margin-top: 10px;
+}
+.coupns_view h5 {
+    font-weight: 400;
 }
