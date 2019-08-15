@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?55o42a');
-  src:  url('fonts/icomoon.eot?55o42a#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?55o42a') format('truetype'),
-    url('fonts/icomoon.woff?55o42a') format('woff'),
-    url('fonts/icomoon.svg?55o42a#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?b78es8');
+  src:  url('fonts/icomoon.eot?b78es8#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?b78es8') format('truetype'),
+    url('fonts/icomoon.woff?b78es8') format('woff'),
+    url('fonts/icomoon.svg?b78es8#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,18 +24,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-cheveron-down:before {
-  content: "\e900";
-}
-.icon-cheveron-left:before {
-  content: "\e901";
-}
-.icon-cheveron-right:before {
-  content: "\e902";
-}
-.icon-cheveron-up:before {
-  content: "\e903";
-}
 .icon-cart:before {
   content: "\e93a";
+}
+.icon-chevron-thin-down:before {
+  content: "\e900";
+}
+.icon-chevron-thin-left:before {
+  content: "\e901";
+}
+.icon-chevron-thin-right:before {
+  content: "\e902";
+}
+.icon-chevron-thin-up:before {
+  content: "\e903";
 }

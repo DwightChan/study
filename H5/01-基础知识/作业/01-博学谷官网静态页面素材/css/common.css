@@ -35,7 +35,7 @@
 /*顶部快捷导航*/
 .shortcut {
 	height: 31px;
-	background-color: #f1f1f1;
+	background-color: #f7f7f7;
 	line-height: 31px;
 }
 .shortcut li {
@@ -47,13 +47,14 @@
 } 
 /*header区域*/
 .header {
-	position: relative;
+	/* position: relative; */
 	height: 105px;
+	background-color: #fff;
 }
 .logo {
-	position: absolute;
-	top: 25px;
-	left: 0;
+	/* position: absolute; */
+	float: left;
+	padding-top: 25px;
 	width: 175px;
 	height: 56px;
 }
@@ -151,6 +152,7 @@
 /*nav start*/
 .nav {
 	height: 45px;
+	background-color: #fff;
 	/* border-bottom: 2px solid #b1191a; */
 }
 .dropdown {
@@ -265,75 +267,79 @@
 }
 /*footer 部分*/
 .footer {
-	height: 386px;
-	background-color: #f5f5f5;
+	height: 250px;
+	background-color: #333;
 	padding-top: 30px;
+	color: #d0d0d0;
 }
-.mod_service {
-	height: 79px;
-	border-bottom: 1px solid #ccc;
+.footer .help {
+	height: 150px;
+	border-bottom: 1px solid #444;
 }
-
-.mod_service li {
+.help .site_desc {
 	float: left;
-	width: 240px;
-	height: 79px;
-
+	width: 400px;
 }
-.mod-service-icon {
-	/*浮动的盒子 可以直接给大小的 不需要转换*/
+.help dt {
+	font-size: 22px;
+	height: 30px;
+	line-height: 30px;
+	font-weight: bold;
+	/* color:  */
+}
+.help dd {
+	margin-top: 10px;
+	height: 150px;
+	font-size: 14px;
+}
+.help .about_us {
 	float: left;
-	width: 50px;
-	height: 50px;
-	margin-left: 35px;
-	background: url(../img/icons.png) no-repeat;
-}
-.mod_service_zheng {
-	background-position: -253px -3px;	
-}
-.mod_service_tit {
-	float: left;
-	margin-left: 5px;
-}
-.mod_service_tit h5 {
-	margin: 5px 0;
-}
-.mod_service_kuai {
-	background-position: -255px -54px;
-}
-.mod_service_bao {
-	background-position: -257px -105px;
-}
-.mod_help {
-	height: 187px;
-	border-bottom: 1px solid #ccc;
-}
-.mod_help_item {
-	float: left;
+	margin-left: 30px;
+	margin-right: 30px;
 	width: 150px;
-	padding: 20px 0 0 50px;
+	height: 100px;
 }
-.mod_help_item dt {
-	height: 25px;
-	font-size: 16px;
+.about_us a {
+	margin-right: 10px;
 }
-.mod_help_item dd {
-	height: 22px;
+.friend_link li {
+	float: left;
+	height: 40px;
 }
-.mod_help_app dt,
-.mod_help_app p {
-	padding-left: 15px;
+.friend_link li a {
+	color: #d0d0d0;
+	padding-right: 30px;
+}	
+
+.footer .copy {
+	height: 50px;
 }
-.mod_help_app img {
-	margin: 7px 0;
+
+.copy_link {
+	height: 20px;
+	margin: 30px auto 0;
 }
-.mod_copyright {
+.copy_link li {
+	float: left;
+	height: 12px;
+}
+.copy_link li a {
+	line-height: 12px;
+	font-size: 14px;
+
+}
+.copy_link .spacer {
+	background-color: #d0d0d0;
+	margin: 0px 12px;
+}
+.copy_link_item a {
+	color: #d0d0d0;
+}
+
+.copy .copy_desc {
+	margin: 15px auto;
+	height: 20px;
+	font-size: 14px;
+	line-height: 20px;
 	text-align: center;
 }
-.mod_copyright_links {
-	margin: 20px 0 15px 0;
-}
-.mod_copyright_info {
-	line-height: 18px;
-}
-

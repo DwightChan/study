@@ -45,3 +45,224 @@
 .coupns_view h6 {
     font-weight: 400;
 }
+
+/* 推荐/新闻 */
+.recommended {
+    margin-top: 20px;
+    height: 260px;
+}
+.recommended h4 {
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 15px;
+}
+.hot_class {
+    position: relative;
+    width: 700px;
+    height: 260px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.hot_class h4 {
+    margin-left: 40px;
+} 
+.hot_class_content {
+    margin-top: 10px;
+    padding-left: 40px;
+}
+.hot_class_more {
+    position: absolute;
+    display: inline-block;
+    font-family: 'icomoon';
+    font-size: 20px;
+    right: 0;
+    width: 30px;
+    height: 60px;
+    top: 40%;
+    margin-top: 30;
+    line-height: 60px;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+.hot_class_item {
+    float: left;
+/* (700 - 40*2 - 20) *0.5 = 300*/   
+    width: 290px;
+    height: 200px;
+    background-color: #fff;
+    /* box-shadow: rgba(0, 0, 0, 0.2); */
+}
+
+.hot_class_item {
+    margin-right: 20px;
+}
+.hot_class_item img {
+    overflow: hidden;
+    width: 290px;
+    height: 120px;
+    border-radius: 5px 5px 0 0;
+}
+.hot_class_item .title_content {
+    width: 290px;
+    height: 80px;;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 5px 5px;
+}
+
+.hot_class_item p {
+    font-size: 14px;
+    color: black;
+}
+.hot_class_item .title,
+.hot_class_item .time_state {
+    width: 290px;
+    height: 40px;
+    line-height: 40px;
+}
+.hot_class_item .class_name,
+.hot_class_item .time {
+    float: left;
+    margin-left: 20px;
+}
+.hot_class_item .teacher,
+.hot_class_item .state {
+    display: inline-block;
+    float: right;
+    margin-right: 20px;
+}
+
+.hot_class_item .state i {
+    display: inline-block;
+    float: left;
+    margin-top: 12px;
+    width: 14px;
+    height: 14px;
+    background: url(../images/pub01.png) no-repeat;
+}
+.hot_class_item .state .tiptitle {
+    float: left;
+    margin-left: 3px;
+}
+.site_new {
+    width: 480px;
+    height: 260px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.site_new .new {
+    float: left;
+    width: 180px;
+}
+.site_new .new h4 {
+    text-align: center; 
+    margin-left: 50px;
+}
+.site_new .new img {
+    margin-top: 10px;
+    margin-left: 50px;
+    align-content: center;
+}
+.site_new .notic {
+    float: right;
+    width: 270px;
+    height: 260px;
+}
+.site_new .notic .underline-weight {
+    display: inline-block;
+    height: 22px;
+    color: #5092F5;
+    margin-left: 5px;
+    border-bottom: 2px solid #5092F5;
+}
+.site_new .notic li {
+    height: 30px;
+    /* list-style: disc; */     
+}
+.site_new .notic li a {
+    font-size: 14px;
+    line-height: 30px;
+    color: #333;
+}
+.site_new .notic .disc_blue {
+    display: inline-block;
+    border-radius: 5px 5px;
+    width: 5px;
+    height: 5px;
+    background-color: #5092F5;
+    margin-right: 5px;
+}
+
+/* 精品课程模块 */
+.better_courses {
+    margin-top: 30px;
+    height: 330px;
+    /* background: #363f8d; */
+}
+.course_class_nav {
+    height: 30px;
+}
+.course_class_nav li {
+    float: left;
+}
+.class_nav_title a {
+    color: #333;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    padding-right: 20px;
+    padding-bottom: 0;
+}
+.course_class_nav .current a {
+    font-size: 20px;
+}
+.course_class_item {
+    height: 250px;
+    /* background-color: #333; */
+}
+.course_class_item li {
+    float: left;
+    overflow: hidden;
+    width: 290px;
+    height: 270px;
+    margin-right: 7px;
+    background-color: #fff;
+    border-radius: 5px 5px;
+}
+.course_class_item img {
+    width: 290px;
+    height: 177px;
+}
+.course_class_item .content_dec {
+    padding: 0 10px;
+    color: #333;
+}
+.course_class_item h4 {
+    height: 30px;
+    line-height: 30px;
+    font-size: 17px;
+    font-weight: normal;
+}
+
+.course_class_item .price span {
+    font-size: 14px;
+    color: #EA3323;
+    margin-right: 30px;
+}
+.course_class_item .person_count {
+    float: right;
+    display: inline-block;
+}
+.course_class_item .person_count  i {
+    display: inline-block;
+    width: 12px;
+    height: 14px;
+    background: url(../images/per.png) no-repeat;
+    margin-right: 3px;
+}
+.course_class_item .person_count span {
+    font-size: 14px;
+    color: #333;
+}
