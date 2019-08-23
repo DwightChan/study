@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            width: 800px;
+            height: 300px;
+            background-color: pink;
+            /* 默认的主轴是 x 轴 row */
+            /* flex-direction: row; */
+            /* 默认方式 子空间之间没有缝隙, 都贴在一起 */
+            /* justify-content: flex-start; */
+            /* 向右贴 */
+            /* justify-content: flex-end; */
+            /* 所有子控件都贴在一起, 并且居中显示 */
+            /* justify-content: center; */
+            /* 平均分配剩余空白空间作为 marign 值 , marign 相加是值就是两倍*/
+            /* justify-content: space-around; */
+            /* 先两边贴边， 在分配剩余的空间 */
+            justify-content: space-between;
+            /* 平均分配剩余空间每个子元素之间的间隙都是等分 */
+            /* justify-content: space-evenly; */
+            align-items: center;
+        }
+        
+        div span {
+            width: 150px;
+            height: 100px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+    </div>
+</body>
+
+</html>
