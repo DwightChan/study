@@ -1,0 +1,149 @@
+/* 基础样式 */
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #333;
+}
+
+em,
+i {
+    font-style: normal;
+}
+
+body {
+    /* background: pink; */
+}
+
+
+/* 修改container 的最大宽度为1280 根据设计稿走 */
+
+@media screen and (min-widht: 1170px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+.container {
+    /* background-color: #fff; */
+    display: flex;
+    margin: 0 auto 0;
+    position: absolute;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* 头部 */
+
+header {
+    position: absolute;
+    /* align-items: center; */
+    background-color: #fff;
+    width: 100%;
+    height: 60px;
+}
+
+header .container {
+    height: 60px;
+}
+
+header img {
+    display: inline-block;
+    height: 30px;
+}
+
+header ul {
+    display: inline-block;
+}
+
+header li {
+    float: left;
+}
+
+header .item {
+    padding: 0 10px;
+}
+
+header .item a {
+    font-size: 12px;
+}
+
+header .current {
+    font-weight: 700;
+}
+
+
+/* 中间广告栏 */
+
+.banner {
+    display: flex;
+    background-color: #F0CA60;
+    height: 600px;
+    padding-top: 40px;
+    text-align: center;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    /* justify-content: space-between; */
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.banner h2 {
+    font-size: 115px;
+    color: #000;
+    text-align: center;
+}
+
+.banner h2 em {
+    font-weight: 900;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.banner p {
+    font-size: 40px;
+    font-weight: 100;
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+}
+
+.banner p em {
+    font-weight: 900;
+}
+
+
+/* 中间课程部分 */
+
+.container .middle {
+    width: 100%;
+    height: 570px;
+}
+
+.middle {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* 底部了解更多 */
+
+footer a {
+    color: #629C93;
+    font-size: 30px;
+}
+
+footer a::after {
+    display: inline-block;
+    margin-left: 10px;
+    border-bottom: 2px solid #629C93;
+    border-right: 2px solid #629C93;
+    transform: rotateZ(-45deg);
+}
