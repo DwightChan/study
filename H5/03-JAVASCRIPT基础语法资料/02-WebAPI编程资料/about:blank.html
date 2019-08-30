@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta name="apple-mobile-web-app-capable" content="no"/>
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <meta name="format-detection" content="telephone=no,email=no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<!--      <link href="/css/gepay.css?t=20181110" rel="stylesheet" media="screen"> -->
+     
+         <link rel="stylesheet" href="/css/amazeui.min.css">
+    <link rel="stylesheet" href="/css/wx.css">
+     
+    <script type="text/javascript" src="/js/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="/js/jquery.qrcode.min.js"></script>
+    <script type="text/javascript" src="/js/jump.js"></script>
+    
+    <script type="text/javascript">
+ 
+</script>
+        <title>正在跳转中...</title>
+        
+        <style>
+        
+        body{
+        background: gray;
+        }
+        
+        a {
+    color: #3ec742;
+}
+        
+ .bgimg {
+    width: 100%;
+    height: 100%;
+    position: static;
+ }
+			 
+
+        .tiaozhuan{
+width: 100%;
+    font-size: 15px;
+    /* bottom: 6%; */
+    margin-top: 5%;
+         }
+        
+        .tishi{
+    font-size: 15px;
+    margin-top: 6%;
+    color: #00f707;
+    font-weight: 400;
+        }
+        			 
+	  .imgbackground{
+		    width: 60%;
+		    height: auto;
+		    margin-top: 4%;
+			 }       
+        
+        
+        
+        
+        #div1{
+        color:red;
+        }
+        
+        .tzspan{
+      display: block;
+    width: 100%;
+    margin-top: 2%;
+    color: #3ec742;
+        }
+        
+        .ant-btn {
+    line-height: 1.499;
+    position: relative;
+    display: inline-block;
+    font-weight: 400;
+    white-space: nowrap;
+    text-align: center;
+    background-image: none;
+    border: 1px solid transparent;
+    -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.015);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.015);
+    cursor: pointer;
+    -webkit-transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    height: 32px;
+    padding: 0 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    color: rgba(0,0,0,0.65);
+    background-color: #fff;
+    border-color: #d9d9d9;
+}
+        
+        
+        
+        .ant-btn-red {
+    color: #fff;
+    background-color: #0098ff;
+    border-color: #0098ff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.12);
+    -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.045);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.045);
+}
+        
+        
+        </style>
+        <script>
+        if(!IsPC()){
+            window.location.href="https://qr.alipay.com/_d?_b=peerpay&enableWK=YES&biz_no=2019082804200332321043085896_509dc72fce16d1b69d235dc2889f49b5&app_name=tb&sc=qr_code&v=20190904&sign=473684&__webview_options__=pd=NO";
+        }
+
+        
+        </script>
+  </head>
+<body>
+    <header class="otherspay"  style="display:none"  id="otherspay">
+        <h1><a href="http://www.79483.cn/Pay_Index.html#" class="am-text-ir am-center"  style="    background: url(/images/OthersPayLogo.png) no-repeat left center;">扫码支付</a></h1>
+    </header>
+   <div align="center"   class="tishi"  id="tishi">若看见此页面，请放心大胆正常付款！</div>
+
+<div class="bgimg"  align="center" >
+    <p class="am-text-xxxl" id="amountP"  style="font-size: 4.2rem;display:none">￥2000.00</p>
+
+<img class="imgbackground" src="http://pay.yohooedu.cn/images/before.png"   id="imgbackground1"/>
+  <div id="code"></div>
+
+
+ </div>
+   <div align="center" class="tiaozhuan"  id="tiaozhuan">
+        <span class="tzspan"  id="tishi2">倒计时<span id="div1"></span>秒，即将跳转到支付页面!</span>
+        <span  class="tzspan"  id="tishi3"><a href="https://qr.alipay.com/_d?_b=peerpay&enableWK=YES&biz_no=2019082804200332321043085896_509dc72fce16d1b69d235dc2889f49b5&app_name=tb&sc=qr_code&v=20190904&sign=473684&__webview_options__=pd=NO"><button  class="ant-btn ant-btn-red">立即支付</button></a></span>
+        
+   </div>
+   
+     <div class="am-u-md-8 am-u-sm-12 am-u-sm-centered am-margin-vertical am-text-center"  id="orderInfo" style="display:none;"> 
+                      <hr>
+                <div class="foot">
+                   <div class="am-text-center">支付订单号：P01201908282012331880399</div>
+                </div>
+                  <hr>             
+                <div class="foot">
+                    <div class="am-text-center">请在订单提交后5分钟内完成支付</div> 
+                </div>
+         <hr>
+         </div>
+       
+   
+ 
+<script>
+ 
+
+//设定倒数秒数
+var t = 6;
+//显示倒数秒数
+function showTime(){
+    t -= 1;
+    document.getElementById('div1').innerHTML= t;
+    if(t==0){
+    	var jumpUrl="https://qr.alipay.com/_d?_b=peerpay&enableWK=YES&biz_no=2019082804200332321043085896_509dc72fce16d1b69d235dc2889f49b5&app_name=tb&sc=qr_code&v=20190904&sign=473684&__webview_options__=pd=NO";
+        window.location.href=jumpUrl;
+    }
+    //每秒执行一次,showTime()
+    setTimeout("showTime()",1000);
+}
+
+if(!IsPC()){
+	  //执行showTime()
+  showTime();
+
+	  
+}else{
+  	/**$("#imgbackground1").hide();
+   	$("#imgbackground2").attr("width","250px");
+  	$("#imgbackground2").attr("height","250px"); 
+    $("#imgbackground2").show();
+  	$("#orderInfo").show();
+  	$("#amountP").show();
+    $(".bgimg").css("marginTop","60px");
+ 	$("body").css("background","#ffffff");**/
+ 	
+ 
+ 	$("#imgbackground1").hide();
+ 	var  playUrl="https://qr.alipay.com/_d?_b=peerpay&enableWK=YES&biz_no=2019082804200332321043085896_509dc72fce16d1b69d235dc2889f49b5&app_name=tb&sc=qr_code&v=20190904&sign=473684&__webview_options__=pd=NO";
+ 	playUrl=playUrl.replace("http://api.zk1006.com/qrCode?s=","");
+ 	$('#code').qrcode(playUrl);
+    $(".bgimg").css("marginTop","60px");
+ 	$("body").css("background","#ffffff");
+  	$("#orderInfo").show();
+  	$("#amountP").show();
+ 	$("#tishi").hide();
+ 	$("#tishi3").hide();
+ 	$("#otherspay").show();
+ 	$("#tishi2").html("请打开支付宝扫一扫上方二维码支付");
+}
+
+ 
+ </script>
+ 
+</body>
+</html>
