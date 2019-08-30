@@ -1,0 +1,90 @@
+body {
+    min-width: 320px;
+    max-width: 750px;
+    /* flexible 给我们划分了10 */
+    width: 10rem;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-family: Arial, Helvetica;
+    background: #f2f2f2;
+}
+
+a {
+    text-decoration: none;
+    font-size: .333333rem;
+}
+
+
+/* 这个插件默认的html文字大小 cssroot  16px
+我们要改成 12号字体 */
+
+
+/* 
+img {
+    width: 5.125rem;
+    height: 4rem;
+    width: 1rem;
+    width: 1.093333rem;
+    height: 1rem;
+} */
+
+
+/* 如果我们的屏幕超过了 750px  那么我们就按照 750设计稿来走 不会让我们页面超过750px */
+
+
+/* 大于等于 750px 的时候 要限定font-size 为75px */
+
+@media screen and (min-width: 750px) {
+    html {
+        font-size: 75px!important;
+    }
+}
+
+
+/* search-content */
+
+.search-content {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10rem;
+    height: 1.17333rem;
+    background-color: #ffc001;
+}
+
+.classify {
+    width: .58667rem;
+    height: .9333rem;
+    margin: .146667rem .3333rem .1333rem;
+    background: url(../images/classify.png) no-repeat;
+    background-size: .58667rem .9333rem;
+}
+
+.search {
+    flex: 1;
+}
+
+.search input {
+    outline: none;
+    border: 0;
+    width: 100%;
+    height: .88rem;
+    font-size: .333rem;
+    background-color: #fff2cc;
+    margin-top: .1333rem;
+    border-radius: .44rem;
+    color: #757575;
+    padding-left: .7333rem;
+}
+
+.login {
+    width: 1rem;
+    height: .9333rem;
+    margin: .1333rem;
+    color: #fff;
+    text-align: center;
+    line-height: .9333rem;
+    font-size: .333rem;
+}

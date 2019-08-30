@@ -1,0 +1,257 @@
+/* 基础样式 */
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #333;
+}
+
+em,
+i {
+    font-style: normal;
+}
+
+body {
+    /* background: pink; */
+}
+
+
+/* 修改container 的最大宽度为1280 根据设计稿走 */
+
+@media screen and (min-widht: 1170px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+
+/* background-color: #fff; */
+
+
+/* display: flex; */
+
+
+/* position: absolute; */
+
+
+/* flex: 1; */
+
+
+/* justify-content: space-between;
+    align-items: center; */
+
+
+/* 头部 */
+
+header {
+    position: fixed;
+    /* align-items: center; */
+    background-color: #fff;
+    width: 100%;
+    height: 60px;
+    z-index: 1;
+}
+
+header .container {
+    /* display: flex; */
+    align-items: center;
+    margin-top: /* justify-content: space-between; */
+    /* padding: 0px!important; */
+}
+
+header .logo {
+    /* width: 100%; */
+    margin-top: 15px;
+    height: 30px;
+    background: url(../images/logo.png) no-repeat;
+    background-size: 100px 30px;
+    padding-left: 0!important;
+    float: left;
+}
+
+
+/* header img {
+    display: inline-block;
+    height: 30px;
+} */
+
+header ul {
+    float: right;
+}
+
+header .item {
+    float: left;
+    box-sizing: border-box;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+}
+
+header .item a {
+    font-size: 16px;
+}
+
+header .current {
+    font-weight: 700;
+}
+
+
+/* 中间广告栏 */
+
+.banner {
+    display: flex;
+    background-color: #F0CA60;
+    height: 600px;
+    padding-top: 40px;
+    text-align: center;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    /* justify-content: space-between; */
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.banner h2 {
+    font-size: 115px;
+    color: #000;
+    text-align: center;
+}
+
+.banner h2 em {
+    font-weight: 900;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.banner p {
+    font-size: 40px;
+    font-weight: 100;
+    /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+}
+
+.banner p em {
+    font-weight: 900;
+}
+
+
+/* 中间课程部分 */
+
+.middle {
+    display: flex;
+    width: 100%;
+    /* height: 400px; */
+    flex-direction: row;
+}
+
+.middle .title {
+    display: block;
+    text-align: center;
+}
+
+.middle .title h3 {
+    font-size: 35px;
+}
+
+.middle .title p {}
+
+.middle ul {
+    padding: 0;
+}
+
+.middle ul li {
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0 30px;
+}
+
+.middle .class_top {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 30px;
+}
+
+.middle .class_top img {
+    margin-bottom: 14px;
+}
+
+.middle .class_top dt {
+    font-size: 26px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.middle .class_top dd {
+    font-size: 16px;
+    color: #999;
+}
+
+
+/* 底部了解更多 */
+
+footer {
+    width: 100%;
+    margin: 40px 0;
+}
+
+footer a {
+    display: inline-block;
+    color: #629C93;
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    margin: 0 auto;
+}
+
+footer a::after {
+    display: inline-block;
+    /* 一定要写 content 这个属性不然怎么写都显示不出来伪类选择器 */
+    content: "";
+    margin-left: 10px;
+    margin-bottom: 3px;
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #629C93;
+    border-bottom: 2px solid #629C93;
+    transform: rotateZ(-45deg);
+}
+
+
+/* 当我们进入 小屏幕 还有 超小屏幕的时候 我们 nav 里面的li  */
+
+@media screen and (max-width: 991px) {
+    header ul {
+        float: left;
+        padding-left: 0;
+    }
+    .banner {
+        height: 400px;
+    }
+    .banner h2 {
+        font-size: 50px;
+    }
+    .banner p {
+        font-size: 20px;
+    }
+}
+
+
+/* 
+@media screen and (max-width: 767px) {
+    .banner {
+        height: 400px;
+    }
+    .banner h2 {
+        font-size: 50px;
+    }
+    .banner p {
+        font-size: 20px;
+    }
+} */
