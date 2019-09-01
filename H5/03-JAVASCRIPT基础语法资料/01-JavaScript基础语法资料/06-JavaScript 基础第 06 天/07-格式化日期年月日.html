@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 格式化日期
+        var date = new Date();
+        // 获取年 月 日 时分秒
+        console.log(date.getFullYear());
+        console.log(date.getMonth());
+        console.log(date.getDate());
+        // 获取星期 , 日:0 , 一:1, ..., 六:6
+        console.log(date.getDay);
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1; // 月份是从 0 开始
+        var dates = date.getDate();
+        var arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+        var day = date.getDay();
+        console.log('今天是:' + year + '年' + month + '月' + dates + '日' + arr[day]);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
