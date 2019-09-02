@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input {
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" value="phone">
+    <script>
+        // 1. 获取元素
+        var text = document.querySelector('input');
+        // 2. 注册事件 获取焦点 onfocus
+        text.onfocus = function() {
+                console.log('获取焦点');
+                if (this.value === "phone") {
+                    this.value = "";
+                }
+                // 获得焦点需要报文本框里面的文字颜色改为黑色
+                this.style.color = "#333";
+            }
+            // 3. 注册事件 失去焦点事件 onblur
+        text.onblur = function() {
+            console.log('失去焦点事件');
+            if (this.value === "") {
+                this.value = "phone";
+            }
+            // 失去焦点需要把文本框里的文字颜色设置为默认颜色
+            this.style.color = '#999';
+        }
+    </script>
+</body>
+
+</html>

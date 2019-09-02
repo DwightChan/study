@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        position: relative;
+        width: 400px;
+        border-bottom: 1px solid #ccc;
+        margin: 100px auto;
+    }
+    
+    .box input {
+        width: 370px;
+        height: 30px;
+        border: 0;
+        outline: none;
+    }
+    
+    .box img {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        width: 24px;
+        height: auto;
+        z-index: 1;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <label for="">
+            <img src="images/close.png" alt="" id="eye">
+        </label>
+        <input type="password" name="" id="pwd">
+    </div>
+    <script>
+        // 1.获取元素
+        var eye = document.getElementById('eye');
+        var pwd = document.getElementById('pwd');
+        // 2. 注册时间 处理程序;
+        var flag = 0;
+        eye.onclick = function() {
+            // 点击 一次之后, flag 一定要变化;
+            if (flag == 0) {
+                pwd.type = "text";
+                eye.src = 'images/open.png';
+                flag = 1; // 赋值做控制
+                console.log('点击了要开眼');
+
+            } else {
+                pwd.type = 'password';
+                eye.src = 'images/close.png';
+                flag = 0;
+                console.log('点击了要闭眼');
+
+            }
+        }
+    </script>
+</body>
+
+</html>
