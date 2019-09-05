@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .wrap {
+            width: 300px;
+            margin: 100px auto 0;
+        }
+        
+        table {
+            /* 边框合并 */
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+            width: 300px;
+        }
+        
+        th,
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404040;
+            padding: 10px;
+        }
+        
+        th {
+            font: 14px '微软雅黑';
+        }
+        
+        table tr {
+            background-color: #f0f0f0;
+        }
+        
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        <input type="checkbox" id="j_cbAll">
+                    </th>
+                    <th>商品</th>
+                    <th>价格</th>
+                </tr>
+            </thead>
+            <tbody id="j_tb">
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>iPhone8</td>
+                    <td>8000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>iPhone8</td>
+                    <td>8000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <td>iPhone8</td>
+                    <td>8000</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        // 1. 全选和取消全选的做法: 让下面所有的复选框的checked 属性(选中转态) 跟随全选按钮 即可;
+        // 获取元素
+        var j_cbAll = document.getElementById("j_cbAll");
+        // 全选按钮
+        var j_tb = document.getElementById('j_tb').getElementsByTagName('input');
+        // 下面所有的复选框
+        // 注册事件
+        j_cbAll
+    </script>
+</body>
+
+</html>
