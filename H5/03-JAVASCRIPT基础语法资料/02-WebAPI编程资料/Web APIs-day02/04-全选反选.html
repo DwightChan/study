@@ -89,10 +89,29 @@
         // 获取元素
         var j_cbAll = document.getElementById("j_cbAll");
         // 全选按钮
-        var j_tb = document.getElementById('j_tb').getElementsByTagName('input');
+        var j_tbs = document.getElementById('j_tb').getElementsByTagName('input');
         // 下面所有的复选框
         // 注册事件
-        j_cbAll
+        j_cbAll.onclick = function() {
+            // this.checked 它可以得到当前复选框的选中状态如果是true 就是选中，如果是false 就是未选中
+            console.log(this.checked + '点击了 j_caAll');
+            for (var i = 0; i < j_tbs.length; i++) {
+                j_tbs[i].checked = this.checked;
+            }
+            for (var i = 0; i < j_tbs.length; i++) {
+                j_tbs[i].onclick = function() {
+                    // flag 控制全选按钮是否为选中
+                    var flag = true;
+                    for (var i = 0; i < j_tbs.length; i++) {
+                        if (!j_tbs[i].checked) {
+                            flag = false;
+                            break; // 
+                        }
+                    }
+                    j_cbAll.checked = flag;
+                }
+            }
+        }
     </script>
 </body>
 
