@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="ul">
+        <li>西施</li>
+        <li>貂蝉</li>
+        <li>昭君</li>
+        <li>凤姐</li>
+        <li>芙蓉姐姐</li>
+    </ul>
+    <input type="button" value="提交" id="btn" />
+
+</body>
+<script>
+    var ul = document.querySelector('ul');
+    ul.onclick = function(e) {
+            e.targat.style.backgroundColor = 'red';
+        }
+        // 单击按钮 添加一个新的 li
+    var btn = document.querySelector('#btn');
+    btn.onclick = function() {
+        var liobj = document.createElement('li');
+        liobj.innerHTML = '杨超越';
+        ul.insertBefore(liobj, ul.children[0]);
+    }
+</script>
+
+</html>
