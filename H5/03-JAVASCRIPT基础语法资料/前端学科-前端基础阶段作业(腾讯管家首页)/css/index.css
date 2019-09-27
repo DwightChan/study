@@ -312,8 +312,8 @@ h2 {
     background: url(../images/b_dot.png) 0 0 no-repeat;
 }
 
-.b_dot a .on {
-    background-position: -21px 0;
+.b_dot .current {
+    background-position: -21px 0 !important;
 }
 
 .figures {

@@ -9,8 +9,7 @@ window.addEventListener('load', function() {
     var nav = document.querySelector('#nav');
     var navLis = nav.querySelectorAll('.top-nav-li');
     // 当前line 显示 对应li 的索引
-    current = 0
-        // forEach(callbackfn: (value: Element, key: number, parent: NodeListOf<Element>) => void, thisArg?: any): void
+    // forEach(callbackfn: (value: Element, key: number, parent: NodeListOf<Element>) => void, thisArg?: any): void
     navLis.forEach(function(element, index, array) {
         // console.log(element);
         // console.log(index);
@@ -57,7 +56,7 @@ window.addEventListener('load', function() {
         subTitle: '腾讯电脑管家斩获AV-C2018年度性能、杀毒双料最高评级',
     }];
     var bannerNewLisHTML = [];
-    for (var i = 0; i < datas.length; i++) {
+    for (var i = 0; i < datas.length * 3; i++) {
         var index = i % 3;
         console.log('index' + index);
 
@@ -67,52 +66,62 @@ window.addEventListener('load', function() {
     console.log(bannerNewLisHTML);
 
     publishCopy.innerHTML = bannerNewLisHTML;
-    console.log(publishCopy.children);
+
     // 三倍数据 为以后轮播图做扩展
-    var bannerIndex = 0;
+    var bannerIndex = bannerLisCount;
 
     var circlesBack = document.querySelector('#b_dot');
-    var circARR = [];
-    for (let index = 0; index < bannerLisCount; index++) {
-        var a = '<a href="javascript:void(0);" class=""></a>'
-        circARR.push(a);
-    }
-    circlesBack.innerHTML = circARR;
-    console.log(circlesBack.children);
-    circlesBack.children[0].setAttribute('class', 'on');
+    // console.log(circlesBack);
+    circlesBack.children[0].setAttribute('class', 'current');
+
+
 
     // 1. 下一张图=
     publishCopy.next = function() {
-        this.children[bannerIndex].style = '';
+        console.log(this);
+
+        publishCopy.children[bannerIndex].style = '';
         var cirleIndex = bannerIndex % bannerLisCount;
         circlesBack.children[cirleIndex].setAttribute("class", "");
-        // for (var i = 0; i < circles.children.length; i++) {
-        //     circles.children[i].setAttribute("class", "");
-        // }
+
         bannerIndex = bannerIndex + 1;
-        cirleIndex = bannerIndex % bannerLisCount;
-        circlesBack.children[cirleIndex].setAttribute("class", "on");
-        console.log(circlesBack.innerHTML);
         // 是否已经不是中间的
         if (bannerIndex % bannerLisCount == 0 &&
             (bannerIndex + 1) > bannerLisCount) {
-            bannerIndex = 0;
+            bannerIndex = bannerLisCount;
         }
-
+        cirleIndex = bannerIndex % bannerLisCount;
+        circlesBack.children[cirleIndex].setAttribute("class", "current");
         this.children[bannerIndex].style = 'dispay:block;z-index:1';
     };
-    publishCopy.addEventListener('moveenter', function() {
-        // clearTimeout
-        clearTimeout(publishCopy.bannerTimer);
-        console.log('停止定时器');
-    });
-    publishCopy.addEventListener('moveover', function() {
-        // 添加定时器
-        publishCopy.bannerTimer();
-        console.log('添加定时器');
-    });
+    // publishCopy.next();
     // 2. 开启定时器
     publishCopy.bannerTimer = this.setInterval(function() {
         publishCopy.next();
     }, 2000);
+
+    // console.log(publishCopy.children);
+    for (var index = bannerLisCount; index < publishCopy.children.length; index++) {
+        publishCopy.children[index].addEventListener('mouseenter', function() {
+            clearTimeout(publishCopy.bannerTimer);
+            console.log('停止定时器');
+
+        });
+        publishCopy.children[index].addEventListener('mouseout', function() {
+            console.log('开启定时器');
+            console.log(this);
+            publishCopy.bannerTimer = setInterval(function() {
+                console.log(this);
+                // publishCopy.bannerTimer();
+                publishCopy.next();
+            }, 2000);
+        });
+    };
+    // $(publishCopy).on('mouseout', 'li', function() {
+    //     console.log('开启定时器');
+    //     console.log(this);
+    //     publishCopy.bannerTimer = setInterval(function() {
+    //         publishCopy.next();
+    //     }, 2000);
+    // });
 });
