@@ -1,11 +1,11 @@
 // 引用gulp模块
 const gulp = require('gulp');
 const htmlmin = require('gulp-htmlmin');
-const fileinclude = require('gulp-file-include');
-const less = require('gulp-less');
-const csso = require('gulp-csso');
-const babel = require('gulp-babel');
-const uglify = require('gulp-uglify');
+// const fileinclude = require('gulp-file-include');
+// const less = require('gulp-less');
+// const csso = require('gulp-csso');
+// const babel = require('gulp-babel');
+// const uglify = require('gulp-uglify');
 
 // 使用gulp.task建立任务
 // 1.任务的名称
