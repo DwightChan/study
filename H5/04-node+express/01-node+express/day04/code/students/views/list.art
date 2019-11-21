@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学员信息</title>
+	<link rel="stylesheet" href="./css/list.css">
+</head>
+<body>
+	<table>
+		<caption>学员信息</caption>
+		<tr>
+			<th>姓名</th>
+			<th>年龄</th>
+			<th>性别</th>
+			<th>邮箱地址</th>
+			<th>爱好</th>
+			<th>所属学院</th>
+			<th>入学时间</th>
+		</tr>
+		{{each students}}
+			<tr>
+				<!-- 设置对应的值 -->
+				<th>{{$value.name}}</th>
+				<th>{{$value.age}}</th>
+				<th>{{$value.sex == '0' ? '男' : '女'}}</th>
+				<th>{{$value.email}}</th>
+				<th>
+					{{each $value.hobbies}}
+						<span>{{$value}}</span>
+					{{/each}}
+				</th>
+				<th>{{$value.collage}}</th>
+				<!--
+				// 处理时间函数的第三方模块的安装 终端进入在项目文件夹下`npm install dateformal` 
+				// dateformat 是在 app.js 文件 中引入的
+				// 第一个参数: 要被处理的对象
+				// 第二个参数: 要处理完成后显示的格式
+				-->
+				<th>{{dateformat($value.enterDate, 'yyyy-mm-dd')}}</th>
+			</tr>
+		{{/each}}
+		
+	</table>
+	
+</body>
+
+</html>
