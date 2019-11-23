@@ -6,7 +6,7 @@ const app = express();
 // 第一个请求参数: 请求接口 路由
 // 第二个请求参数: 有三个参数
 // 1: 请参数
-// 2: 
+// 2: 返回方法
 // 3. next: 是一个方法, 中间件: 允许向下传递
 app.get('/request', (req, res, next) => {
     req.name = "张三";
