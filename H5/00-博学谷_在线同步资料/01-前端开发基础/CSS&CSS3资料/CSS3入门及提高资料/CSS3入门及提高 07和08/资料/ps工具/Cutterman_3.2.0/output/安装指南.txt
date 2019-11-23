@@ -1,0 +1,30 @@
+
+# 安装步骤
+
+1. 打开PS，菜单 文件->脚本->浏览
+2. 选择当前文件夹下的Install.jsx文件，接着会打开一个文件夹
+3. 删除该文件夹下的cutterman目录（如果有）
+4. 复制安装包的cutterman目录到该打开的文件夹
+5. 重启PS
+
+
+# 卸载步骤
+
+1. 打开PS，菜单 文件->脚本->浏览
+2. 选择当前文件夹下的Install.jsx文件，接着会打开一个文件夹
+3. 删除该文件夹下的cutterman目录
+
+
+# PS软件下载
+
+Adobe CC 2014  Mac/Win
+链接: http://pan.baidu.com/s/1gdAF3QN 密码: vbk9
+
+Adobe CC 2015 软件下载 Mac+Win）
+http://yun.baidu.com/s/1sjIAYiL
+
+Adobe CC Mac
+链接: http://pan.baidu.com/s/1c0ivviw 密码: kqaz
+
+Photoshop CC Win
+链接: http://pan.baidu.com/s/1pJLU64j 密码: 98ef
