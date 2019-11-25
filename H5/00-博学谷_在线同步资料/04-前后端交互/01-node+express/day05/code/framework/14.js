@@ -4,7 +4,7 @@ const app = express();
 
 // 1.告诉express框架使用什么模板引擎渲染什么后缀的模板文件
 //  1.模板后缀
-//  2.使用的模板疫情
+//  2.使用的模板
 app.engine('art', require('express-art-template'))
     // 2.告诉express框架模板存放的位置是什么
     // __driname 是绝对路径
