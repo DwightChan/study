@@ -13,8 +13,6 @@ app.get('/request', (req, res, next) => {
 
     console.log("234");
     req.name = "张三";
-
-
     next();
 });
 
