@@ -58,22 +58,21 @@ app.use('/admin', require('./middleWare/loginGuard'));
 app.use('/home', home);
 app.use('/admin', admin);
 
-// // next 里面的参数 返回值 就是 err
-// app.use((err, req, res, next) => {
-//     // 将字符串对象转换为对象类型
-//     // Json.parse();
-//     const result = JSON.parse(err);
-//     res.redirect(`${result.path}?message=${result.message}`);
-// });
-
-// // 监听端口, 开发可以使用任意端口, 一般写 3000 端口
-// // 上线一般使用 80 端口, 因为 80 端口会在浏览器中自动添加
-// app.listen(3000);
-// console.log('网站服务器启动成功, 请访问localhost');
-
-
+app.use((err, req, res, next) => {
+    // 将字符串对象转换为对象类型
+    // JSON.parse() 
+    const result = JSON.parse(err);
+    // {path: '/admin/user-edit', message: '密码比对失败,不能进行用户信息的修改', id: id}
+    let params = [];
+    for (let attr in result) {
+        if (attr != 'path') {
+            params.push(attr + '=' + result[attr]);
+        }
+    }
+    res.redirect(`${result.path}?${params.join('&')}`);
+})
 
 // 监听端口, 开发可以使用任意端口, 一般写 3000 端口
 // 上线一般使用 80 端口, 因为 80 端口会在浏览器中自动添加
 app.listen(3026);
-console.log('网站服务器启动成功, 请访问localhost');
+console.log('网站服务器启动成功, 请访问localhost 3026');

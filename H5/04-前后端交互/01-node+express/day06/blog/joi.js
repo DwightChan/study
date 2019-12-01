@@ -11,7 +11,7 @@ const schema = {
 async function run() {
     try {
         // 实施验证
-        await Joi.validate({ username: 'a12123', birth: 2019 }, schema);
+        await Joi.validate({ username: 'as12', birth: 2019 }, schema);
     } catch (ex) {
         console.log(ex.message);
         return;

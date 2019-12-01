@@ -3,7 +3,8 @@ const guard = (req, res, next) => {
     // 判断用户的登录状态
     // 如果用户登录的 请求放行
     // 如果用户为登录 将请求中定向到登录页面
-    if (req.url != '/login' && !req.session.username) {
+    if (req.url != '/login' && !req.session.userName) {
+        console.log('未登录状态 重定向到登录页面');
         res.redirect('/admin/login');
     } else {
         // 用户已经登录状态, 请求放行;

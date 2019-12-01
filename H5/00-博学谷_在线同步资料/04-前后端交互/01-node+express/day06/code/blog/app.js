@@ -29,7 +29,7 @@ app.set('view engine', 'art');
 app.engine('art', require('express-art-template'));
 
 // 开放静态资源文件
-// 拼接绝对路径ath.join(__dirname, 'public')
+// 拼接绝对路径path.join(__dirname, 'public')
 app.use(express.static(path.join(__dirname, 'public')))
 
 // 引入路由模块 (.js 都可以省略)

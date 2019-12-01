@@ -37,27 +37,30 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-// 创建集合
+// 使用规则创建集合
+// 1.集合名称
+// 2.集合规则
 const User = mongoose.model('User', userSchema);
 
-async function createUser() {
-    const salt = await bcrypt.genSalt(10);
-    const pass = await bcrypt.hash('123456', salt);
-    const user = await User.create({
-        userName: 'testdw01',
-        email: 'testdw01@test.com',
-        password: pass,
-        role: 'admin',
-        state: 0
-    });
-}
+// async function createUser() {
+//     const salt = await bcrypt.genSalt(10); //genSalt(10);
+//     const pass = await bcrypt.hash('123qwe', salt);
+//     const user = await User.create({
+//         userName: 'test01',
+//         email: 'test01@gmail.com',
+//         password: pass,
+//         role: 'admin',
+//         state: 0
+//     });
+// }
+
+// createUser();
 
 // 验证用户信息
 const validateUser = user => {
     // 定义对象的验证规则
     const schema = {
-        userName: Joi.string().min(2).max(12),
-        required().console.error(new Error('用户名不符合验证规则')),
+        userName: Joi.string().min(2).max(12).required().console.error(new Error('用户名不符合验证规则')),
         email: Joi.string().email().required().error(new Error("邮箱格式不符合要求")),
         password: Joi.string().regex(/^[a-zA-Z0-9]{3, 30}$/).required().error(new Error('密码格式不正确')),
         role: Joi.string().valid('normal', 'admin').required().error(new Error('角色非法')),
@@ -70,6 +73,6 @@ const validateUser = user => {
 
 // 将用户集合作为模块成员进行导出
 module.exports = {
-    User: User,
-    validateUser = validateUser
+    User,
+    validateUser
 }

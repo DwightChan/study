@@ -1,0 +1,51 @@
+// 继承
+{{extend './common/layout.art'}}
+
+{{block 'link'}}
+	<link rel="stylesheet" href="/home/css/index.css">
+{{/block}}
+
+{{block 'main'}}
+    <!--引入功能模块, 通过 include 包含文件 引入-->
+	{{include './common/header.art'}}
+	<!-- 文章列表开始 -->
+	<ul class="list w1100">
+		{{each result.records}}
+		<!--index 是循环自带的索引-->
+		<li class="{{$index%2 == 0 ? 'fl' : 'fr'}}">
+			<a href="/home/article?id={{@$value._id}}" class="thumbnail">
+				<img src="{{$value.cover}}">
+			</a>
+			<div class="content">
+				<a class="article-title" href="/home/article?id={{@$value._id}}">{{$value.title}}</a>
+				<div class="article-info">
+					<span class="author">{{$value.author.username}}</span>
+					<span>{{dateFormat($value.publishDate, 'yyyy-mm-dd')}}</span>
+				</div>
+				<div class="brief">
+					<!--这里将所有 html 标签 替换成空字符 的正则替换
+						字符串截取, 0-90 个字符, 
+						后面在拼接三个点-->
+
+					{{@$value.content.replace(/<[^>]+>/g, '').substr(0, 90) + '...'}}
+				</div>
+			</div>
+		</li>
+		{{/each}}
+	</ul>
+	<!-- 文章列表结束 -->
+
+	<!-- 分页开始 -->
+	<div class="page w1100">
+		{{if result.page > 1}}
+		<a href="/home/?page={{result.page-1}}">上一页</a>
+		{{/if}}
+		{{each result.display}}
+		<a href="/home/?page={{$value}}" class="{{$value == result.page ? 'active' : ''}}">{{$value}}</a>
+		{{/each}}
+		{{if result.page < result.pages}}
+		<a href="/home/?page={{result.page - 0 + 1}}">下一页</a>
+		{{/if}}
+	</div>
+	<!-- 分页结束 -->
+{{/block}}
