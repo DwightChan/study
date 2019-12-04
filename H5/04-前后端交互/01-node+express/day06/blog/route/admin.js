@@ -19,7 +19,7 @@ admin.get('/logout', require('./admin/logout'));
 admin.get('/user-edit', require('./admin/user-edit'));
 
 // 创建实现用户添加功能路由
-admin.post('/user-edit', require('./admin/user-edit-fn'));
+admin.post('/user-edit-fn', require('./admin/user-edit-fn'));
 
 // 用户修改功能路由
 admin.post('/user-modify', require('./admin/user-modify'));

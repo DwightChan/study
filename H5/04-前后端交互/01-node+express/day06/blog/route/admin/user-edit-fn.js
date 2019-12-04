@@ -13,13 +13,16 @@ module.exports = async(req, res, next) => {
         // 重定向回用户添加页面
         // return res.redirect(`/admin/user-edit?message=${e.message}`);
         // JSON.stringify() 将对象数据类型转换为字符串数据类型
-        return next(JSON.stringify({ path: '/admin/user-edit', message: e.message }))
+        console.log(e.message + "e.message 错误")
+        return next(JSON.stringify({ path: '/admin/user-edit-fn', message: e.message }))
     }
 
     // 根据邮箱地址查询用户是否存在
     let user = await User.findOne({ email: req.body.email });
+    console.log('查找数据库中是否有该邮箱的数据' + user);
     // 如果用户已经存在 邮箱地址已经被别人占用
     if (user) {
+        console.log('req.body旳值');
         // 重定向回用户添加页面
         // return res.redirect(`/admin/user-edit?message=邮箱地址已经被占用`);
         return next(JSON.stringify({ path: '/admin/user-edit', message: '邮箱地址已经被占用' }))

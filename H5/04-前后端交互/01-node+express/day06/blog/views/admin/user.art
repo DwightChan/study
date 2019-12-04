@@ -29,6 +29,7 @@
                 <tbody>
                     {{each users}}
                     <tr>
+                    <!--在数据前面添加 @ 表示文本原因输出-->
                         <td>{{@$value._id}}</td>
                         <td>{{$value.username}}</td>
                         <td>{{$value.email}}</td>

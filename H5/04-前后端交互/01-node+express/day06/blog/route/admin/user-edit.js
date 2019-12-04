@@ -8,9 +8,11 @@ module.exports = async(req, res) => {
     // 获取到地址栏中的id参数
     const { message, id } = req.query;
 
+
     // 如果当前传递了id参数
     if (id) {
-        // 修改操作
+        console.log('id' + id)
+            // 修改操作
         let user = await User.findOne({ _id: id });
 
         // 渲染用户编辑页面(修改)
@@ -22,10 +24,14 @@ module.exports = async(req, res) => {
         });
 
     } else {
+        console.log('添加', req.query);
+        console.log("message" + message);
+
+        // res(req.query);
         // 添加操作
         res.render('admin/user-edit', {
             message: message,
-            link: '/admin/user-edit',
+            link: '/admin/user-edit-fn',
             button: '添加'
         });
     }

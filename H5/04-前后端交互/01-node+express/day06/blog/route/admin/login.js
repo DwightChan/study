@@ -32,7 +32,7 @@ module.exports = async(req, res) => {
 
             // 登录成功
             // 将用户名存储在请求对象中
-            req.session.userName = user.userName;
+            req.session.username = user.username;
             // 将用户角色存储在session对象中
             req.session.role = user.role;
             // res.send('登录成功');

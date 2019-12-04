@@ -8,8 +8,8 @@ const bodyPaser = require('body-parser');
 const session = require('express-session');
 // 导入 art-template
 const template = require('art-template');
-// 导入 dateFormate 第三方引擎
-const dateFormate = require('dateformat');
+// 导入 dateFormat 第三方引擎
+const dateFormat = require('dateformat');
 // 导入 morgan 第三方框架
 const morgan = require('morgan');
 // 导入 config 模块
@@ -35,14 +35,14 @@ app.use(session({
     }
 }));
 
-// 告诉 express 框架模板所在的位置
+// 告诉 express 框架模板所在的位置 在 render 方法渲染的时候直接调用 .art 文件名即可
 app.set('views', path.join(__dirname, 'views'));
-// 告诉 express 框架模板的默认后缀
+// 告诉express框架模板的默认后缀是什么
 app.set('view engine', 'art');
-// 当渲染后缀为 art 的模板时 所使用的模板引擎是什么
+// 当渲染后缀为art的模板时 所使用的模板引擎是什么
 app.engine('art', require('express-art-template'));
-// 向模板内部导入 dateFormate 变量
-template.defaults.imports.dateFormate = dateFormate;
+// 向模板内部导入dateFormate变量
+template.defaults.imports.dateFormat = dateFormat;
 
 // 开放静态资源文件
 // 拼接绝对路径 path.join(__dirname, 'public')
@@ -74,5 +74,5 @@ app.use((err, req, res, next) => {
 
 // 监听端口, 开发可以使用任意端口, 一般写 3000 端口
 // 上线一般使用 80 端口, 因为 80 端口会在浏览器中自动添加
-app.listen(3026);
+app.listen(3027);
 console.log('网站服务器启动成功, 请访问localhost 3026');
