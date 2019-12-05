@@ -21,7 +21,6 @@ module.exports = async(req, res) => {
     // 将用户信息从数据库中查询出来
     let users = await User.find({}).limit(pagesize).skip(start)
     console.log("打印用户数据:");
-
     console.log(users);
     // 渲染用户列表模块
     res.render('admin/user', {
