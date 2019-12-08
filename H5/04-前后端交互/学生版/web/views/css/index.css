@@ -1,204 +1,241 @@
-    * {
-        padding: 0;
-        margin: 0;
+* {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+html {
+    font-size: 50px;
+}
+
+@media screen and (min-width: 320px) {
+    html {
+        font-size: 21.33333333px;
     }
-    
-    a {
-        text-decoration: none;
+}
+
+@media screen and (min-width: 360px) {
+    html {
+        font-size: 24px;
     }
-    
+}
+
+@media screen and (min-width: 375px) {
+    html {
+        font-size: 25;
+    }
+}
+
+@media screen and (min-width: 384px) {
+    html {
+        font-size: 25.6;
+    }
+}
+
+@media screen and (min-widht: 400px) {
+    html {
+        font-size: 26.66666667;
+    }
+}
+
+@media screen and (min-width: 414px) {
+    html {
+        font-size: 27.6px;
+    }
+}
+
+@media screen and (min-width: 424px) {
+    html {
+        font-size: 28.26666667px;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    html {
+        font-size: 32px;
+    }
+}
+
+@media screen and (min-width: 540px) {
+    html {
+        font-size: 36px;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    html {
+        font-size: 48px;
+    }
+}
+
+@media screen and (min-width: 750px) {
     html {
         font-size: 50px;
     }
-    
-    @media screen and (min-width: 320px) {
-        html {
-            font-size: 21.33333333px;
-        }
-    }
-    
-    @media screen and (min-width: 360px) {
-        html {
-            font-size: 24px;
-        }
-    }
-    
-    @media screen and (min-width: 375px) {
-        html {
-            font-size: 25;
-        }
-    }
-    
-    @media screen and (min-width: 384px) {
-        html {
-            font-size: 25.6;
-        }
-    }
-    
-    @media screen and (min-widht: 400px) {
-        html {
-            font-size: 26.66666667;
-        }
-    }
-    
-    @media screen and (min-width: 414px) {
-        html {
-            font-size: 27.6px;
-        }
-    }
-    
-    @media screen and (min-width: 424px) {
-        html {
-            font-size: 28.26666667px;
-        }
-    }
-    
-    @media screen and (min-width: 480px) {
-        html {
-            font-size: 32px;
-        }
-    }
-    
-    @media screen and (min-width: 540px) {
-        html {
-            font-size: 36px;
-        }
-    }
-    
-    @media screen and (min-width: 720px) {
-        html {
-            font-size: 48px;
-        }
-    }
-    
-    @media screen and (min-width: 750px) {
-        html {
-            font-size: 50px;
-        }
-    }
-    
-    body {
-        min-width: 320px;
-        max-width: 750px;
-        /* flexible 给我们划分了10 */
-        width: 10rem;
-        margin: 0 auto;
-        line-height: 1.5;
-        font-family: Arial, Helvetica;
-        background: #f2f2f2;
-    }
-    
-    .hearder-content {
-        display: flex;
-        position: fixed;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 15rem;
-        /* right: 0; */
-        height: 1.76rem;
-        background-color: #4B6FDB;
-    }
-    
-    .hearder-content .email {
-        width: 1.4rem;
-        height: 1.4rem;
-        margin-top: 0.24rem;
-        margin-left: 0.44rem;
-        background: url(../images/email.png) no-repeat;
-        background-size: 1.4rem 1.4rem;
-    }
-    
-    .hearder-content .title {
-        flex: 1;
-    }
-    
-    .hearder-content .title img {
-        /* outline: none; */
-        /* margin-left: auto; */
-        /* margin-right: auto; */
-        display: block;
-        margin: 0.24rem auto;
-        font-size: 0.5rem;
-        color: #757575;
-        /* place-content: center; */
-    }
-    
-    .hearder-content .search {
-        width: 1.4rem;
-        height: 1.4rem;
-        /* margin: 0.44rem 0.5rem 0.44rem 0.48rem; */
-        /* margin-bottom: 0.14rem; */
-        margin-top: 0.24rem;
-        margin-right: 0.44rem;
-        background: url(../images/email.png) no-repeat;
-        background-size: 1.4rem 1.4rem;
-    }
-    
-    .hearder-content .search input {
-        outline: none;
-        width: 100%;
-        border: 0;
-        height: 1.32rem;
-        border-radius: 0.66rem;
-        background-color: #fff2cc;
-        margin-top: 0.24rem;
-        font-size: 0.5rem;
-        padding-left: 1.1rem;
-        color: #757575;
-    }
-    
-    .hearder-content .login {
-        width: 1.5rem;
-        height: 1.4rem;
-        line-height: 1.4rem;
-        margin: 0.2rem;
-        font-size: 0.5rem;
-        text-align: center;
-        color: #fff;
-    }
-    
-    .banner {
-        width: 15rem;
-        height: 7.36rem;
-    }
-    
-    .banner img {
-        width: 100%;
-        height: 100%;
-    }
-    
-    .ad {
-        display: flex;
-    }
-    
-    .ad a {
-        float: left;
-    }
-    
-    .ad a img {
-        width: 100%;
-    }
-    
-    nav {
-        width: 15rem;
-    }
-    
-    nav a {
-        float: left;
-        width: 3rem;
-        height: 2.8rem;
-        text-align: center;
-    }
-    
-    nav a img {
-        display: block;
-        width: 1.64rem;
-        height: 1.64rem;
-        margin: 0.2rem auto 0;
-    }
-    
-    nav a span {
-        font-size: 0.5rem;
-        color: #333;
-    }
+}
+
+body {
+    min-width: 320px;
+    max-width: 750px;
+    /* flexible 给我们划分了10 */
+    width: 10rem;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-family: Arial, Helvetica;
+    background: #f2f2f2;
+}
+
+.hearder-content {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15rem;
+    /* right: 0; */
+    height: 2rem;
+    padding-top: 0.6rem;
+    background-color: #4B6FDB;
+}
+
+.hearder-content .email {
+    width: 1.4rem;
+    height: 1.4rem;
+    margin-top: 0.24rem;
+    margin-left: 0.44rem;
+    background: url(../images/email.png) no-repeat;
+    background-size: 1.4rem 1.4rem;
+}
+
+.hearder-content .title {
+    flex: 1;
+}
+
+.hearder-content .title img {
+    /* outline: none; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    display: block;
+    margin: 0.24rem auto;
+    font-size: 0.5rem;
+    color: #757575;
+    /* place-content: center; */
+}
+
+.hearder-content .search {
+    width: 1.5rem;
+    height: 1.4rem;
+    line-height: 1.4rem;
+    margin-top: 0.24rem;
+    margin-right: 0.44rem;
+    font-size: 0.5rem;
+    text-align: center;
+    color: #fff;
+}
+
+.hearder-content .search .icon {
+    font-size: 1rem;
+}
+
+.banner {
+    width: 15rem;
+    height: 7.36rem;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+}
+
+.ad {
+    display: flex;
+}
+
+.ad a {
+    float: left;
+}
+
+.ad a img {
+    width: 100%;
+}
+
+nav {
+    width: 15rem;
+}
+
+nav a {
+    float: left;
+    width: 3rem;
+    height: 2.8rem;
+    text-align: center;
+}
+
+nav a img {
+    display: block;
+    width: 1.64rem;
+    height: 1.64rem;
+    margin: 0.2rem auto 0;
+    background: url(../images/fe-list.png);
+}
+
+nav a span {
+    font-size: 0.5rem;
+    color: #333;
+}
+
+
+/* 填充底部 */
+
+.fill-footer {
+    width: 15rem;
+    height: 2.4rem;
+    display: flex;
+}
+
+
+/* footer 分类 */
+
+.footer-content {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15rem;
+    /* right: 0; */
+    height: 2.4rem;
+    /* padding-top: 0.05rem; */
+    background-color: #fff;
+    text-align: center;
+    color: #74B6F2;
+    font-size: 1rem;
+    align-content: center;
+    justify-content: center;
+}
+
+.footer-content .home {
+    flex: 1;
+    /* width: 4.5rem; */
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.footer-content .iconfont {
+    display: block;
+    padding-top: 0;
+    font-size: 1rem;
+}
+
+.footer-content .name {
+    font-size: 0.4rem;
+}
+
+.footer-content .sort {
+    flex: 1;
+    /* width: 4.5rem; */
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
