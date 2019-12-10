@@ -7,6 +7,28 @@ a {
     text-decoration: none;
 }
 
+
+/* 所有的斜体字 都不斜体 */
+
+em,
+i {
+    font-style: normal;
+}
+
+
+/* 去掉列表前面的小点 */
+
+li {
+    list-style: none;
+}
+
+
+/* 图片没有内边框 去掉图片底部的空白间隙 */
+
+img {
+    border: 0;
+}
+
 html {
     font-size: 50px;
 }
@@ -163,16 +185,67 @@ body {
     height: 100%;
 }
 
-.ad {
-    display: flex;
+.employment {
+    /* display: flex; */
+    display: block;
+    margin-top: 0.8rem;
+    background-color: #fff;
+    height: 12rem;
 }
 
-.ad a {
-    float: left;
-}
-
-.ad a img {
+.employment .title {
+    /* display: flex; */
+    display: block;
+    height: 2rem;
     width: 100%;
+    color: #4B70DB;
+    font-size: 0.8rem;
+    font-weight: bold;
+    line-height: 2rem;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    /* word-spacing: 0.8rem; */
+    letter-spacing: 0.2rem;
+}
+
+
+/* .employment .title::before {}
+
+.employment .title::after {} */
+
+.employment ul {
+    display: flex;
+    width: 100%;
+    height: 10rem;
+    flex-direction: row;
+    justify-content: center;
+    /* 换行 */
+    flex-wrap: wrap;
+}
+
+.employment li {
+    width: 5rem;
+    height: 5rem;
+    /* margin: 0; */
+}
+
+.employment a {
+    /* float: left; */
+    display: block;
+    align-content: center;
+    width: 60%;
+    height: 60%;
+    margin-top: 20%;
+    margin-left: 20%;
+}
+
+.employment a img {
+    width: 100%;
+    height: 100%;
+    content: inherit;
+    align-content: center;
+    border-radius: 50%;
 }
 
 nav {
