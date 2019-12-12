@@ -1,0 +1,39 @@
+/* 导航栏 */
+
+.hearder-content {
+    display: flex;
+    position: fixed;
+}
+
+.hearder-content img {
+    display: block;
+    margin-left: 0.4rem;
+    width: 5rem;
+    height: 1.6rem;
+    font-size: 0.5rem;
+    /* align-content: center; */
+}
+
+.hearder-content .title {
+    margin-left: 2rem;
+    text-align: center;
+    line-height: 1.7rem;
+    height: 1.7rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #58ACF8;
+}
+
+.main {
+    display: flex;
+    margin-top: 0.8rem;
+    border-top: 1px solid #eee;
+}
+
+.main .left-sort-title {
+    flex: 2.5;
+}
+
+.main .detail-sort {
+    flex: 7.5;
+}
