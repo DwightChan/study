@@ -1,5 +1,9 @@
 // 1. 引入 mongoose 模块
 const mongoose = require('mongoose');
+// 导入bcrypt
+const bcrypt = require('bcrypt');
+// 引入joi模块
+const Joi = require('joi');
 
 // 2. 创建课程集合 规则
 const courseSchema = new mongoose.Schema({
@@ -16,22 +20,6 @@ const courseSchema = new mongoose.Schema({
 		maxlength: 20,
 		minlength: 4,
 		required: [true, '请填写文章标题']
-	},
-	author: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'User',
-		required: [true, '请传递作者']
-	},
-	publishDate: {
-		type: Date,
-		default: Date.now
-	},
-	cover: {
-		type: String,
-		default: null
-	},
-	content: {
-		type: String
 	}
     */
     name: {

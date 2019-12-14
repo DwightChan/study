@@ -36,17 +36,20 @@
     display: flex;
     margin-top: 0.8rem;
     background-color: #fff;
+    height: 100%;
 }
 
 .main .left-sort-title {
     flex: 2.5;
-    background-color: #eee;
+    background-color: #f2f2f2;
 }
 
 .main .left-sort-title ul {}
 
 .main .detail-sort {
     flex: 7.5;
+    height: 100%;
+    background-color: #fff;
 }
 
 .main .left-sort-title li {
@@ -103,7 +106,7 @@
 }
 
 .main .detail-sort li .work-section .banner {
-    background: url(./../images/web_fe.png) no-repeat;
+    background: url(../images/web_fe.png) no-repeat;
     background-size: 100% auto;
     color: #fff;
     height: 3.8rem;

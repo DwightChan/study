@@ -174,12 +174,3 @@
     float: right;
     color: #4B70DB;
 }
-
-
-/* 填充底部 */
-
-.fill-footer {
-    width: 15rem;
-    height: 1rem;
-    display: flex;
-}
