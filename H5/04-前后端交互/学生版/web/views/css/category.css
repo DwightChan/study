@@ -1,5 +1,11 @@
 /* 导航栏 */
 
+
+/* body {
+    display: flex;
+    justify-content: space-between;
+} */
+
 .hearder-content {
     display: flex;
     position: fixed;
@@ -25,15 +31,97 @@
 }
 
 .main {
+    flex: 1;
+    width: 100%;
     display: flex;
     margin-top: 0.8rem;
-    border-top: 1px solid #eee;
+    background-color: #fff;
 }
 
 .main .left-sort-title {
     flex: 2.5;
+    height: 100%;
+}
+
+.main .left-sort-title ul {
+    height: 100%;
 }
 
 .main .detail-sort {
     flex: 7.5;
+}
+
+.main .left-sort-title li {
+    background-color: #eee;
+    display: flex;
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    font-size: 0.6rem;
+    /* 可以滚动 显示超出部分 */
+    /* white-space: nowrap; */
+    /* overflow: auto;
+    overflow-x: auto; */
+    /* overflow-x: auto; */
+    /* overflow: scroll; */
+}
+
+.main .left-sort-title li.selected {
+    background-color: #fff;
+}
+
+.main .left-sort-title li div {
+    /* margin: 0 auto; */
+    flex: 1;
+    white-space: nowrap;
+    overflow: scroll;
+    /* width: 100%;
+    height: 100%; */
+    /* width: max-content; */
+}
+
+.main .detail-sort li {
+    display: none;
+    padding-top: 0.4rem;
+    padding-left: 0.4rem;
+}
+
+.main .detail-sort li.selected {
+    display: block;
+}
+
+.main .detail-sort li h3 {
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #58ACF8;
+}
+
+.main .detail-sort li .work-section {}
+
+.main .detail-sort li .work-section h3 {
+    font-weight: normal;
+    margin-bottom: 0.2rem;
+}
+
+.main .detail-sort li .work-section .banner {
+    background: url(./../images/web_fe.png) no-repeat;
+    background-size: 100% auto;
+    color: #fff;
+    height: 3.8rem;
+    font-size: 0.7rem;
+    line-height: 3.8rem;
+    text-align: center;
+}
+
+.main .detail-sort .improve-section li {
+    display: inline-block;
+    float: left;
+    font-size: 0.6rem;
+    padding: 0.2rem 0.5rem;
+    margin: 0.4rem 0.3rem;
+    margin-top: 0.5rem;
+    color: #bbb;
+    border: 1px solid #bbb;
+    border-radius: 5px;
 }
