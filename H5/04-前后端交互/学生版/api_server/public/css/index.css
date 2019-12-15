@@ -61,15 +61,15 @@
     height: 100%;
 }
 
-.employment {
+.small-class {
     /* display: flex; */
     display: block;
     margin-top: 0.8rem;
     /* height: 12rem; */
 }
 
-.employment .title,
-.small-class .title {
+.small-class .title,
+.employment .title {
     /* display: flex; */
     display: block;
     height: 2rem;
@@ -86,29 +86,31 @@
 }
 
 
-/* .employment .title::before {}
+/* .small-class .title::before {}
 
-.employment .title::after {} */
+.small-class .title::after {} */
 
-.employment ul,
-.small-class ul {
+.small-class ul,
+.employment ul {
     display: flex;
     width: 100%;
     /* height: 10rem; */
-    flex-direction: row;
+    /* flex-direction: row;   */
+    place-content: start space-between;
     /* 平分间隙 */
-    justify-content: space-evenly;
+    /* align-content: flex-start;
+    justify-content: space-evenly; */
     /* 换行 */
     flex-wrap: wrap;
 }
 
-.employment li {
+.small-class li {
     width: 5rem;
     height: 5rem;
     /* margin: 0; */
 }
 
-.employment a {
+.small-class a {
     /* float: left; */
     display: block;
     align-content: center;
@@ -118,7 +120,7 @@
     margin-left: 20%;
 }
 
-.employment a img {
+.small-class a img {
     width: 100%;
     height: 100%;
     content: inherit;
@@ -126,23 +128,31 @@
     border-radius: 50%;
 }
 
-.small-class {
+.employment {
     margin-top: 0.8rem;
     width: 100%;
 }
 
-.small-class li {
+.employment li {
     width: 7rem;
     margin-bottom: 0.5rem;
     /* flex: 1 1 auto; */
 }
 
-.small-class img {
+.employment li:nth-child(2n) {
+    margin-right: 0.31rem;
+}
+
+.employment li:nth-child(2n+1) {
+    margin-left: 0.31rem;
+}
+
+.employment img {
     width: 100%;
     border-radius: 0.3rem;
 }
 
-.small-class .title-name {
+.employment .title-name {
     width: 100%;
     color: #222;
     font-size: 0.8rem;
@@ -157,18 +167,23 @@
     height: 1.2rem;
 }
 
-.small-class .desc {
+.employment .desc {
     font-size: 0.5rem;
 }
 
-.small-class .cnt {
+.employment .cnt {
     /* flex: 1; */
     display: inline-block;
     float: left;
     color: #aaa;
 }
 
-.small-class .price {
+.employment img {
+    height: 4.5rem;
+    width: 100%;
+}
+
+.employment .price {
     /* flex: 1; */
     display: inline-block;
     float: right;

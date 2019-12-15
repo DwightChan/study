@@ -2,10 +2,10 @@
 const { Course, validateCourse } = require('../../model/course');
 
 module.exports = async(req, res) => {
-    console.log("index 页面");
+    console.log("category 页面");
     // res(100);
     let itemIndex = req.query.itemIndex;
-    // res.render('index', {});
-    // res("/index.html");
-    // res.rediret('/category.html');
+    // res.render('category', {});
+    // res.redirect('/category.html');
+    res('/category.html');
 };

@@ -1,7 +1,13 @@
-// 路由集合
-module.exports = app => {
+// // 首页路由集合
+// const express = require('express');
+// // 创建博客首页占时页面路由
+// const index = express.Router();
 
-    // 首页 UI 显示
-    app.use("/", require("./home/home"));
-    app.use('', require("./home/home"))
+// index.use("/home/employ-class", require('./home/employ-class'));
+
+// module.exports = index;
+
+module.exports = app => {
+    // app.use('/', require('/index.html'))
+    app.use('/home/employ-class', require('./home/employ-class'));
 };

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- 项目 logo -->
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <!-- 导入nprogress 加载效果 -->
+    <script src="./vendors/nprogress/nprogress.js"></script>
+    <!-- 公共基础样式 -->
+    <link rel="stylesheet" href="./css/normalize.css">
+    <!-- 字体图标 -->
+    <link rel="stylesheet" href="./vendors/font_pvcaorpe3pc/iconfont.css">
+    <!-- 项目基础样式 -->
+    <link rel="stylesheet" href="./css/base.css">
+    <!-- index.html 文件特有样式 -->
+    <link rel="stylesheet" href="./css/index.css">
+    <!-- 加载 js 文件 -->
+    <script src="./vendors/jquery/jquery.js"></script>
+    <!-- 引入模板引擎 js , 引入之后再 js 渲染 模板的时候 直接 使用 template-->
+    <script src="./vendors/art-template/template-web.js"></script>
+    <title>博学谷在线课程</title>
+
+</head>
+
+<body>
+    <script>
+        NProgress.start()
+    </script>
+    <!-- 导航栏 -->
+    <div class="hearder-content navBar">
+        <div class="email"></div>
+        <div class="title">
+            <img src="./images/headerLogo.png" alt="图片加载失败">
+        </div>
+        <div class="search">
+            <span class="icon iconfont">&#xe607;</span>
+        </div>
+    </div>
+    <!-- 导航栏结束 -->
+
+    <!-- 导航栏填充部分 -->
+    <div class="fill-footer clearfix">
+        123123
+    </div>
+    <!-- UI 主体部分 -->
+    <div class="main clearfix">
+        <!-- main -->
+        <div class="banner clearfix component-white">
+            <img src="./images/FE.png" alt="">
+        </div>
+        <!-- 微课 -->
+        <div class="small-class clearfix component-white">
+            <div class="title">·微课·</div>
+            <ul>
+                <li>
+                    <a href="javascript:;">
+                        <img src="./images/fe-list.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="./images/java.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="./images/java.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="./images/java.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="./images/java.png" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="javaScript:;">
+                        <img src="./images/java.png" alt="">
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <!-- 就业模块 -->
+        <div class="employment clearfix component-white">
+            <div class="title">·就业课·</div>
+            <ul id="employClass">
+                <li>
+                    <a href="javascript:;">
+                        <img src="./images/fe-list.png" alt="">
+                        <div class="title-name">【前端】JavaScriptvdfadsf</div>
+                        <div class="desc">
+                            <div class="cnt">100人学习</div>
+                            <div class="price">￥119</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <script type="text/html" id="employ-Class">
+                {{each data}}
+                <li>
+                    <a href="javascript:;">
+                        <img src="{{$value.img}}" alt="">
+                        <div class="title-name">{{$value.name}}</div>
+                        <div class="desc">
+                            <div class="cnt">{{$value.count}}人学习</div>
+                            <!--  == '免费') ? '免费' : ('¥' + $value.price + '元') -->
+                            <div class="price">{{$value.price}}</div>
+                        </div>
+                    </a>
+                </li>
+                {{/each}}
+            </script>
+        </div>
+        <!-- nav 模块 结束 -->
+    </div>
+
+    <!-- 填充底部高度 -->
+    <div class="fill-footer clearfix">
+        123123
+    </div>
+
+    <!-- footer -->
+    <div class="tabbar">
+        <ul>
+            <li class="selected">
+                <span class="icon iconfont">&#xe722;</span>
+                <div class="name">首页</div>
+            </li>
+            <li></li>
+            <li></li>
+            <li>
+                <span class="icon iconfont">&#xe602;</span>
+                <div class="name">分类</div>
+            </li>
+        </ul>
+    </div>
+    <script src="js/tabbar.js"></script>
+    <!-- footer 结束 -->
+
+    <script>
+        NProgress.start()
+    </script>
+    <script src="./js/index.js"></script>
+</body>
+<!-- 就业课程模板 -->
+<!-- <script type="text/html" id="employClass">
+    {{each data}}
+    <li>
+        <a href="javascript:;">
+            <img src="{{$value.img}}" alt="">
+            <div class="title-name">{{$value.name}}</div>
+            <div class="desc">
+                <div class="cnt">{{$value.count}}}人学习</div>
+                <div class="price">{{$.value.price == '免费' ? '免费' : ('¥' + $value.price + '元')}}</div>
+            </div>
+        </a>
+    </li>
+    {{/each}}
+</script> -->
+
+
+
+</html>
