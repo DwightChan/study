@@ -7,5 +7,5 @@ module.exports = async(req, res) => {
     let itemIndex = req.query.itemIndex;
     // res.render('category', {});
     // res.redirect('/category.html');
-    res('/category.html');
+    // res('/category.html');
 };
