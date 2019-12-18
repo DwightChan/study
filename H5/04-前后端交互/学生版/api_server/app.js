@@ -40,6 +40,7 @@ require('./model/connect');
 
 // 开放静态资源文件 (这样就可以直接通过域名访问该路径下的所有文件)
 app.use(express.static(path.join(__dirname, 'publice/views')));
+app.use('/images', express.static(path.join(__dirname, '/images')));
 
 // app.use('', require("./route/index"));
 // app.use((err, req, res, next) => {
