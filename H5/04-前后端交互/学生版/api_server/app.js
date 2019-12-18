@@ -30,7 +30,7 @@ require('./model/connect');
 // }));
 
 // // 告诉express框架模板所在的位置
-// app.set('views', path.join(__dirname, 'public'));
+// app.set('views', path.join(__dirname, 'publice'));
 // 告诉express框架模板的默认后缀是什么
 // app.set('view engine', 'art');
 // 当渲染后缀为art的模板时 所使用的模板引擎是什么
@@ -39,7 +39,7 @@ require('./model/connect');
 // template.defaults.imports.dateFormat = dateFormat;
 
 // 开放静态资源文件 (这样就可以直接通过域名访问该路径下的所有文件)
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'publice/views')));
 
 // app.use('', require("./route/index"));
 // app.use((err, req, res, next) => {

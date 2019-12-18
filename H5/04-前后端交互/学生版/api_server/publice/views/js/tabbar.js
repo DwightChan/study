@@ -31,6 +31,4 @@ $(".tabbar li").click(function() {
             window.location.href = '/'; //'/index.html';
             break
     }
-
-
 })
