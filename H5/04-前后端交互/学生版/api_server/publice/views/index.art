@@ -139,21 +139,6 @@
     </script>
     <script src="./js/index.js"></script>
 </body>
-<!-- 就业课程模板 -->
-<!-- <script type="text/html" id="employClass">
-    {{each data}}
-    <li>
-        <a href="javascript:;">
-            <img src="{{$value.img}}" alt="">
-            <div class="title-name">{{$value.name}}</div>
-            <div class="desc">
-                <div class="cnt">{{$value.count}}}人学习</div>
-                <div class="price">{{$.value.price == '免费' ? '免费' : ('¥' + $value.price + '元')}}</div>
-            </div>
-        </a>
-    </li>
-    {{/each}}
-</script> -->
 
 
 
