@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*  1、通过属性选择器 选择到 带有属性 v-cloak的标签 
+       让他隐藏 */
+        
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 2、 让带有插值 语法的   添加 v-cloak 属性 
+         在 数据渲染完场之后，v-cloak 属性会被自动去除，
+         也就是对应的标签会变为可见 -->
+        <div v-cloak>{{msg}}</div>
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello world'
+            }
+        });
+    </script>
+
+</body>
+
+</html>

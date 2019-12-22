@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="./js/vue.js"></script>
+    <script>
+        // 表单的基本操作
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                uname: 'lisi',
+                gender: 2,
+                hobby: ['2', '3'],
+                occupation: ['2', '3'],
+                desc: 'nihao'
+            },
+            methods: {
+                handle: function() {
+                    console.log(this.uname);
+                    console.log(this.gender);
+                    console.log(this.hobby.toString());
+                    console.log(this.occupation);
+                    console.log(this.desc);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
