@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <div>{{msg}}
+        </div>
+        <div>{{reverseString}}</div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        // 计算属性
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '123qwe'
+            },
+            computed: {
+                // 计算性属性 具有缓存功能, 只要绑定的数据没有变化, 则不会重新计算
+                reverseString: function() {
+                    // split() 分割函数
+                    // reverse() 倒序函数
+                    // join() 拼接函数
+                    return this.msg.split('').reverse().join('');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

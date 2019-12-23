@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <div>{{ date | format('yyyy-MM-dd HH:mm:ss')}}
+
+        </div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        // 过滤器案例：格式化日期
+
+
+        // Vue.filter('format', function(val, arg) {
+        //     if (arg == 'yyyy-MM-dd') {
+        //         var ret = '',
+        //             ret = val.getFullYear() + '-' + (val.getMonth() + 1) + '-' + val.getDate();
+        //         return ret
+        //     }
+        //     return val;
+        // });
+
+        // 时间过滤器:
+        // 第一个参数 value: 是 date
+        // 第二个参数 arg: 是时间格式
+        // 返回值: 是根据时间格式获取到结果
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                date: new Date()
+            }
+        });
+    </script>
+
+</body>
+
+</html>

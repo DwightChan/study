@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <div>
+            <span>名:</span>
+            <span>
+                <input type="text" v-model="firstName">
+            </span>
+        </div>
+        <div>
+            <span>姓:</span>
+            <span>
+                <input type="text" v-model="lastName">
+            </span>
+        </div>
+        <div>{{fullName}}</div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        // 侦听器
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                firstName: 'Jim',
+                lastName: 'Green'
+            },
+            computed: {
+                fullName: function() {
+                    return this.firstName + " " + this.lastName;
+                }
+            },
+            // watch: {
+            // 监听方法名和 被监听的属性保持一致
+            //     firstName: function(val) {
+            //         this.fullName = val + ' ' + this.lastName;
+            //     },
+            //     lastName: function(val) {
+            //         this.fullName = this.firstName + ' ' + val;
+            //     }
+            // }
+        })
+    </script>
+</body>
+
+</html>

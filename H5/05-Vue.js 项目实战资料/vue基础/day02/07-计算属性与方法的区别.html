@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{reverseString}}</div>
+        <div>{{reverseString}}</div>
+        <div>{{reverseMessage()}}</div>
+        <div>{{reverseMessage()}}</div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        // 计算属性
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '123qwe',
+                num: 100
+            },
+            methods: {
+                reverseMessage: function() {
+                    console.log("methods dfgrd ");
+                    return this.msg.split('').reverse().join('');
+                }
+            },
+            computed: {
+                // 计算性属性 具有缓存功能, 只要绑定的数据没有变化, 则不会重新计算
+                reverseString: function() {
+                    console.log('computed methods');
+                    var total = 0;
+                    for (var i = 0; i < this.num; i++) {
+                        total += i;
+                    }
+                    return total;
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

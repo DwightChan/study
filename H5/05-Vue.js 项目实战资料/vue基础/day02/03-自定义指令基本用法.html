@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-focus>
+        <!-- 在自定义指令的时候 不需要 'v-' 在使用的时候要带上 v-, 例如 v-focus -->
+        <!-- 如果两个都绑定唯一事件, 则最后一个元素生效, 其实质是都生效了, 只是因为事件是唯一的只能有一个元素最后获得 -->
+        <input type="text" v-focus>
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script>
+        // 自定义指令
+        Vue.directive('focus', {
+            inserted: function(el) {
+                // el 表示指令所绑定的元素, 获取焦点
+                el.focus();
+            }
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+                handle: function() {
+                    console.log('handle methods');
+
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
