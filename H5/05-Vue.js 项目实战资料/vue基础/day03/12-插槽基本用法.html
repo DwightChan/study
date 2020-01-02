@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <alert-box>有个 bug 发生</alert-box>
+        <alert-box>有个警告</alert-box>
+        <alert-box></alert-box>
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script>
+        // 组件插槽：父组件向子组件传递内容
+        Vue.component('alert-box', {
+            template: `
+                <div>
+                    <strong>ERROR:</strong>
+                    <slot>默认内容</slot>
+                </div>
+            `
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            }
+        });
+    </script>
+</body>
+
+</html>
