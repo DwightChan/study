@@ -55,11 +55,43 @@ class RandomWordsState extends State<RandomWords> {
       appBar: new AppBar(
         // 导航栏 title 
         title: new Text("Startup Name Generator"),
+        actions: <Widget>[
+          new IconButton(icon: new Icon(Icons.list), onPressed: _pushSaved,)
+        ],
       ),
       body: _buildSuggestions(),
     );
   }
-
+  void _pushSaved() {
+    Navigator.of(context).push(
+      new MaterialPageRoute(
+        builder: (context) {
+          final tiles = _saved.map(
+            (pair) {
+              return new ListTile(
+                title: new Text(
+                  pair.asPascalCase,
+                  style: _biggerFont,
+                ),
+              );
+            },
+          );
+          final divided = ListTile
+            .divideTiles(
+              context: context,
+              tiles: tiles,
+            )
+            .toList();
+            return new Scaffold(
+              appBar: new AppBar(
+                title: new Text('Saved Suggestions'),
+              ),
+              body: new ListView(children: divided),
+            );
+        },
+      ),
+    );
+  }
   Widget _buildSuggestions() {
     return new ListView.builder(
       padding: const EdgeInsets.all(0.0),
