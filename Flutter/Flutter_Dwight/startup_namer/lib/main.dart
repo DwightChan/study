@@ -18,6 +18,9 @@ class MyApp extends StatelessWidget {
       // title 的值可以和其他类的值一样,
       // 一般是使用 类名做为title 的值
       title: 'Welcome to Flutter',
+      theme: new ThemeData(
+        primaryColor: Colors.black26,
+      ),
       // 更新MyApp的build方法。从MyApp中删除Scaffold和AppBar实例。 
       // 这些将由RandomWordsState管理，这使得用户在下一步中从一个屏幕导航到另一个屏幕时， 
       // 可以更轻松地更改导航栏中的的路由名称。
