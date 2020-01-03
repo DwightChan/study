@@ -27,9 +27,12 @@
   <script type="text/javascript">
     /*
      1. Promise基本使用
-           我们使用new来构建一个Promise  Promise的构造函数接收一个参数，是函数，并且传入两个参数：		   resolve，reject， 分别表示异步操作执行成功后的回调函数和异步操作执行失败后的回调函数
+       我们使用new来构建一个Promise;
+       Promise的构造函数接收一个参数，是函数，
+       	并且传入两个参数: resolve，reject， 
+       	分别表示异步操作执行成功后的回调函数
+       	和异步操作执行失败后的回调函数
     */
-
 
     var p = new Promise(function(resolve, reject){
       //2. 这里用于实现异步任务  setTimeout
@@ -44,8 +47,12 @@
         }
       }, 100);
     });
-    //  5 Promise实例生成以后，可以用then方法指定resolved状态和reject状态的回调函数 
-    //  在then方法中，你也可以直接return数据而不是Promise对象，在后面的then中就可以接收到数据了  
+    //  5 Promise实例生成以后，
+    		可以用then方法指定resolved状态
+    		和reject状态的回调函数 
+    //  在then方法中，你也可以
+    	直接return数据而不是Promise对象，
+    	在后面的then中就可以接收到数据了  
     p.then(function(data){
       console.log(data)
     },function(info){
