@@ -14,14 +14,32 @@
          * Fetch API 调用接口传递参数
          */
         // GET参数传递-传统URL
-        fetch('http://localhost:3000/books?id=123', {
-                method: 'get'
-            })
-            .then(function(data) {
-                return data.text()
-            }).then(function(text) {
-                console.log(text);
-            });
+        // fetch('http://localhost:3000/books?id=123', {
+        //         method: 'get'
+        //     })
+        //     .then(function(data) {
+        //         return data.text()
+        //     }).then(function(text) {
+        //         console.log(text);
+        //     });
+
+        // // GET 参数传递-restful 形式的URL
+        // fetch('http://localhost:3000/books/456', {
+        //     method: 'get'
+        // }).then(function(data) {
+        //     return data.text();
+        // }).then(function(data) {
+        //     console.log(data);
+        // });
+
+        // DELETE 请求方法参数传递
+        fetch('http://localhost:3000/books/789', {
+            method: 'delete'
+        }).then(function(data) {
+            return data.text();
+        }).then(function(data) {
+            console.log(data);
+        });
     </script>
 
 </body>
