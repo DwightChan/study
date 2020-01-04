@@ -16,11 +16,11 @@ class MyApp extends StatelessWidget {
         // changing the primarySwatch below to Colors.green and then invoke
         // "hot reload" (press "r" in the console where you ran "flutter run",
         // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
+        // Notice that the counter didn't reset %back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Dwight Demo Home Page'),
+      home: MyHomePage(title: 'Dwight Demo'),
     );
   }
 }
@@ -92,8 +92,8 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times,\n'
-              + '你可以点击按钮会累积点击次数:',
+              'You have pushed the button this many times,\n' +
+                  '你可以点击按钮会累积点击次数:',
             ),
             Text(
               '$_counter',
