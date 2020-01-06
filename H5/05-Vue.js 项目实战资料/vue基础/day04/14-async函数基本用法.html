@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./js/axios.js"></script>
+    <script>
+        /**
+         * async/await 处理异步操作;
+         * async 函数返回一个Promise 实例对象;
+         * await 后面可以直接跟一个Promise 实例对象
+         */
+        axios.defaults.baseURL = 'http://localhost:3000';
+        // axios.get('adata').then(function(ret) {
+        //     console.log(ret.data);
+        // });
+
+        // async function queryData() {
+        //     var ret = await axios.get('adata');
+        //     console.log(ret.data);;
+        //     return ret.data;
+        // }
+
+        async function queryData() {
+            var ret = await new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    resolve('nihao');
+                }, 1000);
+            })
+            return ret
+        }
+        queryData().then(function(data) {
+            console.log(data);
+
+        });
+    </script>
+
+</body>
+
+</html>
