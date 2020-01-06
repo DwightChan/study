@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 导入 vue 文件 -->
+    <script src="./lib/vue.js"></script>
+    <script src="./lib/vue-router.js"></script>
+
+</head>
+
+<body>
+    <!-- 被vm 实例所控制的区域 -->
+    <div id="app">
+        <router-link to="/user/1">User1</router-link>
+        <router-link to="/user/2">User2</router-link>
+        <!-- 注意这里如果是 绑定 有冒号在前面 , ":to" -->
+        <router-link :to="{ name: 'user', params: {id: 3 } }">User3</router-link>
+        <router-link :to="{ name: 'user', params: {id: 3 } }">User3</router-link>
+        <router-link to="/register">Register</router-link>
+        <!-- 路由占位符 -->
+        <router-view></router-view>
+    </div>
+    <script>
+        const User = {
+            props: ['id', 'uname', 'age'],
+            template: '<h1>User 组件 --- 用户id为: {{id}} -- 姓名: {{uname}} -- 年龄: {{age}}</h1>'
+        }
+
+        const Register = {
+
+            template: `<div>
+                <button @click='goback'>后退</button>
+                <h1>Register 组件</h1>
+                <hr/>
+                <!-- 子路由链接 -->
+                <router-link to="/register/tab1">tab1</router-link>
+                <router-link to="/register/tab2">tab2</router-link>
+
+                <!-- 路由占位符 -->
+                <router-view></router-view>
+            </div>`,
+            methods: {
+                goback() {
+                    this.$router.go(-1);
+                }
+            }
+        }
+
+        const Tab1 = {
+            template: '<h3>tab1 子组件</h3>'
+        }
+
+        const Tab2 = {
+            template: '<h3>tab2 子组件</h3>'
+        }
+
+        // 创建路由实例对象
+        const router = new VueRouter({
+            // 所有的路由规则
+            routes: [{
+                path: '/',
+                redirect: '/user'
+            }, {
+                // 命名路由
+                name: 'user',
+                path: '/user/:id',
+                component: User,
+                // 注意 这里是一个函数
+                props: route => ({
+                    uname: 'zs',
+                    age: 20,
+                    id: route.params.id
+                })
+            }, {
+                path: '/register',
+                component: Register,
+                children: [{
+                    path: '/register/tab1',
+                    component: Tab1
+                }, {
+                    path: '/register/tab2',
+                    component: Tab2
+                }]
+            }]
+        })
+
+        // 创建 Vm 实例对象
+        const vm = new Vue({
+            // 指定控制区域
+            el: '#app',
+            data: {},
+            // 挂载路由实例对象
+            // router: touter
+            router
+        })
+    </script>
+</body>
+
+</html>
