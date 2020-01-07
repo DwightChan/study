@@ -1,9 +1,9 @@
 ###今日目标
-1.能够了解模块化的相关规范 
-2.了解webpack
-3.了解使用Vue单文件组件
-4.能够搭建Vue脚手架  
-5.掌握Element-UI的使用 
+1.能够了解模块化的相关规范 <br/>
+2.了解webpack<br/>
+3.了解使用Vue单文件组件<br/>
+4.能够搭建Vue脚手架  <br/>
+5.掌握Element-UI的使用 <br/>
 
 
 ###1.模块化的分类
@@ -12,7 +12,7 @@
         代表产品为：Require.js
         2).CMD(Common Module Definition,通用模块定义)
         代表产品为：Sea.js
-####B.服务器端的模块化
+####B.服务器端的模块化p
         服务器端的模块化规范是使用CommonJS规范：
         1).使用require引入其他模块或者包
         2).使用exports或者module.exports导出模块成员
@@ -425,6 +425,8 @@ webpack提供了模块化支持，代码压缩混淆，解决js兼容问题，�
 补充：安装Vetur插件可以使得.vue文件中的代码高亮
 
 配置.vue文件的加载器
+
+```
 A.安装vue组件的加载器
     npm install vue-loader vue-template-compiler -D
 B.配置规则：更改webpack.config.js的module中的rules数组
@@ -444,10 +446,13 @@ B.配置规则：更改webpack.config.js的module中的rules数组
             ]
         }
     }
+```
 
 ###13.在webpack中使用vue
-上一节我们安装处理了vue单文件组件的加载器，想要让vue单文件组件能够使用，我们必须要安装vue
-并使用vue来引用vue单文件组件。
+上一节我们安装处理了vue单文件组件的加载器，想要让vue单文件组件能够使用，我们必须要安装vue 并使用vue来引用vue单文件组件。
+
+
+```
 A.安装Vue
     npm install vue -S
 B.在index.js中引入vue：import Vue from "vue"
@@ -456,6 +461,7 @@ C.创建Vue实例对象并指定el，最后使用render函数渲染单文件组�
         el:"#first",
         render:h=>h(app)
     })
+```
 
 ###14.使用webpack打包发布项目
 在项目上线之前，我们需要将整个项目打包并发布。
@@ -468,6 +474,8 @@ B.在项目打包之前，可以将dist目录删除，生成全新的dist目录
 
 ###15.Vue脚手架
 Vue脚手架可以快速生成Vue项目基础的架构。
+
+```
 A.安装3.x版本的Vue脚手架：
     npm install -g @vue/cli
 B.基于3.x版本的脚手架创建Vue项目：
@@ -500,6 +508,8 @@ C.分析Vue脚手架生成的项目结构
     src/router.js:路由js
     babel.config.js:babel配置文件
     .eslintrc.js:
+```
+
 
 ###16.Vue脚手架的自定义配置
     A.通过 package.json 进行配置 [不推荐使用]
