@@ -5,9 +5,16 @@
       <div class="avatar_box">
         <img src="../assets/logo.png" alt />
       </div>
-      <el-form ref="form" :model="loginForm" label-width="80px" class="login_form">
-        <el-form-item label="活动名称">
-          <el-input :v-model="loginForm.username"></el-input>
+      <el-form ref="loginFormRef" :model="loginForm" :rules="loginFormRules" label-width="0px" class="login_form">
+        <el-form-item prop='username'>
+          <el-input :v-model="loginForm.username" prefix-icon="iconfont icon-user"></el-input>
+        </el-form-item>
+        <el-form-itme prop="password">
+          <el-input :v-model="loginForm.password" prefix-icon="iconfont icon-user" type="password"></el-input>
+        </el-form-itme>
+        <el-form-item class="btns">
+          <el-button type="primary" @click="login">登录</el-button>
+          <el-button type="info" @click="resetLoginForm">重置</el-button>
         </el-form-item>
       </el-form>
       <!-- 登录表单区域 -->
