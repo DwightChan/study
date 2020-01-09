@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    APP 根组件
+    <!-- APP 根组件 -->
+    <!-- 路由占位符 -->
+    <router-view></router-view>
   </div>
 </template>
 
@@ -12,5 +14,4 @@ export default {
 </script>
 
 <style>
-
 </style>
