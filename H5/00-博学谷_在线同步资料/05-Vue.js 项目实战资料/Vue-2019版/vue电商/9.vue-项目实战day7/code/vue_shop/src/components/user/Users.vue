@@ -29,11 +29,14 @@
         <el-table-column label="电话" prop="mobile"></el-table-column>
         <el-table-column label="角色" prop="role_name"></el-table-column>
         <el-table-column label="状态">
+          <!-- 这里用到作用于插槽 slot-scope 接收作用域的数据放在 scope 中 -->
           <template slot-scope="scope">
+            <!-- scope.row 是当行的数据对象 -->
             <el-switch v-model="scope.row.mg_state" @change="userStateChanged(scope.row)">
             </el-switch>
           </template>
         </el-table-column>
+        <!-- 这里 width 列手动设置宽度 -->
         <el-table-column label="操作" width="180px">
           <template slot-scope="scope">
             <!-- 修改按钮 -->
@@ -56,8 +59,18 @@
     <!-- 添加用户的对话框 -->
     <el-dialog title="添加用户" :visible.sync="addDialogVisible" width="50%" @close="addDialogClosed">
       <!-- 内容主体区域 -->
+      <!-- :model 是要被验证的数据对象
+           :rules 是被定义出来的规则
+           :ref 是表单的引用名称 在监听添加表单关闭事件或者校验事件是可以用到 eg:
+            // 被关闭时 要重置上一次的 表达状态
+            this.$refs.addFormRef.resetFields()
+            // 表单预校验
+            his.$refs.addFormRef.validate(async valid => {}
+      -->
       <el-form :model="addForm" :rules="addFormRules" ref="addFormRef" label-width="70px">
+        <!-- prop 的 username 是 addFromFules 的属性对应 -->
         <el-form-item label="用户名" prop="username">
+          <!-- v-model 的值是要被验证的值 addForm.username -->
           <el-input v-model="addForm.username"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="password">
@@ -233,16 +246,18 @@ export default {
       this.total = res.data.total
       console.log(res)
     },
-    // 监听 pagesize 改变的事件
+    // 监听 pagesize 改变的事件 一页显示数据条数
     handleSizeChange(newSize) {
-      // console.log(newSize)
+      console.log(newSize)
       this.queryInfo.pagesize = newSize
+      // 重新获取用户列表数据
       this.getUserList()
     },
     // 监听 页码值 改变的事件
     handleCurrentChange(newPage) {
       console.log(newPage)
       this.queryInfo.pagenum = newPage
+      // 重新获取用户列表数据
       this.getUserList()
     },
     // 监听 switch 开关状态的改变
@@ -259,10 +274,12 @@ export default {
     },
     // 监听添加用户对话框的关闭事件
     addDialogClosed() {
+      // 被关闭时 要重置上一次的 表达状态
       this.$refs.addFormRef.resetFields()
     },
     // 点击按钮，添加新用户
     addUser() {
+      // 表单预校验
       this.$refs.addFormRef.validate(async valid => {
         if (!valid) return
         // 可以发起添加用户的网络请求
@@ -293,6 +310,7 @@ export default {
     },
     // 监听修改用户对话框的关闭事件
     editDialogClosed() {
+      // 被关闭时 要重置上一次的 表达状态
       this.$refs.editFormRef.resetFields()
     },
     // 修改用户信息并提交
