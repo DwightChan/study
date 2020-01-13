@@ -14,10 +14,10 @@
         <!-- 左侧头部收缩按钮 -->
         <div class="toggle-button" @click="toggleCollapse">|||</div>
         <!-- 左侧栏 菜单区域 -->
-        <el-menu
-          background-color="#333744" text-color="#fff" active-text-color="#409EFF" unique-opened :collapse="isCollapse" :collapse-transition="false" router :default-active="activePath">
+        <el-menu background-color="#333744" text-color="#fff" active-text-color="#409EFF" unique-opened :collapse="isCollapse" :collapse-transition="false" router :default-active="activePath">
           <!-- 一级 菜单 -->
-          <el-submenu v-for="(item, index) in menulist" :key="item.id" :index="index">
+          <!-- 注意 绑定 index 作为索引的时候, 这个index 只能接受 字符串, 所以这里 通过 + '' 字符串则隐式转为字符串 -->
+          <el-submenu v-for="(item, index) in menulist" :key="item.id" :index="index + ''">
             <!-- 一级 菜单 的模板区域 -->
             <!-- 有名称的插槽  -->
             <template slot="title">
@@ -81,7 +81,6 @@ export default {
       // this.$router.push("/login")
     },
     toggleCollapse() {
-      console.log('我被点击了')
       this.isCollapse = !this.isCollapse
     },
     // 保存练级的激活状态
@@ -145,11 +144,14 @@ export default {
     letter-spacing: 0.2em;
     cursor: pointer;
   }
+  .el-menu {
+    border-right: none;
+  }
 }
 .el-main {
   background-color: #eaedf1;
 }
-.confont {
+.iconfont {
   margin-right: 10px;
 }
 </style>
