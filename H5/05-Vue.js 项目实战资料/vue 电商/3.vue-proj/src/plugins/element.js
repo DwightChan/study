@@ -23,11 +23,11 @@ import {
   Tooltip,
   Pagination,
   Dialog,
-  MessageBox
+  MessageBox,
   // Tag,
   // Tree,
-  // Select,
-  // Option,
+  Select,
+  Option
   // Cascader,
   // Alert,
   // Tabs,
@@ -63,8 +63,8 @@ Vue.use(Pagination)
 Vue.use(Dialog)
 // Vue.use(Tag)
 // Vue.use(Tree)
-// Vue.use(Select)
-// Vue.use(Option)
+Vue.use(Select)
+Vue.use(Option)
 // Vue.use(Cascader)
 // Vue.use(Alert)
 // Vue.use(Tabs)
