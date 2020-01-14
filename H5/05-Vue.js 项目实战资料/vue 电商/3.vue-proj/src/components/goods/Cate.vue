@@ -9,7 +9,8 @@
 
     <!-- 卡片视图区域 -->
     <el-card>
-      123
+      <!-- 警告区域 -->
+      <el-alert title="注意：只允许为第三级分类设置相关参数！" type="warning" show-icon :closable="false"> </el-alert>
     </el-card>
   </div>
 </template>
