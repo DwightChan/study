@@ -34,20 +34,93 @@
       <!-- tab 页签区域 -->
       <el-tabs v-model="activeName" @tab-click="handleTabClick">
         <!-- 添加动态参数的面板 -->
-        <el-tab-pane label="动态参数" name="many">
+        <el-tab-pane :label="titleText" name="many">
           <!-- 动态参数的按钮 -->
-          <el-button type="primary" size="mini" :disabled="isBtnDisabled">添加参数</el-button>
-          <el-table :data="manyTableData" border=" stripe">
+          <el-button
+            type="primary"
+            size="mini"
+            :disabled="isBtnDisabled"
+            @click="addDialogVisible = true"
+            >添加参数</el-button
+          >
+          <el-table :data="manyTableData" border stripe>
             <!-- 展开行 -->
-            <el-table-column type="expand">
+            <el-table-column type="expand" label="点击展开">
               <template slot-scope="scope">
-                <el-tag v-for="(item, i) in scope.row.attr_vals" :key="i" closable>{{item}}</el-tag>
+                <el-tag
+                  v-for="(item, i) in scope.row.attr_vals"
+                  :key="i"
+                  closable
+                  @close="handleClose(i, scope.row)"
+                  >{{ item }}</el-tag
+                >
+                <el-input
+                  class="input-new-tag"
+                  v-if="scope.row.inputVisible"
+                  v-model="scope.row.inputValue"
+                  ref="saveTagInputRef"
+                  size="small"
+                >
+                </el-input>
+                <!-- 添加按钮 -->
+                <el-button
+                  v-else
+                  class="button-new-tag"
+                  size="small"
+                  @click="showinput(scope.row)"
+                  >+ New Tag</el-button
+                >
+              </template>
+            </el-table-column>
+            <el-table-column type="index" label="序号"></el-table-column>
+            <el-table-column label="参数名称" prop="attr_name">
+            </el-table-column>
+            <el-table-column label="操作">
+              <template slot-scope="scope">
+                <el-button
+                  size="mini"
+                  type="primary"
+                  icon="el-icon-edit"
+                  @click="showDialog(scope.row)"
+                  >编辑</el-button
+                >
+                <el-button
+                  size="mini"
+                  type="danger"
+                  icon="el-icon-delete"
+                  @click="removeParams(scope.row)"
+                  >删除</el-button
+                >
               </template>
             </el-table-column>
           </el-table>
         </el-tab-pane>
       </el-tabs>
     </el-card>
+
+    <!-- 添加参数的对话框 -->
+    <el-dialog
+      :title="'添加' + titleText"
+      :visible.sync="addDialogVisible"
+      width="50%"
+      @click="addDialogClosed"
+    >
+      <!-- 添加参数的对话框 -->
+      <el-form
+        :model="addForm"
+        :rules="addFormRules"
+        ref="addFormRef"
+        label-width="100%"
+      >
+        <el-form-item :label="titleText" prop="attr_name">
+          <el-input v-model="addForm.attr_name"></el-input>
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="addDialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="addParams">确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 <script>
@@ -97,22 +170,21 @@ export default {
   },
   created() {
     console.log('分类参数页面')
-    this.getCatList()
+    this.getCateList()
   },
   methods: {
     // 获取所有的商品分类列表
-    async getCatList() {
+    async getCateList() {
       const { data: res } = await this.$http.get('categories')
       if (res.meta.status !== 200) {
         return this.$message.error('获取商品分类失败!')
       }
       this.catelist = res.data
       console.log(this.catelist)
-      this.$message.success(res.meta.msg)
+      this.$message.success('获取商品分类成功!')
     },
     // 级联选择器选中项变化, 会催发这个函数
     handleChange() {
-      // console.log(this.catelist);
       this.getParamsData()
     },
     // tab 页签点击事件的处理函数
@@ -159,6 +231,94 @@ export default {
       } else {
         this.onlyTableData = res.data
       }
+    },
+    // 监听添加对话框的关闭事件
+    addDialogClosed() {
+      this.$refs.addFormRef.resetFields()
+    },
+    // 点击确认按钮, 添加参数
+    addParams() {
+      this.$refs.addFormRef.validate(async valid => {
+        if (!valid) return
+
+        const { data: res } = await this.$http.post(
+          `categories/${this.cateId}/attributes`,
+          {
+            attr_id: this.addFormRef.attr_id,
+            attr_sel: this.activeName
+          }
+        )
+
+        if (res.meta.status !== 201) {
+          return this.meta.error('添加参数失败')
+        }
+
+        this.$message.susccess('获取参数成功')
+        this.getParamsData()
+      })
+    },
+    // 显示编辑对话框
+    showDialog(row) {
+      console.log(row)
+    },
+    // 显示删除提示确认对话框
+    async removeParams(row) {
+      console.log(row)
+      const confirmResult = await this.$confirm(
+        '此操作将永久删除该参数, 是否继续?',
+        '提示',
+        {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }
+      ).catch(err => err)
+
+      // 用户取消了删除操作
+      if (confirmResult !== 'confirm') {
+        return this.$message.info('已取消删除!')
+      }
+
+      // 删除的业务逻辑
+      const { data: res } = await this.$http.delete(
+        `categories/${this.cateId}/attributes/${row.attr_id}`
+      )
+
+      if (res.meta.status !== 200) {
+        return this.$message.error('删除参数失败!')
+      }
+      this.$message.success('删除参数成功!')
+      this.getParamsData()
+    },
+    // 将对 attr_vals 的操作, 保存到数据库
+    async saveAttrVals(row) {
+      // 需要发起请求, 保存这次操作
+      const { data: res } = await this.$http.put(
+        `categories/${this.cateId}/attributes/${row.attr_id}`,
+        {
+          attr_name: row.attr_name,
+          attr_sel: row.attr_sel,
+          attr_vals: row.attr_vals.join(' ')
+        }
+      )
+      if (res.meta.status !== 200) {
+        return this.$message.error('修改参数失败!')
+      }
+      this.$meta.success('修改参数项成功!')
+    },
+    // 点击按钮, 展示文本输入框
+    showinput(row) {
+      row.inputVisible = true
+      // 让文本框自动获取焦点
+      // $nextTick 方法的作用, 就是当前页面元素被重新渲染之后会自定回调函数中的代码
+      this.$nextTick(_ => {
+        this.$refs.saveTagInputRef.$refs.input.focus()
+      })
+    },
+    // 删除对应的参数可选项
+    handleClose(i, row) {
+      row.attr_vals.split(i, 1)
+      this.saveAttrVals(row)
     }
   },
   computed: {
@@ -167,7 +327,7 @@ export default {
       if (this.selectedCateKeys.length !== 3) {
         return true
       }
-      return true
+      return false
     },
     // 当前选中的三级分类的id
     cateId() {
@@ -189,5 +349,11 @@ export default {
 <style lang="less" scoped>
 .cat_opt {
   margin: 15px 0;
+}
+.el-tag {
+  margin: 10px;
+}
+.button-new-tag {
+  width: 120px;
 }
 </style>

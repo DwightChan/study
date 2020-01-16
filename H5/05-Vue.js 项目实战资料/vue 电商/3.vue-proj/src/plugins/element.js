@@ -29,9 +29,9 @@ import {
   Select,
   Option,
   Cascader,
-  Alert
-  // Tabs,
-  // TabPane,
+  Alert,
+  Tabs,
+  TabPane
   // Steps,
   // Step,
   // CheckboxGroup,
@@ -67,8 +67,8 @@ Vue.use(Select)
 Vue.use(Option)
 Vue.use(Cascader)
 Vue.use(Alert)
-// Vue.use(Tabs)
-// Vue.use(TabPane)
+Vue.use(Tabs)
+Vue.use(TabPane)
 // Vue.use(Steps)
 // Vue.use(Step)
 // Vue.use(CheckboxGroup)
