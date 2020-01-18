@@ -116,6 +116,7 @@
         <p>当前的角色：{{userInfo.role_name}}</p>
         <p>分配新角色：
           <el-select v-model="selectedRoleId" placeholder="请选择">
+            <!-- :value 是选择的值, 会自动赋值给 v-model 指定的变量 selectedRoleId -->
             <el-option v-for="item in rolesList" :key="item.id" :label="item.roleName" :value="item.id">
             </el-option>
           </el-select>

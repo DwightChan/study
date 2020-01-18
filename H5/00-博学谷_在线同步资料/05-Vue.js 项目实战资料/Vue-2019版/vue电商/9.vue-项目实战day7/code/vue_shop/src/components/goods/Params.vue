@@ -29,6 +29,9 @@
           <!-- 添加参数的按钮 -->
           <el-button type="primary" size="mini" :disabled="isBtnDisabled" @click="addDialogVisible=true">添加参数</el-button>
           <!-- 动态参数表格 -->
+          <!-- :data 数据
+               :border 边框
+               :stripe 隔行变色 -->
           <el-table :data="manyTableData" border stripe>
             <!-- 展开行 -->
             <el-table-column type="expand">
@@ -123,8 +126,11 @@ export default {
       catelist: [],
       // 级联选择框的配置对象
       cateProps: {
+        // 绑定的值
         value: 'cat_id',
+        // 显示的值
         label: 'cat_name',
+        // 子级关联
         children: 'children'
       },
       // 级联选择框双向绑定到的数组

@@ -178,7 +178,13 @@ export default {
         ...this.$refs.treeRef.getCheckedKeys(),
         ...this.$refs.treeRef.getHalfCheckedKeys()
       ]
+      /** 三个点(...) 是数组展开运算符 , 用于多个数组之间合并, eg:
+       * aa: [1,2,3]
+       * bb: [4,5,6]
+       * cc = [...aa, ...bb] 得到结果 cc = [1, 2, 3, 4, 5, 6å]
+       */
 
+      // .join(',') 是将数组转为 以逗号(,) 拼接的字符串;
       const idStr = keys.join(',')
 
       const { data: res } = await this.$http.post(

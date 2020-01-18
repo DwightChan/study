@@ -15,7 +15,14 @@
         </el-col>
       </el-row>
 
+      <!-- treeTable 是第三方插件, 需要用到vue ui 中添加依赖 vue-table-with-tree-grid , 用法查看依赖详情(github 中有详细说明)
+          在main.js 文件中导入 以及注册;-->
       <!-- 表格 -->
+      <!-- :data 是数据源
+          :selection-type="false" 隐藏复选框
+          :expand-type="false" 去除展开行效果
+          show-index 显示数据索引
+           -->
       <tree-table class="treeTable" :data="catelist" :columns="columns" :selection-type="false" :expand-type="false" show-index index-text="#" border :show-row-hover="false">
         <!-- 是否有效 -->
         <template slot="isok" slot-scope="scope">
@@ -50,6 +57,8 @@
         <el-form-item label="父级分类：">
           <!-- options 用来指定数据源 -->
           <!-- props 用来指定配置对象 -->
+          <!-- v-model 闭学式绑定一个数组, 选中之后会给 这个绑定属性赋值, 是数组形式 -->
+          <!-- change-on-select 允许选择任何一级, 默认是false 只能选择最后一级 -->
           <el-cascader expand-trigger="hover" :options="parentCateList" :props="cascaderProps" v-model="selectedKeys" @change="parentCateChanged" clearable change-on-select>
           </el-cascader>
         </el-form-item>
