@@ -163,7 +163,7 @@
       title="分配角色"
       :visible.sync="setRoleDialogVisible"
       width="50%"
-      @close="setRoleDialogVisible"
+      @close="setRoleDialogClosed"
     >
       <div>
         <p>当前的用户: {{ userInfo.username }}</p>
@@ -172,7 +172,7 @@
           分配新角色:
           <el-select v-model="selectedRoleId" placeholder="请选择">
             <el-option
-              v-for="(item) in rolesList"
+              v-for="item in rolesList"
               :key="item.id"
               :label="item.roleName"
               :value="item.id"
@@ -440,9 +440,9 @@ export default {
       this.getUserList()
     },
     // 展示分配角色的对话框
-    async setRole(userInfo) {
-      console.log(userInfo)
-      this.userInfo = userInfo
+    async setRole(info) {
+      console.log(info)
+      this.userInfo = info
       // 在展示对话框之前, 获取所有角色的列表
       const { data: res } = await this.$http.get('roles')
       if (res.meta.status !== 200) {
@@ -460,14 +460,17 @@ export default {
       if (!this.selectedRoleId) {
         return this.$message.error('请选择要分配的角色')
       }
+      console.log(this.userInfo)
+
       const { data: res } = await this.$http.put(
         `users/${this.userInfo.id}/role`,
         {
           rid: this.selectedRoleId
         }
       )
+      console.log(res)
       if (res.meta.status !== 200) {
-        return this.$message.err('更新角色失败!')
+        return this.$message.error(res.meta.msg)
       }
 
       this.$message.success('更新角色成功!')
