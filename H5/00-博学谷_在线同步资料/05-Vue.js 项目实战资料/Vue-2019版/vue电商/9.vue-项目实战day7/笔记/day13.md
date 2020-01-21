@@ -8,17 +8,13 @@
 
 ### 1.项目优化
 
-实现步骤：
+**实现步骤：**
 
-A.生成打包报告，根据报告优化项目
-
-B.第三方库启用CDN
-
-C.Element-UI组件按需加载
-
-D.路由懒加载
-
-E.首页内容定制
+1. 生成打包报告，根据报告优化项目
+- 第三方库启用CDN
+- Element-UI组件按需加载
+- 路由懒加载
+- 首页内容定制
 
 ### 2.添加进度条
 给项目添加进度条效果，先打开项目控制台，打开依赖，安装nprogress
@@ -61,8 +57,8 @@ axios.interceptors.response.use(config =>{
 
 ### 4.执行build
 安装一个插件 `babel-plugin-transform-remove-console` 在项目build阶段移除所有的console信息
-打开项目控制台，点击依赖->开发依赖，输入`babel-plugin-transform-remove-console`，安装
-打开babel.config.js，编辑代码如下：
+打开项目控制台，**点击依赖->开发依赖**，输入`babel-plugin-transform-remove-console`，安装
+打开`babel.config.js`，编辑代码如下：
 
 ```
 //项目发布阶段需要用到的babel插件
@@ -86,6 +82,7 @@ module.exports = {
         "styleLibraryName": "theme-chalk"
       }
     ],
+    // 发布产品时插件数组
     ...productPlugins
   ]
 }
@@ -107,8 +104,8 @@ B.在vue控制台生成打包报告
 ### 6.修改webpack的默认配置
 
 - 默认情况下，vue-cli 3.0生成的项目，隐藏了webpack配置项，如果我们需要配置webpack
-- 需要通过vue.config.js来配置。
-- 在项目根目录中创建vue.config.js文件，
+- 需要通过`vue.config.js`来配置。
+- 在项目根目录中创建`vue.config.js`文件，
 
 ```
 module.exports = {
@@ -129,8 +126,8 @@ module.exports = {
 
 #### 补充：
 
-- chainWebpack可以通过链式编程的形式，修改webpack配置
-- configureWebpack可以通过操作对象的形式，修改webpack配置
+- `chainWebpack`可以通过链式编程的形式，修改webpack配置
+- `configureWebpack`可以通过操作对象的形式，修改webpack配置
 
 ### 7.加载外部CDN
 
