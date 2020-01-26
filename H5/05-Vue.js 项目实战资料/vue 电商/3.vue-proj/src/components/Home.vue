@@ -101,6 +101,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+body {
+  background-color: #333744!important;
+}
 // <!-- scoped 指令表示 下面的less 只对当前文件生效 -->
 .home-container {
   height: 100%;

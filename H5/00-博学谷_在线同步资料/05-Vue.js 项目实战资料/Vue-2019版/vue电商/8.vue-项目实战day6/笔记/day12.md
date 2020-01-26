@@ -1,14 +1,18 @@
-###今日目标
-1.完成商品添加
-2.完成订单列表
-3.完成数据统计展示
+[toc]
+<hr />
 
-###1.添加商品
-####A.完成图片上传
-使用upload组件完成图片上传
-在element.js中引入upload组件，并注册
-因为upload组件进行图片上传的时候并不是使用axios发送请求
-所以，我们需要手动为上传图片的请求添加token，即为upload组件添加headers属性
+### 今日目标
+1. 完成商品添加
+2. 完成订单列表
+3. 完成数据统计展示
+
+### 1.添加商品
+#### A.完成图片上传
+- 使用upload组件完成图片上传
+- 在element.js中引入upload组件，并注册
+- 因为upload组件进行图片上传的时候并不是使用axios发送请求
+- 所以，我们需要手动为上传图片的请求添加token，即为upload组件添加headers属性
+
 ```
 //在页面中添加upload组件，并设置对应的事件和属性
 <el-tab-pane label="商品图片" name="3">
@@ -82,9 +86,11 @@ methods:{
 }
 ```
 
-####B.使用富文本插件
-想要使用富文本插件vue-quill-editor，就必须先从依赖安装该插件
-引入并注册vue-quill-editor，打开main.js，编写如下代码
+#### B.使用富文本插件
+
+- 想要使用富文本插件`vue-quill-editor`，就必须先从依赖安装该插件
+- 引入并注册`vue-quill-editor`，打开main.js，编写如下代码
+
 ```
 //导入vue-quill-editor（富文本编辑器）
 import VueQuillEditor from 'vue-quill-editor'
@@ -99,7 +105,8 @@ Vue.component('tree-table', TreeTable)
 Vue.use(VueQuillEditor)
 ```
 
-使用富文本插件vue-quill-editor
+- 使用富文本插件`vue-quill-editor`
+
 ```
 <!-- 富文本编辑器组件 -->
 <el-tab-pane label="商品内容" name="4">
@@ -132,10 +139,11 @@ addForm: {
 }
 ```
 
-####C.添加商品
-完成添加商品的操作
-在添加商品之前，为了避免goods_cat数组转换字符串之后导致级联选择器报错
-我们需要打开vue控制条，点击依赖，安装lodash，把addForm进行深拷贝
+#### C.添加商品
+- 完成添加商品的操作
+- 在添加商品之前，为了避免goods_cat数组转换字符串之后导致级联选择器报错
+- 我们需要打开vue控制条，点击依赖，安装lodash，把addForm进行深拷贝
+
 ```
 //打开Add.vue，导入lodash
 <script>
@@ -177,23 +185,28 @@ add(){
 </script>
 ```
 
-####D.推送代码
-推送goods_list分支到码云
-将代码添加到暂存区：  git add .
-将代码提交到本地仓库： git commit -m "完成商品功能开发"
-将代码推送到码云：  git push
-切换到master主分支： git checkout master
-将goods_list分支代码合并到master: git merge goods_list
-将master推送到码云：  git push
+#### D.推送代码
 
-###2.订单列表
-####A.创建分支
-创建order子分支并推送到码云
-创建order子分支: git checkout -b order
-将order分支推送到码云： git push -u origin order
+- 推送goods_list分支到码云
+- 将代码添加到暂存区：  `git add .`
+- 将代码提交到本地仓库： `git commit -m "完成商品功能开发"`
+- 将代码推送到码云：  `git push`
+- 切换到master主分支： `git checkout master`
+- 将goods_list分支代码合并到master: `git merge goods_list`
+- 将master推送到码云：  `git push`
 
-####B.创建路由
-创建订单列表路由组件并添加路由规则
+### 2.订单列表
+
+#### A.创建分支
+
+- 创建order子分支并推送到码云
+- 创建order子分支: `git checkout -b order`
+- 将order分支推送到码云： `git push -u origin order`
+
+#### B.创建路由
+
+- 创建订单列表路由组件并添加路由规则
+
 ```
 //在components中新建order文件夹，新建Order.vue组件，组件中添加代码如下
 <template>
@@ -260,7 +273,8 @@ path: '/home', component: Home, redirect: '/welcome', children: [
 ]
 ```
 
-####C.实现数据展示及分页
+#### C.实现数据展示及分页
+
 ```
 <!-- 卡片视图区域 -->
 <el-card>
@@ -348,15 +362,19 @@ export default {
 </script>
 ```
 
-####D.制作省市区县联动
-打开今天的资料，找到素材文件夹，复制citydata.js文件到components/order文件夹中
-然后导入citydata.js文件
+#### D.制作省市区县联动
+
+- 打开今天的资料，找到素材文件夹，复制citydata.js文件到components/order文件夹中
+- 然后导入citydata.js文件
+
 ```
 <script>
   import cityData from "./citydata.js"
 </script>
 ```
-具体代码如下：
+
+- 具体代码如下：
+
 ```
 //给修改地址按钮添加点击事件
 <el-button size="mini" type="primary" icon="el-icon-edit" @click="showEditAddress"></el-button>
@@ -418,9 +436,11 @@ export default {
 </style>
 ```
 
-####E.制作物流进度对话框
-因为我们使用的是element-ui中提供的Timeline组件，所以需要导入并注册组件
-打开element.js,编写代码会进行导入和注册
+#### E.制作物流进度对话框
+
+- 因为我们使用的是element-ui中提供的Timeline组件，所以需要导入并注册组件
+- 打开element.js,编写代码会进行导入和注册
+
 ```
 import {
     Timeline,TimelineItem
@@ -429,7 +449,9 @@ import {
 Vue.use(Timeline)
 Vue.use(TimelineItem)
 ```
-打开Order.vue文件，添加代码实现物流进度对话框
+
+- 打开Order.vue文件，添加代码实现物流进度对话框
+
 ```
 <!-- 物流信息进度对话框 -->
 <el-dialog title="物流进度" :visible.sync="progressVisible" width="50%">
@@ -471,23 +493,28 @@ export default {
 </script>
 ```
 
-####F.推送代码
-将order分支代码推送至码云
-将代码添加到暂存区：  git add .
-将代码提交到本地仓库： git commit -m "完成订单列表功能开发"
-将代码推送到码云：  git push
-切换到master主分支： git checkout master
-将goods_list分支代码合并到master: git merge order
-将master推送到码云：  git push
+#### F.推送代码
 
-###3.数据统计
-####A.创建子分支
-创建report子分支并推送到码云
-创建report子分支: git checkout -b report
-将report分支推送到码云： git push -u origin report
+- 将order分支代码推送至码云
+- 将代码添加到暂存区：  `git add .`
+将代码提交到本地仓库： `git commit -m "完成订单列表功能开发"`
+- 将代码推送到码云：  `git push`
+- 切换到master主分支： `git checkout master`
+- 将goods_list分支代码合并到master: `git merge order`
+- 将master推送到码云：  `git push`
 
-####B.创建路由
-创建数据统计路由组件并添加路由规则
+### 3.数据统计
+
+#### A.创建子分支
+
+- 创建report子分支并推送到码云
+- 创建report子分支: `git checkout -b report`
+- 将report分支推送到码云： `git push -u origin report`
+
+#### B.创建路由
+
+- 创建数据统计路由组件并添加路由规则
+
 ```
 //在components中新建report文件夹，新建Report.vue组件，组件中添加代码如下
 <template>
@@ -522,7 +549,9 @@ export default {
 
 </style>
 ```
-打开router.js，导入Report.vue并设置路由规则
+
+- 打开router.js，导入Report.vue并设置路由规则
+
 ```
 import Report from './components/report/Report.vue'
 path: '/home', component: Home, redirect: '/welcome', children: [
@@ -539,7 +568,8 @@ path: '/home', component: Home, redirect: '/welcome', children: [
 ]
 ```
 
-####C.导入ECharts并使用
+#### C.导入ECharts并使用
+
 ```
 <template>
     <div>
@@ -625,11 +655,12 @@ export default {
 </style>
 ```
 
-####D.推送代码
-推送report分支到码云
-将代码添加到暂存区：  git add .
-将代码提交到本地仓库： git commit -m "完成数据报表功能开发"
-将代码推送到码云：  git push
-切换到master主分支： git checkout master
-将report分支代码合并到master: git merge report
-将master推送到码云：  git push
+#### D.推送代码
+
+- 推送report分支到码云
+- 将代码添加到暂存区：  `git add .`
+- 将代码提交到本地仓库： `git commit -m "完成数据报表功能开发"`
+- 将代码推送到码云：  `git push`
+- 切换到master主分支： `git checkout master`
+- 将report分支代码合并到master: `git merge report`
+- 将master推送到码云：  `git push`

@@ -10,8 +10,8 @@
     <!-- 卡片视图区域 -->
     <el-card>
       <el-table :data="rightsList" style="width: 100%" border stripe>
-        <el-table-column type="index"></el-table-column>
-        <el-table-column label="权限名称" prop="authName"> </el-table-column>
+        <el-table-column type="index" label="序号"></el-table-column>
+        <el-table-column label="权限名称" prop="authName"></el-table-column>
         <el-table-column label="路径" prop="path"> </el-table-column>
         <el-table-column label="权限等级" prop="level">
           <template slot-scope="scope">
