@@ -1,0 +1,48 @@
+/* .van-nav-bar {
+    display: fixed;
+} */
+/* 全局样式表 */
+
+html,
+body,
+#app {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+/* 导航栏 左右 字体图标大小 */
+.van-nav-bar .van-icon {
+    font-size: 2rem;
+}
+.van-nav-bar__title {
+    height: 44px;
+}
+.van-nav-bar__title img {
+    margin-top: 0.3rem;
+    /* margin-bottom: 10px; */
+    height: 34px;
+}
+ /* 设置 tabs 背景色 */ 
+.van-tabs__nav {
+    background-color: #F4F5F6;
+}
+/* 设置首页 tab 的选中颜色 */
+.van-tab--active {
+    color: #4B70DA;
+}
+.van-tabs__line {
+    background-color: rgb(114, 132, 182);
+}
+/* 设置搜索 控件中的输入框 圆角 */
+.van-search__content {
+    border-radius: 17px;
+}
+/* .van-cell {
+    border-top: 2px solid #ccc;
+} */
+.van-grid-item__content {
+    /* padding: 0; */
+    padding-top: 0.5rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
