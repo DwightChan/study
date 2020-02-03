@@ -167,10 +167,6 @@ thumbnail_pic_s02: "http://09imgmini.eastday.com/mobile/20190730/20190730174022_
 thumbnail_pic_s03: "http://09imgmini.eastday.com/mobile/20190730/2019073
 }]
     */
-    },
-    // 加载 数据, 或者刷新数据
-    onLoad(id) {
-      console.log(id)
     }
   }
 }
