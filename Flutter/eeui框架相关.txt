@@ -1,0 +1,18 @@
+遇到问题先自己解决，不要直接问。。。
+首先认真看文档：https://eeui.app 
+解决不了的然后在社区：https://bbs.eeui.app 找问题 
+在 GitHub的issue：https://github.com/kuaifan/eeui/issues 上搜索问题
+最后：
+百度一下：https://www.baidu.com
+或者
+google：https://www.google.com
+
+weex生态框架eeui：
+eeui插件市场 https://eeui.app/markets/
+eeui演示项目 https://editor.eeui.app/#/case
+eeui在线编辑器 https://editor.eeui.app/
+eeui交流社区 https://bbs.eeui.app/
+eeui热更新功能 https://eeui.app/update/
+eeui中文文档 https://eeui.app/
+一键制作APP图标 https://console.eeui.app/#/tools/icons
+一键制作启动图 https://console.eeui.app/#/tools/launchimage

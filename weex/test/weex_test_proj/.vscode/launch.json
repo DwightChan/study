@@ -1,0 +1,39 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // Android 调试配置
+            "type": "weex.android",
+            "request": "launch",
+            "name": "weex android",
+            "jsBundleFolderPath": "./dist/",
+            "jsBundleEntry": "index.js",
+            "applicationId": "com.weex.app",
+            "deviceId": "${command:androidDeviceId}",
+            "projectPath": "./platforms/android/",
+            "preCommand": "npm run dev"
+        },
+        {
+            // web 调试配置
+            "request": "launch",
+            "type": "weex.web",
+            "name": "weex web",
+            "command": "npm run serve"
+        },
+        {
+            // iOS 调试配置
+            "type": "weex.ios",
+            "request": "launch",
+            "name": "weex ios",
+            "jsBundleFolderPath": "./dist/",
+            "jsBundleEntry": "index.js",
+            "applicationId": "com.alibaba.weex",
+            "deviceId": "${command:iosDeviceId}",
+            "projectPath": "./platforms/ios/",
+            "preCommand": "npm run dev"
+        }
+    ]
+}
