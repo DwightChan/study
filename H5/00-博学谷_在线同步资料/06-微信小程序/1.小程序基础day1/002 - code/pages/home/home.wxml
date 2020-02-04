@@ -1,0 +1,53 @@
+<!--pages/home/home.wxml-->
+<!-- 默认文本不可选择 -->
+<text>pages/home/home.wxml</text>
+<!-- selectable 表示可以选择文本 -->
+<text selectable>这是自己的Home首页</text>
+<view>
+<!-- text 默认将空格剔除 -->
+  <text selectable>1    1</text>
+</view>
+<view>
+<!-- text 空格 设置为英文空格 -->
+  <text span='ensp'>1    1</text>
+</view>
+<view>
+<!-- text 空格 设置为 中文空格 -->
+  <text space='emsp'>2    2</text>
+</view>
+<view>
+<!-- 这个空格还是英文空格 但是随字体大小变化 -->
+  <text space="nbsp" style="font-size: 80px;">3    3</text>
+</view>
+<view>
+  <!-- 是否对 以下 html 文本做编码 -->
+  <text decode>&nbsp;  &lt;  &gt;  &amp;  &apos;  &ensp;  &emsp; </text> 
+</view>
+
+<!-- 指定按下去的样式类。当 hover-class="none" 时，没有点击态效果 -->
+<view style='width: 400px; height: 400px;' hover-class='hc2'>
+  <!-- hover-stop-propagation 指定是否阻止本节点的祖先节点出现点击态 -->
+  <!-- hover-start-time 按住后多久出现点击态，单位毫秒 -->
+  <!-- hover-stay-time 手指松开后点击态保留时间，单位毫秒 -->
+  <view hover-stop-propagation hover-class='hc1' hover-start-time='2000'
+   hover-stay-time='3000' style='width: 200px; height: 200px;'>1234567</view>
+</view>
+<view>1234567</view>
+<!-- 默认 type 的按钮 -->
+<button>默认的按钮</button>
+<!-- primary 类型按钮 -->
+<button size='mini' type='primary'>primary 按钮</button>
+<button size='mini' type='warn'>warn 的按钮</button>
+<!-- plain: 按钮是否镂空，背景色透明 -->
+<button size='mini' type='warn' plain>warn 的按钮</button>
+<!-- disabled: 是否禁止按钮 -->
+<button size='mini' type='primary' disabled>默认的按钮</button>
+<!-- loading: 名称前是否带 loading 图标 -->
+<button size='mini' type='primary' loading>默认的按钮</button>
+
+<!-- 输入框默认值 abc -->
+<!-- password 表示是密文显示输入的内容 -->
+<input value='abc' password></input>
+<!-- placeholder 表示输入框的占位符 -->
+<!-- disabled: 表示是否禁用	 -->
+<input placeholder='请输入内容' disabled></input>
