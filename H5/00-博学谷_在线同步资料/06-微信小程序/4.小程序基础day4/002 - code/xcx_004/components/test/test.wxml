@@ -1,0 +1,14 @@
+<!--components/test/test.wxml-->
+<text class='red-color'>这是自定义的Test组件</text>
+<view>--------------------</view>
+<view>当前组件data中的name的值为：{{name}}</view>
+<button type="primary" size='mini' bindtap='btnChangeName'>修改name的值</button>
+<view>--------------------</view>
+<view>外界传递过来的propCount值为:{{propCount}}</view>
+<button type='primary' size='mini' bindtap='changePropCountVal'>修改propCount的值</button>
+<view>--------------------</view>
+<slot/>
+<view>~~~~~~~~~~~~~~~~</view>
+<slot name="before"/>
+<view>~~~~~~~~~~~~~~~~</view>
+<slot name="after"/>

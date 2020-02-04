@@ -1,0 +1,58 @@
+<!--pages/home/home.wxml-->
+<!-- <text selectable>这是自己的Home首页</text>
+<view>
+  <text space='ensp'>1    1</text>
+</view>
+<view>
+  <text space='emsp'>2    2</text>
+</view>
+<view>
+  <text space='nbsp' style='font-size: 40px;'>3    3</text>
+</view>
+<view>
+  <text space='nbsp'>4    4</text>
+</view>
+<text decode>&nbsp;  &lt;  &gt;  &amp;  &apos;  &ensp;  &emsp; </text> -->
+
+
+<!-- <view style='width: 400px; height: 400px;' hover-class='hc2'>
+  <view hover-stop-propagation hover-class='hc1' hover-start-time='2000' hover-stay-time='3000' style='width: 200px; height: 200px;'>1234567</view>
+</view> -->
+<!-- <view>1234567</view> -->
+
+
+<!-- <button>默认的按钮</button>
+<button size='mini' type='primary'>默认的按钮</button>
+<button size='mini' type='warn'>默认的按钮</button>
+<button size='mini' type='warn' plain>默认的按钮</button>
+<button size='mini' type='primary' disabled>默认的按钮</button>
+<button size='mini' type='primary' loading>默认的按钮</button> -->
+
+
+<!-- <input value='abc' password></input>
+<input placeholder='请输入内容' disabled></input> -->
+
+
+<!-- <image src='/assets/images/5.jpg' mode='aspectFill'></image>
+<image></image>
+<image src='https://wx.qlogo.cn/mmhead/Q3auHgzwzM6icouPGQwWoHzoLJz3ialNibTBhFNsyTQuhXjVpf2KBVnvw/0'></image> -->
+
+
+<!-- <view id='v1'>111111</view>
+<view class='v2'>111111</view>
+<view>111111</view>
+<view data-color="pink">111111</view>
+<view>111111</view>
+<view>111111</view>
+<view>111111</view> -->
+
+
+<!-- <view class="vv1">
+  使用rpx绘制占屏幕宽度一半的盒子
+</view> -->
+
+
+<view>
+  <input></input>
+  <input></input>
+</view>

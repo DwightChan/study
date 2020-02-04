@@ -1,0 +1,9 @@
+<!-- <camera style="height: 300px; width: 100%" flash="off"></camera> -->
+
+<camera style="height: {{ wh }}px; width: 100%" flash="off" device-position="{{ position }}">
+  <cover-view class="btn-box">
+    <cover-image src="/images/icon/reverse.png" bindtap="reverseCamera"></cover-image>
+    <cover-image src="/images/icon/camera.png" bindtap="takePhoto"></cover-image>
+    <cover-image src="/images/icon/album.png"></cover-image>
+  </cover-view>
+</camera>

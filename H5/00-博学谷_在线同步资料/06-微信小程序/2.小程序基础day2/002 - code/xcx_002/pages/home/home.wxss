@@ -1,0 +1,44 @@
+/* pages/home/home.wxss */
+@import '../../assets/css/common.wxss';
+
+.hc1 {
+  background-color: pink;
+}
+
+.hc2 {
+  background-color: red;
+}
+
+view {
+  font-size: 12px;
+}
+
+#v1 {
+  background-color: red;
+}
+
+.v2 {
+  background-color: yellow;
+}
+
+.v2::before {
+  content: '====';
+}
+
+view:nth-of-type(3) {
+  background-color: blue;
+}
+
+[data-color="pink"] {
+  background-color: pink;
+}
+
+.vv1 {
+  width: 375rpx;
+  height: 375rpx;
+  background-color: red;
+}
+
+input {
+  border-color: red;
+}

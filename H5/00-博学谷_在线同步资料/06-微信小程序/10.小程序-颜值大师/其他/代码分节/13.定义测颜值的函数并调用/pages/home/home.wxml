@@ -1,0 +1,14 @@
+<!-- <camera style="height: 300px; width: 100%" flash="off"></camera> -->
+
+<camera style="height: {{ wh }}px; width: 100%" flash="off" device-position="{{ position }}" wx:if="{{ isShowPic === false }}">
+  <cover-view class="btn-box">
+    <cover-image src="/images/icon/reverse.png" bindtap="reverseCamera"></cover-image>
+    <cover-image src="/images/icon/camera.png" bindtap="takePhoto"></cover-image>
+    <cover-image src="/images/icon/album.png" bindtap="choosePhoto"></cover-image>
+  </cover-view>
+</camera>
+
+<view wx:else>
+  <image src="{{ src }}" style="width: 100%; height: {{wh}}px" mode="aspectFill"></image>
+  <button type="warn" class="reChoose" bindtap="reChoose">重选照片</button>
+</view>

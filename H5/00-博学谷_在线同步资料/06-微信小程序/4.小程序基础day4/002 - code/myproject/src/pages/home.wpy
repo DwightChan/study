@@ -1,0 +1,68 @@
+<template>
+  <view>Home首页</view>
+  <view>{{msg}}</view>
+  <button type="primary" size="mini" @tap="btnHandler({{count}})">为按钮绑定事件</button>
+  <input value="{{msg}}" @input="inputHandler"/>
+  <view>{{test.a}}</view>
+  <button type="primary" size="mini" @tap="getInfo">发起Get请求</button>
+  <button type="warn" size="mini" @tap="postInfo">发起Post请求</button>
+  <view>当前list数组的length为：{{list.length}}</view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import testWXS from '../wxs/test.wxs'
+
+export default class Home extends wepy.page {
+  config = {}
+
+  data = {
+    count: 0,
+    msg: 'hello wepy',
+    list: []
+  }
+
+  wxs = {
+    test: testWXS
+  }
+
+  methods = {
+    btnHandler(c) {
+      console.log('OK')
+      console.log(c)
+      this.add()
+    },
+    inputHandler(e) {
+      console.log(e.detail.value)
+      this.msg = e.detail.value
+    },
+    async getInfo() {
+      const res = await wepy.request('https://www.liulongbin.top:8082/api/get')
+      console.log(res)
+    },
+    async postInfo() {
+      const {data: res} = await wepy.request({
+        url: 'https://www.liulongbin.top:8082/api/post',
+        method: 'post',
+        data: ['zs', 'ls', 'zl']
+      })
+
+      console.log(res)
+      this.list = res.data
+      this.$apply()
+    }
+  }
+
+  add() {
+    console.log('调用了自定义的add函数')
+  }
+}
+</script>
+
+<style lang="less">
+input {
+  border: 1rpx solid #ccc;
+  margin: 10rpx;
+  padding: 10rpx;
+}
+</style>

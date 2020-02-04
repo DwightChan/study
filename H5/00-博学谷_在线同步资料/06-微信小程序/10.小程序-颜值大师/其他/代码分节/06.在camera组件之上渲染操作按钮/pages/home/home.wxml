@@ -1,0 +1,9 @@
+<!-- <camera style="height: 300px; width: 100%" flash="off"></camera> -->
+
+<camera style="height: {{ wh }}px; width: 100%" flash="off">
+  <view class="btn-box">
+    <image src="/images/icon/reverse.png" />
+    <image src="/images/icon/camera.png" />
+    <image src="/images/icon/album.png" />
+  </view>
+</camera>

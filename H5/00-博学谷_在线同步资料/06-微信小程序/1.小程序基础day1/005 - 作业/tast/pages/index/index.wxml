@@ -1,0 +1,26 @@
+<view class="grids">
+  <view class="item" >
+    <image src="../../assets/images/shi.png" />
+    <text>美食</text>
+  </view>
+  <view class="item" >
+    <image src="../../assets/images/xiu.png" />
+    <text>装修</text>
+  </view>
+  <view class="item" >
+    <image src="../../assets/images/yu.png" />
+    <text>洗浴</text>
+  </view>
+  <view class="item" >
+    <image src="../../assets/images/shi.png" />
+    <text>美食</text>
+  </view>
+  <view class="item" >
+    <image src="../../assets/images/xiu.png" />
+    <text>装修</text>
+  </view>
+  <view class="item" >
+    <image src="../../assets/images/yu.png" />
+    <text>洗浴</text>
+  </view>
+</view>
