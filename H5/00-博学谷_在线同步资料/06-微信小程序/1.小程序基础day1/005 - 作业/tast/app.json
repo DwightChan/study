@@ -1,14 +1,12 @@
 {
   "pages": [
-    "pages/profile/profile",
-    "pages/index/index",
-    "pages/logs/logs"
+    "index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "课程案例",
+    "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap26.json"
 }
