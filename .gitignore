@@ -29,4 +29,7 @@ fastlane/test-output/*
 Carthage/Build
 fastlane/README.md
 
+# 提出node 安装的第三方库, 下载代码之后可以通过 代码中持有的 package.json 文件 在这个文件下终端指令 npm install 以安装库
 node_modules/
+# 这个是react-native 相关的第三方框架;
+third-party/
