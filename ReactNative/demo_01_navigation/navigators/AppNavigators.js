@@ -1,21 +1,88 @@
 import React from 'react';
 import {createStackNavigator} from 'react-navigation-stack';
+import {createBottomTabNavigator} from 'react-navigation-tabs';
 import Page1 from '../pages/Page1';
 import Page2 from '../pages/Page2';
 import Page3 from '../pages/Page3';
 import HomePage from '../pages/HomePage';
 import Layout from '../pages/D_01_Layout.js';
-import {Button} from 'react-native';
+import {Button, Text} from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons'
+
+const BottomTabNavigator = createBottomTabNavigator(
+  {// 在这里配置页面的路由
+    HomePage: {
+      screen: HomePage,
+      navigationOptions: {
+        tabBarLabel: ({tintColor, focused}) => (// 自定义tab 文字
+          <Text style={{color: focused ? 'orange' : 'skyblue'}}>自定义文字</Text>
+          // <Text style={{color: focused ? 'orange' : 'grey'}}>Page2</Text>
+        ),
+        // tabBarLabel: 'page2',
+        tabBarIcon: ({tintColor, focused}) => (
+          <Ionicons 
+            name={'ios-people'}
+            size={26}
+            style={{color: focused ? 'orange' : 'skyblue'}}
+          />
+        )
+      }
+    },
+    Page1: {
+      screen: Page1,
+      navigationOptions: {
+        tabBarLabel: 'Page1',
+        tabBarIcon: ({tintColor, focused}) => (
+          <Ionicons 
+            name={'ios-home'}
+            size={26}
+            style={{color: tintColor}}
+          />
+        )
+      }
+    },
+    Page2: {
+      screen: Page2,
+      navigationOptions: {
+        tabBarLabel: ({tintColor, focused}) => (// 自定义tab 文字
+          <Text style={{color: focused ? 'orange' : 'skyblue'}}>自定义文字</Text>
+          // <Text style={{color: focused ? 'orange' : 'grey'}}>Page2</Text>
+        ),
+        // tabBarLabel: 'page2',
+        tabBarIcon: ({tintColor, focused}) => (
+          <Ionicons 
+            name={'ios-people'}
+            size={26}
+            style={{color: focused ? 'orange' : 'skyblue'}}
+          />
+        )
+      }
+    }
+  },
+  { 
+    tabBarOptions: {
+      // activeTintColor: 'red'
+      activeTintColor: 'red'
+    }
+  }
+)
 
 // 这个地方只是配置 导航路由
 // 第一个参数是个对象,
 // 第一个参数的第一个元素 也就是 默认的导航, 
 export const AppStackNavigator = createStackNavigator(
   {
-    // HomePage: 是路由名称
     HomePage: {
-      screen: HomePage, // 这个HomePage 路由导入的文件 import HomePage from '../pages/HomePage';
+      screen: BottomTabNavigator,
+      navigationOptions: {
+        title: '底部导航',
+        headerRight: null
+      }
     },
+    // HomePage: 是路由名称
+    // HomePage: {
+    //   screen: HomePage, // 这个HomePage 路由导入的文件 import HomePage from '../pages/HomePage';
+    // },
     Layout: {
       screen: Layout,
       navigationOptions: ({navigation}) => ({

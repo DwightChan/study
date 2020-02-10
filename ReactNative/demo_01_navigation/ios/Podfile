@@ -35,7 +35,6 @@ target 'demo_01_navigation' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
 
-  pod 'RNScreens', :path => '../node_modules/react-native-screens'
 
   target 'demo_01_navigationTests' do
     inherit! :search_paths
