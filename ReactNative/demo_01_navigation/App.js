@@ -17,7 +17,15 @@
 // };
 // export default App;
 
-// 02
+// // 02
+// import {AppStackNavigator} from './navigators/AppNavigators';
+// import {createAppContainer} from 'react-navigation';
+// export default createAppContainer(AppStackNavigator);
+
+
+// switch navigation
 import {AppStackNavigator} from './navigators/AppNavigators';
+import SwitchNavigator from './navigators/SwitchNavigator';
 import {createAppContainer} from 'react-navigation';
-export default createAppContainer(AppStackNavigator);
+
+export default createAppContainer(SwitchNavigator);
