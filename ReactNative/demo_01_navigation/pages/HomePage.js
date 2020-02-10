@@ -5,7 +5,8 @@ export default class HomePage extends React.Component {
     //在这里定义页面的导航属性
     static navigationOptions = {
         title: 'Home',
-        headerBackTitle: '返回标题',//设置返回此页面的返回按钮文案，有长度限制，Android不支持
+        // 这个是调到别的页面 显示当前的文本显示
+        headerBackTitle: '返回',//设置返回此页面的返回按钮文案，有长度限制，Android不支持
     };
 
     render() {
@@ -22,7 +23,8 @@ export default class HomePage extends React.Component {
                 navigation.navigate('Page2');
             }}/>
             <Button title={'Go to Page3'} onPress={() => {
-                navigation.navigate('Page3', {name: 'Devio'});
+                // navigation.navigate('Page3', {name: '123'});
+                navigation.navigate('Page3');
             }}/>
         </View>
     }

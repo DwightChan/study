@@ -16,6 +16,7 @@ profile
 *.moved-aside
 DerivedData
 .idea/
+Pods/
 Tests/Pods
 Tests/Podfile.lock
 Tests/AFNetworking Tests.xcodeproj/xcshareddata/xcschemes/

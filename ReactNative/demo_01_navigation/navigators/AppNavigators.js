@@ -7,10 +7,14 @@ import HomePage from '../pages/HomePage';
 import Layout from '../pages/D_01_Layout.js';
 import {Button} from 'react-native';
 
+// 这个地方只是配置 导航路由
+// 第一个参数是个对象,
+// 第一个参数的第一个元素 也就是 默认的导航, 
 export const AppStackNavigator = createStackNavigator(
   {
+    // HomePage: 是路由名称
     HomePage: {
-      screen: HomePage,
+      screen: HomePage, // 这个HomePage 路由导入的文件 import HomePage from '../pages/HomePage';
     },
     Layout: {
       screen: Layout,
@@ -38,6 +42,7 @@ export const AppStackNavigator = createStackNavigator(
       navigationOptions: props => {
         const {navigation} = props;
         const {state, setParams} = navigation;
+        // 这里如果是 空的时候容易闪退, 所以设置默认值 为空对象
         const {params = {}} = state;
         return {
           title: params.name ? params.name : 'This is Page3',
