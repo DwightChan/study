@@ -1,6 +1,8 @@
 import React from 'react';
 import {createStackNavigator} from 'react-navigation-stack';
-import {createBottomTabNavigator} from 'react-navigation-tabs';
+// createBottomTabNavigator: 底部导航器, 就是ios中的tabbar
+// createMaterialTopTabNavigator: 顶部导航
+import {createBottomTabNavigator, createMaterialTopTabNavigator} from 'react-navigation-tabs';
 import Page1 from '../pages/Page1';
 import Page2 from '../pages/Page2';
 import Page3 from '../pages/Page3';
@@ -9,6 +11,54 @@ import Layout from '../pages/D_01_Layout.js';
 import {Button, Text} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
+const MeterialTopTabNavigator = createMaterialTopTabNavigator(
+  {// 这里配置页面的路由
+    Page1: {
+      screen: Page1,
+      navigationOptions: {
+        tabBarLabel: 'Page1',
+      }
+    },
+    Page2: {
+      screen: Page2,
+      navigationOptions: {
+        tabBarLabel: ({tintColor, focused}) => (
+          <Text style={{color: focused ? 'orange' : 'grey'}}>文本Page2</Text>
+        )
+      }
+    },
+    Page3: {
+      screen: Page3,
+      navigationOptions: {
+        tabBarLabel: 'Page3'
+      }
+    }
+  },
+  {
+    tabBarOptions: {
+      activeTintColor: 'skyblue',
+      tabStyle: { // tab
+        // 最小宽度 为50
+        minWidth: 50
+      }, 
+      upperCaseLabel: false, // 是否标签大写, 默认是true
+      style: {
+        backgroundColor: '#ccc'
+      },
+      indicatorStyle: { // 指示器样式
+        height: 2,
+        backgroundColor: 'white'
+      },
+      labelStyle: { // 文字的样式
+        fontSize: 13,
+        marginTop: 6,
+        marginBottom: 6
+      }
+    }
+  }
+)
+
+// 底部导航 tabbar
 const BottomTabNavigator = createBottomTabNavigator(
   {// 在这里配置页面的路由
     HomePage: {
@@ -26,6 +76,12 @@ const BottomTabNavigator = createBottomTabNavigator(
             style={{color: focused ? 'orange' : 'skyblue'}}
           />
         )
+      }
+    },
+    MeterialTopTabNavigator: {
+      screen: MeterialTopTabNavigator,
+      navigationOptions: {
+        title: '顶部导航器'
       }
     },
     Page1: {
