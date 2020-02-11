@@ -94,135 +94,22 @@ const DrawerNav = createDrawerNavigator(
         )
       }
     },
-    // Page5: {
-    //   screen: Page5,
-    //   navigationOptions: {
-    //     drawerLabel: 'Page5',
-    //     drawerIcon: ({tintColor, focused}) => (
-    //       <MaterialIcons 
-    //         name={'android'}
-    //         size={26}
-    //         style={{color: focused ? 'orange' : 'skyblue'}}
-    //       />
-    //     )
-    //   }
-    // },
-    // Page4: {
-    //   screen: Page4,
-    //   navigationOptions: {
-    //     drawerLabel: 'Page4',
-    //     // drawerIcon: ({tintColor, focused}) => (
-    //     //   <MaterialIcons name={'drafts'}/>
-    //     // )
-    //     drawerIcon: ({tintColor, focused}) => (
-    //       <MaterialIcons 
-    //         name={'favorite'}
-    //         size={26}
-    //         style={{color: focused ? 'orange' : 'skyblue'}}
-    //       />
-    //     )
-    //   }
-    // },
-    // Page5: {
-    //   screen: Page5,
-    //   navigationOptions: {
-    //     drawerLabel: 'Page5',
-    //     drawerIcon: ({tintColor, focused}) => (
-    //       <MaterialIcons 
-    //         name={'android'}
-    //         size={26}
-    //         style={{color: focused ? 'orange' : 'skyblue'}}
-    //       />
-    //     )
-    //   }
-    // },
-    // Page4: {
-    //   screen: Page4,
-    //   navigationOptions: {
-    //     drawerLabel: 'Page4',
-    //     // drawerIcon: ({tintColor, focused}) => (
-    //     //   <MaterialIcons name={'drafts'}/>
-    //     // )
-    //     drawerIcon: ({tintColor, focused}) => (
-    //       <MaterialIcons 
-    //         name={'favorite'}
-    //         size={26}
-    //         style={{color: focused ? 'orange' : 'skyblue'}}
-    //       />
-    //     )
-    //   }
-    // },
-    // Page5: {
-    //   screen: Page5,
-    //   navigationOptions: {
-    //     drawerLabel: 'Page5',
-    //     drawerIcon: ({tintColor, focused}) => (
-    //       <MaterialIcons 
-    //         name={'android'}
-    //         size={26}
-    //         style={{color: focused ? 'orange' : 'skyblue'}}
-    //       />
-    //     )
-    //   }
-    // },
-    // Page4: {
-    //   screen: Page4,
-    //   navigationOptions: {
-    //     drawerLabel: 'Page4',
-    //     // drawerIcon: ({tintColor, focused}) => (
-    //     //   <MaterialIcons name={'drafts'}/>
-    //     // )
-    //     drawerIcon: ({tintColor, focused}) => (
-    //       <MaterialIcons 
-    //         name={'favorite'}
-    //         size={26}
-    //         style={{color: focused ? 'orange' : 'skyblue'}}
-    //       />
-    //     )
-    //   }
-    // },
-    // Page5: {
-    //   screen: Page5,
-    //   navigationOptions: {
-    //     drawerLabel: 'Page5',
-    //     drawerIcon: ({tintColor, focused}) => (
-    //       <MaterialIcons 
-    //         name={'android'}
-    //         size={26}
-    //         style={{color: focused ? 'orange' : 'skyblue'}}
-    //       />
-    //     )
-    //   }
-    // },
-    // Page4: {
-    //   screen: Page4,
-    //   navigationOptions: {
-    //     drawerLabel: 'Page4',
-    //     // drawerIcon: ({tintColor, focused}) => (
-    //     //   <MaterialIcons name={'drafts'}/>
-    //     // )
-    //     drawerIcon: ({tintColor, focused}) => (
-    //       <MaterialIcons 
-    //         name={'favorite'}
-    //         size={26}
-    //         style={{color: focused ? 'orange' : 'skyblue'}}
-    //       />
-    //     )
-    //   }
-    // },
-    // Page5: {
-    //   screen: Page5,
-    //   navigationOptions: {
-    //     drawerLabel: 'Page5',
-    //     drawerIcon: ({tintColor, focused}) => (
-    //       <MaterialIcons 
-    //         name={'android'}
-    //         size={26}
-    //         style={{color: focused ? 'orange' : 'skyblue'}}
-    //       />
-    //     )
-    //   }
-    // }
+    HomePage: {
+      screen: HomePage,
+      navigationOptions: {
+        drawerLabel: 'HomePage',
+        // drawerIcon: ({tintColor, focused}) => (
+        //   <MaterialIcons name={'drafts'}/>
+        // )
+        drawerIcon: ({tintColor, focused}) => (
+          <MaterialIcons 
+            name={'favorite'}
+            size={26}
+            style={{color: focused ? 'orange' : 'skyblue'}}
+          />
+        )
+      }
+    }
   },
   {
     contentComponent: (props) => ( // 自定义侧拉抽屉
