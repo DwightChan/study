@@ -6,12 +6,239 @@ import {createBottomTabNavigator, createMaterialTopTabNavigator} from 'react-nav
 import Page1 from '../pages/Page1';
 import Page2 from '../pages/Page2';
 import Page3 from '../pages/Page3';
+import Page4 from '../pages/Page4';
+import Page5 from '../pages/Page5';
 import HomePage from '../pages/HomePage';
 import Layout from '../pages/D_01_Layout.js';
-import {Button, Text} from 'react-native';
+import {Button, Text, ScrollView} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import {createDrawerNavigator, DrawerNavigatorItems} from 'react-navigation-drawer'
+// import { ScrollView } from 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-navigation';
+import SwitchNavigator from './SwitchNavigator';
 
-const MeterialTopTabNavigator = createMaterialTopTabNavigator(
+const DrawerNav = createDrawerNavigator(
+  {
+    Page4: {
+      screen: Page4,
+      navigationOptions: {
+        drawerLabel: 'Page4',
+        // drawerIcon: ({tintColor, focused}) => (
+        //   <MaterialIcons name={'drafts'}/>
+        // )
+        drawerIcon: ({tintColor, focused}) => (
+          <MaterialIcons 
+            name={'favorite'}
+            size={26}
+            style={{color: focused ? 'orange' : 'skyblue'}}
+          />
+        )
+      }
+    },
+    Page5: {
+      screen: Page5,
+      navigationOptions: {
+        drawerLabel: 'Page5',
+        drawerIcon: ({tintColor, focused}) => (
+          <MaterialIcons 
+            name={'android'}
+            size={26}
+            style={{color: focused ? 'orange' : 'skyblue'}}
+          />
+        )
+      }
+    },
+    Page1: {
+      screen: Page1,
+      navigationOptions: {
+        drawerLabel: 'Page1',
+        // drawerIcon: ({tintColor, focused}) => (
+        //   <MaterialIcons name={'drafts'}/>
+        // )
+        drawerIcon: ({tintColor, focused}) => (
+          <MaterialIcons 
+            name={'favorite'}
+            size={26}
+            style={{color: focused ? 'orange' : 'skyblue'}}
+          />
+        )
+      }
+    },
+    Page2: {
+      screen: Page2,
+      navigationOptions: {
+        drawerLabel: 'Page2',
+        drawerIcon: ({tintColor, focused}) => (
+          <MaterialIcons 
+            name={'android'}
+            size={26}
+            style={{color: focused ? 'orange' : 'skyblue'}}
+          />
+        )
+      }
+    },
+    Page3: {
+      screen: Page3,
+      navigationOptions: {
+        drawerLabel: 'Page3',
+        // drawerIcon: ({tintColor, focused}) => (
+        //   <MaterialIcons name={'drafts'}/>
+        // )
+        drawerIcon: ({tintColor, focused}) => (
+          <MaterialIcons 
+            name={'favorite'}
+            size={26}
+            style={{color: focused ? 'orange' : 'skyblue'}}
+          />
+        )
+      }
+    },
+    // Page5: {
+    //   screen: Page5,
+    //   navigationOptions: {
+    //     drawerLabel: 'Page5',
+    //     drawerIcon: ({tintColor, focused}) => (
+    //       <MaterialIcons 
+    //         name={'android'}
+    //         size={26}
+    //         style={{color: focused ? 'orange' : 'skyblue'}}
+    //       />
+    //     )
+    //   }
+    // },
+    // Page4: {
+    //   screen: Page4,
+    //   navigationOptions: {
+    //     drawerLabel: 'Page4',
+    //     // drawerIcon: ({tintColor, focused}) => (
+    //     //   <MaterialIcons name={'drafts'}/>
+    //     // )
+    //     drawerIcon: ({tintColor, focused}) => (
+    //       <MaterialIcons 
+    //         name={'favorite'}
+    //         size={26}
+    //         style={{color: focused ? 'orange' : 'skyblue'}}
+    //       />
+    //     )
+    //   }
+    // },
+    // Page5: {
+    //   screen: Page5,
+    //   navigationOptions: {
+    //     drawerLabel: 'Page5',
+    //     drawerIcon: ({tintColor, focused}) => (
+    //       <MaterialIcons 
+    //         name={'android'}
+    //         size={26}
+    //         style={{color: focused ? 'orange' : 'skyblue'}}
+    //       />
+    //     )
+    //   }
+    // },
+    // Page4: {
+    //   screen: Page4,
+    //   navigationOptions: {
+    //     drawerLabel: 'Page4',
+    //     // drawerIcon: ({tintColor, focused}) => (
+    //     //   <MaterialIcons name={'drafts'}/>
+    //     // )
+    //     drawerIcon: ({tintColor, focused}) => (
+    //       <MaterialIcons 
+    //         name={'favorite'}
+    //         size={26}
+    //         style={{color: focused ? 'orange' : 'skyblue'}}
+    //       />
+    //     )
+    //   }
+    // },
+    // Page5: {
+    //   screen: Page5,
+    //   navigationOptions: {
+    //     drawerLabel: 'Page5',
+    //     drawerIcon: ({tintColor, focused}) => (
+    //       <MaterialIcons 
+    //         name={'android'}
+    //         size={26}
+    //         style={{color: focused ? 'orange' : 'skyblue'}}
+    //       />
+    //     )
+    //   }
+    // },
+    // Page4: {
+    //   screen: Page4,
+    //   navigationOptions: {
+    //     drawerLabel: 'Page4',
+    //     // drawerIcon: ({tintColor, focused}) => (
+    //     //   <MaterialIcons name={'drafts'}/>
+    //     // )
+    //     drawerIcon: ({tintColor, focused}) => (
+    //       <MaterialIcons 
+    //         name={'favorite'}
+    //         size={26}
+    //         style={{color: focused ? 'orange' : 'skyblue'}}
+    //       />
+    //     )
+    //   }
+    // },
+    // Page5: {
+    //   screen: Page5,
+    //   navigationOptions: {
+    //     drawerLabel: 'Page5',
+    //     drawerIcon: ({tintColor, focused}) => (
+    //       <MaterialIcons 
+    //         name={'android'}
+    //         size={26}
+    //         style={{color: focused ? 'orange' : 'skyblue'}}
+    //       />
+    //     )
+    //   }
+    // },
+    // Page4: {
+    //   screen: Page4,
+    //   navigationOptions: {
+    //     drawerLabel: 'Page4',
+    //     // drawerIcon: ({tintColor, focused}) => (
+    //     //   <MaterialIcons name={'drafts'}/>
+    //     // )
+    //     drawerIcon: ({tintColor, focused}) => (
+    //       <MaterialIcons 
+    //         name={'favorite'}
+    //         size={26}
+    //         style={{color: focused ? 'orange' : 'skyblue'}}
+    //       />
+    //     )
+    //   }
+    // },
+    // Page5: {
+    //   screen: Page5,
+    //   navigationOptions: {
+    //     drawerLabel: 'Page5',
+    //     drawerIcon: ({tintColor, focused}) => (
+    //       <MaterialIcons 
+    //         name={'android'}
+    //         size={26}
+    //         style={{color: focused ? 'orange' : 'skyblue'}}
+    //       />
+    //     )
+    //   }
+    // }
+  },
+  {
+    contentComponent: (props) => ( // 自定义侧拉抽屉
+      <ScrollView style={{backgroundColor: '#098', flex: 1}}>
+        <SafeAreaView forceInset={{top: 'always'}}>
+          <DrawerNavigatorItems {...props}/>
+        </SafeAreaView>
+      </ScrollView>
+    ),
+    contentOptions: {
+      activeTintColor: 'white'
+    }
+  }
+)
+// 顶部导航
+const MaterialTopTabNavigator = createMaterialTopTabNavigator(
   {// 这里配置页面的路由
     Page1: {
       screen: Page1,
@@ -78,10 +305,17 @@ const BottomTabNavigator = createBottomTabNavigator(
         )
       }
     },
-    MeterialTopTabNavigator: {
-      screen: MeterialTopTabNavigator,
+    MaterialTopTabNavigator: {
+      screen: MaterialTopTabNavigator,
       navigationOptions: {
-        title: '顶部导航器'
+        title: '顶部导航器',
+        tabBarIcon: ({tintColor, focused}) => (
+          <Ionicons
+            name={'ios-people'}
+            size={26}
+            style={{color: focused ? 'orange' : 'skyblue'}}
+          />
+        )
       }
     },
     Page1: {
@@ -128,17 +362,17 @@ const BottomTabNavigator = createBottomTabNavigator(
 // 第一个参数的第一个元素 也就是 默认的导航, 
 export const AppStackNavigator = createStackNavigator(
   {
-    HomePage: {
-      screen: BottomTabNavigator,
-      navigationOptions: {
-        title: '底部导航',
-        headerRight: null
-      }
-    },
-    // HomePage: 是路由名称
     // HomePage: {
-    //   screen: HomePage, // 这个HomePage 路由导入的文件 import HomePage from '../pages/HomePage';
+    //   screen: BottomTabNavigator,
+    //   navigationOptions: {
+    //     title: '底部导航',
+    //     headerRight: null
+    //   }
     // },
+    // HomePage: 是路由名称
+    HomePage: {
+      screen: HomePage, // 这个HomePage 路由导入的文件 import HomePage from '../pages/HomePage';
+    },
     Layout: {
       screen: Layout,
       navigationOptions: ({navigation}) => ({
@@ -179,6 +413,21 @@ export const AppStackNavigator = createStackNavigator(
           ),
         };
       },
+    },
+    DrawerNav: DrawerNav,
+    SwitchNav: SwitchNavigator,
+    MaterialTopTabNavigator: {
+      screen:  MaterialTopTabNavigator,
+      navigationOptions: {
+        title: '顶部导航'
+      }
+    },
+    BottomTabNavigator: {
+      screen: BottomTabNavigator,
+      navigationOptions: {
+        title: '底部导航',
+        header: null
+      }
     },
   },
   {
