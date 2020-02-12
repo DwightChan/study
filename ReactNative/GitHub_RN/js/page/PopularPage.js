@@ -5,7 +5,7 @@ export default class PopularPage extends Component {
     render() {
         return (
             <View style={styles.constainer}>
-                <Text style={styles.welcome}>PopularPage</Text>
+                <Text style={styles.welcome}>PopularPage123</Text>
             </View>
         );
     }

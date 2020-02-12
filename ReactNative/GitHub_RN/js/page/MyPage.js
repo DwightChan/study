@@ -14,9 +14,8 @@ export default class MyPage extends Component {
                     {
                         theme: {
                             tinColor: 'red',
-                            updateTime: new Date(),
-                            getTime()
-                        },
+                            updateTime: new Date().getTime(),
+                        }
                     },
                 )}
                 />

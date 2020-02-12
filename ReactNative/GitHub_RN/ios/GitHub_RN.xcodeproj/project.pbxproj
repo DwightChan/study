@@ -19,6 +19,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* GitHub_RNTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* GitHub_RNTests.m */; };
 		3404AEF96D8624787A7336B5 /* libPods-GitHub_RNTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9EF459B762A908D34916AE /* libPods-GitHub_RNTests.a */; };
 		84DEF106003252636308D5BF /* libPods-GitHub_RN-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D335E6655CD27D6D622B3DA /* libPods-GitHub_RN-tvOSTests.a */; };
+		B45AD16323F3A62800565DAB /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = B45AD16223F3A62800565DAB /* Fonts */; };
 		CC15D86DAFACFEA3F519399F /* libPods-GitHub_RN-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C42F2214FB98AF0380F1BDFF /* libPods-GitHub_RN-tvOS.a */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,7 @@
 		7D9EF459B762A908D34916AE /* libPods-GitHub_RNTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GitHub_RNTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD7008E89E9E4E7BE12F294 /* Pods-GitHub_RN-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_RN-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-GitHub_RN-tvOSTests/Pods-GitHub_RN-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AC1ED3457D2288CA4A3F01F2 /* Pods-GitHub_RN-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_RN-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-GitHub_RN-tvOS/Pods-GitHub_RN-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		B45AD16223F3A62800565DAB /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
 		C03624A1CABFC3282B7580CF /* Pods-GitHub_RN-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_RN-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-GitHub_RN-tvOSTests/Pods-GitHub_RN-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		C42F2214FB98AF0380F1BDFF /* libPods-GitHub_RN-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GitHub_RN-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C685BF4292AA6BFCCC64F328 /* Pods-GitHub_RNTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_RNTests.release.xcconfig"; path = "Target Support Files/Pods-GitHub_RNTests/Pods-GitHub_RNTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				B45AD16223F3A62800565DAB /* Fonts */,
 				13B07FAE1A68108700A75B9A /* GitHub_RN */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* GitHub_RNTests */,
@@ -194,7 +197,6 @@
 				C69936E634BFE919D654FB95 /* Pods-GitHub_RNTests.debug.xcconfig */,
 				C685BF4292AA6BFCCC64F328 /* Pods-GitHub_RNTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -309,6 +311,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -337,6 +340,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B45AD16323F3A62800565DAB /* Fonts in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
