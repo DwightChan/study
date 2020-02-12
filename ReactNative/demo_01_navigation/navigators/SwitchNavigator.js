@@ -23,7 +23,7 @@ const AuthStack = createStackNavigator(
     {
         Login: {
             screen: Login,
-            header: null
+            header: null,
         }
     }
 );
