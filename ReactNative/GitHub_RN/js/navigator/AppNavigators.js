@@ -2,6 +2,7 @@ import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import WelcomePage from '../page/WelcomePage';
 import HomePage from '../page/HomePage';
+import DetailPage from "../page/DetailPage";
 
 const InitNavigator = createStackNavigator(
     {
@@ -21,6 +22,14 @@ const MainNavigator = createStackNavigator({
             header: null,//隐藏头部
         },
     },
+    // 值和名字一样 则可以省略
+    DetailPage: {
+      screen: DetailPage,
+      navigationOptions: {
+        title: '详情',
+        headerBackTitle: '返回',
+      }
+    }
 });
 export default createAppContainer(createSwitchNavigator({
     Init: InitNavigator,

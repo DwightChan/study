@@ -7,6 +7,7 @@ import PopularPage from '../page/PopularPage';
 import TrendingPage from '../page/TrendingPage';
 import FavoritePage from '../page/FavoritePage';
 import MyPage from '../page/MyPage';
+import GamePage from '../page/GamePage';
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -73,10 +74,32 @@ export default class DynamicTabNaivgator extends Component {
   }
   _tabNavigator() {
     const {PopularPage, TrendingPage, FavoritePage, MyPage} = TABS;
-    const tabs = {PopularPage, TrendingPage, FavoritePage, MyPage};
+    const tabs = {GamePage: {
+      screen: GamePage,
+      navigationOptions: {
+        tabBarLabel: '打印设备',
+        tabBarIcon: ({tintColor, focused}) => (
+          <Ionicons
+            name={'md-add-circle'}
+            // name={'md-alarm'}
+            // name={'md-trending-up'}
+            size={26}
+            style={{color: tintColor}}
+          />
+          // <MaterialIcons
+          //   name={'print'}
+          //   size={ 26 }
+          //   color={{color: tintColor}}
+          // />
+        ),
+      }
+    }, PopularPage, TrendingPage, FavoritePage, MyPage};
     PopularPage.navigationOptions.tabBarLabel = '最热123'; // 动态修改 tab 属性
     return createAppContainer(createBottomTabNavigator(
-      tabs,
+      // tabs,
+      {
+        ...tabs
+      },
       {
         tabBarComponent: TabBarComponent,
       }
@@ -100,11 +123,17 @@ class TabBarComponent extends Component {
   }
   render() {
     const {routes, index} = this.props.navigation.state;
+    console.log(routes);
+    console.log('----routes----');
     if (routes[index].params) {
       const {theme} = routes[index].params;
-      // 以最新的 更新时间为主, 繁殖被其他tab 之前的修改覆盖
+      // 以最新的 更新时间为主, 频繁被其他tab 之前的修改覆盖
       if (theme && theme.updateTime > this.theme.updateTime) {
+        console.log(index);
+        console.log('----index----');
+        console.log(theme);
         this.theme = theme;
+        // this.setTheme(...theme);
       }
     }
     return <BottomTabBar

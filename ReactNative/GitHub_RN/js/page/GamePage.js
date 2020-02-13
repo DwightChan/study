@@ -1,22 +1,24 @@
+
 import React, { Component } from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
 
-export default class MyPage extends Component {
+export default class GamePage extends Component {
     render() {
         const{navigation} = this.props;
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                    MyPage
+                GamePage
                 </Text>
-                <Button title={'修改主题'}
-                onPress={() => navigation.setParams(
-                  {
-                    theme: {
-                      tintColor: '#111',
-                      updateTime: new Date().getTime(),
-                    }
-                  },
+                <Button 
+                  title={'修改主题'}
+                  onPress={ () => navigation.setParams(
+                    {
+                      theme: {
+                        tintColor: 'orange',
+                        updateTime: new Date().getTime(),
+                      }
+                    },
                 )}
                 />
             </View>
