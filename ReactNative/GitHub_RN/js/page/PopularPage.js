@@ -65,14 +65,14 @@ class PopularTab extends Component {
             NavigationUtil.goPage({}, 'DetailPage');
           }}
         >{this.props.tabLabel}_跳转到详情页面</Text>
-        {/* <Button title = {'修改主题'}
-          onPress = {() => navigation.setParams({
-            theme: {
-              tintColor: '#3f4',
-              updateTime: new Date().getTime(),
-            }},)
-          }
-        />  */}
+        <Button 
+          title={"Fetch使用"}
+          onPress={() => {
+            NavigationUtil.goPage({
+              navigation: this.props.navigation
+            }, "FetchDemoPage")
+          }}
+        />
         </View>
       );
     }
