@@ -51,10 +51,6 @@ export default class PopularPage extends Component {
 class PopularTab extends Component {
     constructor(props) {
         super(props)
-        console.log(props);
-        console.log('-----props after');
-        console.log(props.tabLabel);
-        console.log('-----props tabLabel');
     }
     render() {
       const{navigation} = this.props;
@@ -79,6 +75,14 @@ class PopularTab extends Component {
             NavigationUtil.goPage({
               navigation: this.props.navigation
             }, "AsyncStorageDemoPage")
+          }}
+        />
+        <Button 
+          title={"离线缓存demo"}
+          onPress={() => {
+            NavigationUtil.goPage({
+              navigation: this.props.navigation
+            }, "DataStoreDemoPage")
           }}
         />
         </View>

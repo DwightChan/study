@@ -65,9 +65,8 @@ export default class FetchDemoPage extends Component<Props> {
             }}
           />
         </View>
-
         <Text>
-            {this.state.showText}
+          {this.state.showText}
         </Text>
       </View>
     );
