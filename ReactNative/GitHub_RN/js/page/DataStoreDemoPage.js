@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { StyleSheet, View, Text, TextInput } from "react-native";
 
 import DataStore from "../expand/dao/DataStore";
+// import moment from "moment";
 
 type Props = {};
 const KEY = 'save_key';
@@ -20,9 +21,15 @@ export default class DataStoreDemoPage extends Component<Props> {
     let url = `https://api.github.com/search/repositories?q=${this.value}`;
     console.log(`这个是url:${url}`);
     
-    this.dataStore.fetchLocalData(url) 
+    this.dataStore.fetchData(url) 
       .then(data => {
-        let showData = `初次数据加载时间: ${new Data(data.timestamp)}\n${JSON.stringify(data.data)}`;
+        console.log("已经获取到结果");
+        // 时间格式转换 存在问题
+        // console.log(new Data(1581906228754));
+        // console.log(`初次数据加载时间:${typeof data.timestamp}`);
+        // console.log(`初次数据加载时间:${new Data(1581906228754)}`);
+        // let showData = `初次数据加载时间: ${new Data(data.timestamp)}\n${JSON.stringify(data.data)}`;
+        let showData = JSON.stringify(data.timestamp);
         this.setState({
           showText: showData
         }).catch(error => {

@@ -91,6 +91,9 @@ export default class DataStore {
     }
 
     _wrapData(data) {
+      console.log("data --------------");
+      console.log(data);
+      console.log("data ++++++++++++++");
         return {data: data, timestamp: new Date().getTime()};
     }
 
