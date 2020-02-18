@@ -1,6 +1,4 @@
-import Types from "../../action/types";
-import { act } from "react-test-renderer";
-import { loadOptions } from "@babel/core";
+import Types from '../../action/types';
 
 const defaultState = {};
 
@@ -22,23 +20,33 @@ const defaultState = {};
  * @returns {{theme: (onAction|*|string)}}
  */
 export default function onAction(state = defaultState, action) {
-  console.log("state-----------");
-  console.log(state);
+  // console.log("action-----------", action.type);
+  // console.log("action:",JSON.stringify(action));
+  // console.log("...state[action.storeName]----------");
+  // console.log("state:", JSON.stringify(...state[action.storeName]));
+  // console.log(...state);
+  // console.log("...state-----------");
+  
   switch (action.type) {
-    case Types.LOAD_POPULAR_SUCCESS: 
-      return {
+    case Types.LOAD_POPULAR_SUCCESS: {
+      const result = {
         ...state,
         [action.storeName]: {
-          ...[action.storeName],
+          ...state[action.storeName],
           items: action.items,
           isLoading: false,
         }
-      }
+      };
+      console.log("result:-----------", JSON.stringify(result));    
+      // console.log("action.items:", JSON.stringify(action.items));
+      return result;
+    }
     case Types.POPULAR_REFRESH: 
       return {
         ...state,
         [action.storeName]: {
-          ...[action.storeName],
+          ...state[action.storeName],
+          items: action.items,
           isLoading: true,
         }
      }
@@ -46,7 +54,7 @@ export default function onAction(state = defaultState, action) {
       return {
         ...state,
         [action.storeName]: {
-          ...[action.storeName],
+          ...state[action.storeName],
           isLoading: false,
         }
       }

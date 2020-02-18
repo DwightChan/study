@@ -8,12 +8,11 @@ export function onLoadPopularData(storeName, url) {
     let dataStore = new DataStore();
     dataStore.fetchData(url)// 异步action 与数据流
       .then(data => {
-        console.log("获取数据成功");
-        console.log(storeName, data);
+        // console.log("获取数据成功---", storeName);
         handleData(dispatch, storeName, data)
       })
       .catch(error => {
-        console.log("获取数据失败");
+        // console.log("获取数据失败");
         console.log(error);
         dispatch({
           type: Types.LOAD_POPULAR_SUCCESS,
@@ -25,9 +24,10 @@ export function onLoadPopularData(storeName, url) {
 }
 
 function handleData(dispatch, storeName, data) {
+  // console.log("data.data.items[0]:-----", JSON.stringify(data.data.items[0]));
   dispatch({
     type: Types.LOAD_POPULAR_SUCCESS,
-    items: data && data.data && data.data.item,
+    items: data && data.data && data.data.items,
     storeName
   })
 }

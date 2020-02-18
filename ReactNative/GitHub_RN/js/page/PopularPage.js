@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text, RefreshControl, FlatList } from "react-native";
 import { createMaterialTopTabNavigator } from "react-navigation-tabs";
+import { createAppContainer } from "react-navigation" ;
 import NavigationUtil from "../navigator/NavigationUtil";
 // import DetailPage from "../page/DetailPage";
-import { createAppContainer } from "react-navigation";
 import actions from "../action/index";
 import { connect } from "react-redux";
+import PopularItem from "../common/PopularItem";
 
 const URL = 'https://api.github.com/search/repositories?q=';
 const QUERY_STR = '&sort=stars';
 const THEME_COLOR = 'red';
-type Props={};
+type Props = {};
 
 export default class PopularPage extends Component<Props> {
     constructor(props) {
@@ -52,7 +53,6 @@ export default class PopularPage extends Component<Props> {
         ));
         return (<View style={styles.constainer}>
             <TabNavigator /> 
-            { /* <Text style={styles.welcome}>PopularPage123</Text> */ } 
           </View>
         );
     }
@@ -81,12 +81,20 @@ class PopularTab extends Component<Props> {
     
     renderItem(data) {
       const item = data.item;
-      console.log("item----");
-      console.log(item);      
-      return <View style={{marginBottom: 10}}>
-        {/* <Text>{JSON.stringify(item)}</Text> */}
-        {/* <Text>123</Text> */}
-      </View>
+      return <PopularItem
+        item={item}
+        onSelect={() => {
+          console.log("我被选中了");
+        }}
+      />
+      // console.log("item----");
+      // console.log(item);      
+      // return <View style={{marginBottom: 10}}>
+      //   <Text>创建时间: {item.created_at}</Text>
+      //   <Text>描述信息: {item.description}</Text>
+      //   {/* <Text>{JSON.stringify(item)}</Text> */}
+      //   {/* <Text>123</Text> */}
+      // </View>
     }
     render() {
       // const{navigation} = this.props;
@@ -100,7 +108,7 @@ class PopularTab extends Component<Props> {
           isLoading: false,
         }
       }
-      console.log("popular=======", popular);
+      console.log("items:", store.items);
       return (<View style={styles.constainer}>
         <FlatList
           data={store.items}
@@ -123,7 +131,7 @@ class PopularTab extends Component<Props> {
 }
 
 const mapStateToProps = state => ({
-  popular: state.popular
+  popular: state.popular,
 });
 const mapDispatchToProps = dispatch => ({
   onLoadPopularData: (storeName, url) => dispatch(actions.onLoadPopularData(storeName, url))

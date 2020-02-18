@@ -1,12 +1,12 @@
 import { applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
 import reducers from "../reducer";
-// import {  } from "";
+import { middleware } from "../navigator/AppNavigators";
 
 /**
  * 自定义log中间件
+ * https://cn.redux.js.org/docs/advanced/Middleware.html
  * @param store
- * @returns {function(*): Function}
  */
 const logger = store => next => action => {
   if (typeof action === 'function') {
@@ -20,6 +20,7 @@ const logger = store => next => action => {
 };
 
 const middlewares = [
+  middleware,
   logger,
   thunk,
 ];
