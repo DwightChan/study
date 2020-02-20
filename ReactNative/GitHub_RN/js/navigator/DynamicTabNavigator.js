@@ -98,6 +98,7 @@ class DynamicTabNaivgator extends Component<Props> {
         ),
       }
     }, PopularPage, TrendingPage, FavoritePage, MyPage};
+    // const tabs = {PopularPage, TrendingPage, FavoritePage, MyPage};
     PopularPage.navigationOptions.tabBarLabel = '最热123'; // 动态修改 tab 属性
     return this.Tabs = createAppContainer(createBottomTabNavigator(tabs, {
       tabBarComponent: props => {

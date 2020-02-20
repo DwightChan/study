@@ -9,10 +9,11 @@ import { connect } from "react-redux";
 import PopularItem from "../common/PopularItem";
 import Toast from "react-native-easy-toast";
 import Types from "../action/types";
+import NavigationBar from "../common/NavigationBar";
 
 const URL = 'https://api.github.com/search/repositories?q=';
 const QUERY_STR = '&sort=stars';
-const THEME_COLOR = 'red';
+const THEME_COLOR = 'skyblue';
 type Props = {};
 
 export default class PopularPage extends Component<Props> {
@@ -37,26 +38,39 @@ export default class PopularPage extends Component<Props> {
     }
 
     render() {
-        const TabNavigator = createAppContainer(createMaterialTopTabNavigator(
-          this._getTabs(), {
-            tabBarOptions: {
-              tabStyle: styles.tabStyle,
-              // 默认是大小字母
-              upperCaseLabel: false,
-              // 默认是无法滚动
-              scrollEnabled: true,
-              style: {
-                  backgroundColor: '#a0a',
-              },
-              indicatorStyle: styles.indicatorStyle,
-              labelStyle: styles.labelStyle,
+      let statusBar = {
+        backgroundColor: THEME_COLOR, //'orange',
+        // barStyle: 'light-content',
+        barStyle: 'default',
+        hidden: false,
+      };
+
+      let navigationBar = <NavigationBar
+        title={'最热'}
+        statusBar={statusBar}
+        // style={{backgroundColor: "yellow"}}
+      />;
+
+      const TabNavigator = createAppContainer(createMaterialTopTabNavigator(
+        this._getTabs(), {
+          tabBarOptions: {
+            tabStyle: styles.tabStyle,
+            // 默认是大小字母
+            upperCaseLabel: false,
+            // 默认是无法滚动
+            scrollEnabled: true,
+            style: {
+                backgroundColor: '#a0a',
             },
+            indicatorStyle: styles.indicatorStyle,
+            labelStyle: styles.labelStyle,
           },
-        ));
-        return (<View style={styles.constainer}>
-            <TabNavigator /> 
-          </View>
-        );
+        },
+      ));
+      return (<View style={styles.constainer}>
+        {navigationBar}
+        <TabNavigator /> 
+      </View>);
     }
 }
 
@@ -203,16 +217,10 @@ const PopularTabPage = connect(mapStateToProps, mapDispatchToProps)(PopularTab)
 const styles = StyleSheet.create({
     constainer: {
         flex: 1,
-        marginTop: 30,
-        backgroundColor: '#f5fcff',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
+        // marginTop: 33,
     },
     tabStyle: {
-        // minWidth: 10,
+        minWidth: 50,
     },
     indicatorStyle: {
         height: 2,
