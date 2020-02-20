@@ -3,14 +3,28 @@ export default {
   THEME_CHANGE: 'THEME_CHANGE',
   // 主题初始化
   THEME_INIT: 'THEME_INIT',
+
+
   // 加载Popular 页面数据
   POPULAR_REFRESH: "POPULAR_REFRESH",
   // 加载Popular 页面数据 失败
   POPULAR_REFRESH_FAIL: 'POPULAR_REFRESH_FAIL',
   // 加载Popular 页面数据 成功
   POPULAR_REFRESH_SUCCESS: 'POPULAR_REFRESH_SUCCESS',
-  // 加载更多成功
+  // 加载Popular 更多成功
   POPULAR_LOAD_MORE_SUCCESS: 'POPULAR_LOAD_MORE_SUCCESS',
-  // 加载更多失败
+  // 加载Popular 更多失败
   POPULAR_LOAD_MORE_FAIL: 'POPULAR_LOAD_MORE_FAIL',
+
+
+  // 加载Trending 页面数据
+  TRENDING_REFRESH: "TRENDING_REFRESH",
+  // 加载Trending 页面数据 失败
+  TRENDING_REFRESH_FAIL: 'TRENDING_REFRESH_FAIL',
+  // 加载Trending 页面数据 成功
+  TRENDING_REFRESH_SUCCESS: 'TRENDING_REFRESH_SUCCESS',
+  // 加载Trending 更多成功
+  TRENDING_LOAD_MORE_SUCCESS: 'TRENDING_LOAD_MORE_SUCCESS',
+  // 加载Trending 更多失败
+  TRENDING_LOAD_MORE_FAIL: 'TRENDING_LOAD_MORE_FAIL',
 };
