@@ -37,10 +37,11 @@ export default function onAction(state = defaultState, action) {
           projectModes: action.projectModes, // 此次要展示的数据
           isLoading: false,
           hideLoadingMore: false,
+          // hideLoadingMore: true,
           pageIndex: action.pageIndex
         }
       };
-      console.log("result:-----------", JSON.stringify(result));    
+      // console.log("result:-----------", JSON.stringify(result));    
       // console.log("action.items:", JSON.stringify(action.items));
       return result;
     }
@@ -60,9 +61,10 @@ export default function onAction(state = defaultState, action) {
         [action.storeName]: {
           ...state[action.storeName],
           isLoading: false,
+          hideLoadingMore: true,
         }
       }
-    case Types.POPULAR_REFRESH_SUCCESS: // 上拉加载更多成功
+    case Types.POPULAR_LOAD_MORE_SUCCESS: // 上拉加载更多成功
       return {
         ...state, //Object.assign @http://www.devio.org/2018/09/09/ES6-ES7-ES8-Feature/
         [action.storeName]: {

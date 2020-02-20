@@ -8,6 +8,7 @@ import actions from "../action/index";
 import { connect } from "react-redux";
 import PopularItem from "../common/PopularItem";
 import Toast from "react-native-easy-toast";
+import Types from "../action/types";
 
 const URL = 'https://api.github.com/search/repositories?q=';
 const QUERY_STR = '&sort=stars';
@@ -59,7 +60,7 @@ export default class PopularPage extends Component<Props> {
     }
 }
 
-const pageSize = 10; // 设置为常量, 防止修改
+const pageSize = 8; // 设置为常量, 防止修改
 class PopularTab extends Component<Props> {
     constructor(props) {
       super(props)
@@ -71,14 +72,19 @@ class PopularTab extends Component<Props> {
       this.loadData();
     }
 
-    loadData(loadMore = false) {
+    loadData(loadMore) {
       const {onRefreshPopular, onLoadMorePopular} = this.props;
       const store = this._store()
       const url = this.genFetchUrl(this.storeName);
       if (loadMore) {
-        onLoadMorePopular(this.storeName, ++store.pageIndex, pageSize, store.items, callback => {
-          this.refs.toast.shadowRoot('没有更多了...')
-        })
+        console.log(`storeName:${this.storeName}, pageIndex:${store.pageIndex}, pageSize:${pageSize}, items:${store.imtes}, projectModes:${store.projectModes}`);
+        store.pageIndex += 1;
+        onLoadMorePopular(this.storeName, store.pageIndex, pageSize, store.items, (msg) => {
+          console.log(msg);
+          console.log("没有更多数据");
+          this.refs.toast.show(msg);
+        });
+        console.log(`storeName:${this.storeName}, pageIndex:${store.pageIndex}, pageSize:${pageSize}, projectModes:${store.projectModes.length}`);
       }else {
         onRefreshPopular(this.storeName, url, pageSize);
       }
@@ -95,7 +101,6 @@ class PopularTab extends Component<Props> {
         store = {
           items: [],
           isLoading: false,
-          pageIndex: 0,
           projectModes: [], //要显示的数据
           hideLoadingMore: true, // 默认是隐藏加载更多
         }
@@ -127,18 +132,14 @@ class PopularTab extends Component<Props> {
         </View>
     }
     render() {
-      // // const{navigation} = this.props;
-      // const {popular} = this.props;
-      // let store = {}
-      // store = popular ? popular[this.storeName] : null; // 动态获取state
-      // if (!store) {
-      //   console.log("popular", popular);
-      //   store = {
-      //     items: [],
-      //     isLoading: false,
-      //   }
+      let store = this._store();
+      // if (store.type === Types.POPULAR_REFRESH_SUCCESS &&
+      //     store.hideLoadingMore === true) {
+      //   setTimeout(() => {
+      //     store.hideLoadingMore = false
+      //   }, 1000);
       // }
-      console.log("items:", store.items);
+      // console.log("projectModes:", store.projectModes);
       return (<View style={styles.constainer}>
         <FlatList
           data={store.projectModes}
@@ -157,23 +158,33 @@ class PopularTab extends Component<Props> {
           ListFooterComponent={() => this.getInndicator()}
           // 已经被拉到底
           onEndReached={() => {
-            console.log('----onEndReached----');
+            console.log('----onEndReached----', new Date());
+            // this.loadData(true);
+            // this.canLoadMore = false
             setTimeout(() => {
-              if (this.canLoadMore) {// fix 滚动是两次调用 onEndReached https://github.com/facebook/react-native/issues/14015
+              if (this.canLoadMore && store.items.length > pageSize) {// fix 滚动是两次调用 onEndReached https://github.com/facebook/react-native/issues/14015
                 this.loadData(true);
                 this.canLoadMore = false
               }
-            }, 100)
-            
+            }, 100);
           }}
-          onEndReachedThreshold={0.5}
+          onEndReachedThreshold
+          onEndReachedThreshold={0.1}
           // 开始滚动事件
           onMomentumScrollBegin={() => {
             this.canLoadMore = true; //fix 初始化时页调用onEndReached的问题
             console.log("----onMomentScrollBegin-----");
           }}
-        >
-        </FlatList>
+          // // 滚动结束
+          // onMomentumScrollEnd={() => {
+          //   this.canLoadMore = true; //fix 初始化时页调用onEndReached的问题
+          //   console.log("----onMomentumScrollEnd-----");
+          // }}
+        />
+        <Toast 
+          ref={"toast"}
+          position={'center'}
+        />
       </View>);
     }
 }
@@ -183,8 +194,9 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
   onRefreshPopular: (storeName, url, pageSize) => dispatch(actions.onRefreshPopular(storeName, url, pageSize)),
-  onLoadMorePopular: (storeName, url, pageSize) => dispatch(actions.onLoadMorePopular(storeName, url, pageSize))
+  onLoadMorePopular: (storeName, url, pageSize, items, callBack) => dispatch(actions.onLoadMorePopular(storeName, url, pageSize, items, callBack))
 });
+//注意：connect只是个function，并不应定非要放在export后面
 const PopularTabPage = connect(mapStateToProps, mapDispatchToProps)(PopularTab)
 
 
