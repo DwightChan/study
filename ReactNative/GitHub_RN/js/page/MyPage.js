@@ -50,8 +50,8 @@ class MyPage extends Component {
   render() {
     let statusBar = {
       backgroundColor: 'green',
-      // barStyle: 'light-content',
-      barStyle: 'default',
+      barStyle: 'light-content',
+      // barStyle: 'default',
       hidden: false,
     };
 

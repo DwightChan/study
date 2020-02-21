@@ -44,7 +44,7 @@ export default class NavigationBar extends Component {
         <StatusBar {...this.props.statusBar}/>
       </View> : null;
 
-    let titleView = this.props.titleView ? this.propTypes.titleView : <View>
+    let titleView = this.props.titleView ? this.props.titleView : <View>
         <Text
           ellipsizeMode={'head'}
           numberOfLines={1}
