@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, RefreshControl, FlatList, ActivityIndicator } from "react-native";
+import { StyleSheet, View, Text, RefreshControl, FlatList, ActivityIndicator, Platform } from "react-native";
 import { createMaterialTopTabNavigator } from "react-navigation-tabs";
 import { createAppContainer } from "react-navigation" ;
 import NavigationUtil from "../navigator/NavigationUtil";
@@ -8,7 +8,6 @@ import actions from "../action/index";
 import { connect } from "react-redux";
 import PopularItem from "../common/PopularItem";
 import Toast from "react-native-easy-toast";
-import Types from "../action/types";
 import NavigationBar from "../common/NavigationBar";
 
 const URL = 'https://api.github.com/search/repositories?q=';
@@ -61,13 +60,14 @@ export default class PopularPage extends Component<Props> {
             scrollEnabled: true,
             style: {
                 backgroundColor: '#a0a',
+                 height: 45,//fix 开启scrollEnabled后再Android上初次加载时闪烁问题
             },
             indicatorStyle: styles.indicatorStyle,
             labelStyle: styles.labelStyle,
           },
         },
       ));
-      return (<View style={styles.constainer}>
+      return (<View style={styles.container}>
         {navigationBar}
         <TabNavigator /> 
       </View>);
@@ -147,14 +147,7 @@ class PopularTab extends Component<Props> {
     }
     render() {
       let store = this._store();
-      // if (store.type === Types.POPULAR_REFRESH_SUCCESS &&
-      //     store.hideLoadingMore === true) {
-      //   setTimeout(() => {
-      //     store.hideLoadingMore = false
-      //   }, 1000);
-      // }
-      // console.log("projectModes:", store.projectModes);
-      return (<View style={styles.constainer}>
+      return (<View style={styles.container}>
         <FlatList
           data={store.projectModes}
           renderItem={data => this.renderItem(data)}
@@ -215,32 +208,26 @@ const PopularTabPage = connect(mapStateToProps, mapDispatchToProps)(PopularTab)
 
 
 const styles = StyleSheet.create({
-    constainer: {
-        flex: 1,
-        // marginTop: 33,
-    },
-    tabStyle: {
-        minWidth: 50,
-    },
-    indicatorStyle: {
-        height: 2,
-        backgroundColor: '#111',
-    },
-    labelStyle: {
-        fontSize: 13,
-        marginTop: 6,
-        marginBottom: 6,
-    },
-    textPressStyle: {
-        backgroundColor: '#ccc',
-        // width: 100,
-        height: 30,
-    },
-    indicatorContainer: {
-      alignItems: "center",
-    },
-    indicator: {
+  container: {
+      flex: 1,
+  },
+  tabStyle: {
+      // minWidth: 50 //fix minWidth会导致tabStyle初次加载时闪烁
+      padding: 0
+  },
+  indicatorStyle: {
+      height: 2,
+      backgroundColor: 'white'
+  },
+  labelStyle: {
+      fontSize: 13,
+      margin: 0,
+  },
+  indicatorContainer: {
+      alignItems: "center"
+  },
+  indicator: {
       color: 'red',
-      marginTop: 10,
-    }
+      margin: 10
+  }
 });

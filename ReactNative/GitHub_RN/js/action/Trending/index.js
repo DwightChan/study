@@ -1,5 +1,6 @@
 import Types from "../types";
-import DataStore from "../../expand/dao/DataStore";
+import DataStore, {FLAG_STORAGE} from "../../expand/dao/DataStore";
+import { handleData } from "../ActionUtil";
 
 /**
  * 获取最热数据的异步action
@@ -8,21 +9,22 @@ import DataStore from "../../expand/dao/DataStore";
  * @param pageSize
  * @returns {function(*=)}
  */
-export function onRefreshPopular(storeName, url, pageSize) {
-  console.log("进入 方法 onRefreshPopular");
+export function onRefreshTrending(storeName, url, pageSize) {
+  console.log("进入方法 onRefreshTrending");
   return dispatch => {
-    dispatch({type: Types.POPULAR_REFRESH, storeName: storeName});
+    dispatch({type: Types.TRENDING_REFRESH, storeName: storeName});
     let dataStore = new DataStore();
-    dataStore.fetchData(url)// 异步action 与数据流
+    dataStore.fetchData(url, FLAG_STORAGE.flag_trending)// 异步action 与数据流
       .then(data => {
         console.log("获取数据成功---", storeName);
-        handleData(dispatch, storeName, data, pageSize)
+        // handleData(dispatch, storeName, data, pageSize)
+        handleData(Types.TRENDING_REFRESH_SUCCESS, dispatch, storeName, data, pageSize)
       })
       .catch(error => {
         // console.log("获取数据失败");
         console.log(error);
         dispatch({
-          type: Types.POPULAR_REFRESH_FAIL,
+          type: Types.TRENDING_REFRESH_FAIL,
           storeName,
           error,
         })
@@ -38,7 +40,7 @@ export function onRefreshPopular(storeName, url, pageSize) {
  * @param dataArray 原始数据
  * @param callBack 回调函数，可以通过回调函数来向调用页面通信：比如异常信息的展示，没有更多等待
  */
-export function onLoadMorePopular(storeName, pageIndex, pageSize, dataArray = [], callBack) {
+export function onLoadMoreTrending(storeName, pageIndex, pageSize, dataArray = [], callBack) {
   return dispatch => {
     setTimeout(() => { // 模拟网络请求延时
       console.log(`storeName:${storeName}, pageIndex:${pageIndex}, pageSize:${pageSize}, dataArray.length:${dataArray.length}`);
@@ -46,11 +48,11 @@ export function onLoadMorePopular(storeName, pageIndex, pageSize, dataArray = []
       if ((pageIndex - 1) * pageSize >= dataArray.length) {//已加载完全部数据
         if (typeof callBack === 'function') {
           // callBack();
-          callBack('no more');
+          callBack('no more Trending Data');
           // console.log("callBack 是个函数");
         }
         dispatch({
-          type: Types.POPULAR_LOAD_MORE_FAIL,
+          type: Types.TRENDING_LOAD_MORE_FAIL,
           error: "没有更多数据...",
           storeName: storeName,
           pageIndex: --pageIndex,
@@ -62,7 +64,7 @@ export function onLoadMorePopular(storeName, pageIndex, pageSize, dataArray = []
         //本次和载入的最大数量
         let max = pageSize * pageIndex > dataArray.length ? dataArray.length : pageSize * pageIndex;
         dispatch({
-          type: Types.POPULAR_LOAD_MORE_SUCCESS,
+          type: Types.TRENDING_LOAD_MORE_SUCCESS,
           storeName,
           pageIndex,
           projectModes: dataArray.slice(0, max),
@@ -70,26 +72,4 @@ export function onLoadMorePopular(storeName, pageIndex, pageSize, dataArray = []
       }
     }, 500);
   }
-}
-
-/***
- * 处理下拉刷新的数据
- * @param dispatch
- * @param storeName
- * @param data
- * @param pageSize
- */
-function handleData(dispatch, storeName, data, pageSize) {
-  let fixItems = [];
-  if (data && data.data && data.data.items) {
-    fixItems = data.data.items;
-  }
-  // console.log("data.data.items[0]:-----", JSON.stringify(data.data.items[0]));
-  dispatch({
-    type: Types.TRENDING_REFRESH_SUCCESS,
-    items: fixItems,
-    projectModes: pageSize > fixItems.length ? fixItems : fixItems.slice(0, pageSize), //第一次要加载的数据
-    storeName,
-    pageIndex: 1,
-  })
 }

@@ -1,5 +1,6 @@
 import Types from "../types";
-import DataStore from "../../expand/dao/DataStore";
+import DataStore, {FLAG_STORAGE} from "../../expand/dao/DataStore";
+import { handleData } from "../ActionUtil";
 
 /**
  * 获取最热数据的异步action
@@ -9,14 +10,15 @@ import DataStore from "../../expand/dao/DataStore";
  * @returns {function(*=)}
  */
 export function onRefreshPopular(storeName, url, pageSize) {
-  console.log("进入 方法 onRefreshPopular");
+  console.log("进入方法 onRefreshPopular");
   return dispatch => {
     dispatch({type: Types.POPULAR_REFRESH, storeName: storeName});
     let dataStore = new DataStore();
-    dataStore.fetchData(url)// 异步action 与数据流
+    dataStore.fetchData(url, FLAG_STORAGE.flag_popular)// 异步action 与数据流
       .then(data => {
         console.log("获取数据成功---", storeName);
-        handleData(dispatch, storeName, data, pageSize)
+        // handleData(dispatch, storeName, data, pageSize)
+        handleData(Types.POPULAR_REFRESH_SUCCESS, dispatch, storeName, data, pageSize)
       })
       .catch(error => {
         // console.log("获取数据失败");
@@ -70,26 +72,4 @@ export function onLoadMorePopular(storeName, pageIndex, pageSize, dataArray = []
       }
     }, 500);
   }
-}
-
-/***
- * 处理下拉刷新的数据
- * @param dispatch
- * @param storeName
- * @param data
- * @param pageSize
- */
-function handleData(dispatch, storeName, data, pageSize) {
-  let fixItems = [];
-  if (data && data.data && data.data.items) {
-    fixItems = data.data.items;
-  }
-  // console.log("data.data.items[0]:-----", JSON.stringify(data.data.items[0]));
-  dispatch({
-    type: Types.POPULAR_REFRESH_SUCCESS,
-    items: fixItems,
-    projectModes: pageSize > fixItems.length ? fixItems : fixItems.slice(0, pageSize), //第一次要加载的数据
-    storeName,
-    pageIndex: 1,
-  })
 }

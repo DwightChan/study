@@ -28,7 +28,7 @@ export default function onAction(state = defaultState, action) {
   // console.log("...state-----------");
   
   switch (action.type) {
-    case Types.POPULAR_REFRESH_SUCCESS: { // 下拉刷新成功
+    case Types.TRENDING_REFRESH_SUCCESS: { // 下拉刷新成功
       const result = {
         ...state,
         [action.storeName]: {
@@ -45,7 +45,7 @@ export default function onAction(state = defaultState, action) {
       // console.log("action.items:", JSON.stringify(action.items));
       return result;
     }
-    case Types.POPULAR_REFRESH: // 下拉刷新
+    case Types.TRENDING_REFRESH: // 下拉刷新
       return {
         ...state,
         [action.storeName]: {
@@ -55,16 +55,18 @@ export default function onAction(state = defaultState, action) {
           hideLoadingMore: true,
         }
      }
-    case Types.POPULAR_REFRESH_FAIL: // 下拉刷新失败
-      return {
+    case Types.TRENDING_REFRESH_FAIL: {// 下拉刷新失败
+      const result = {
         ...state,
         [action.storeName]: {
           ...state[action.storeName],
           isLoading: false,
           hideLoadingMore: true,
         }
-      }
-    case Types.POPULAR_LOAD_MORE_SUCCESS: // 上拉加载更多成功
+      };
+      return result;
+    }
+    case Types.TRENDING_LOAD_MORE_SUCCESS: // 上拉加载更多成功
       return {
         ...state, //Object.assign @http://www.devio.org/2018/09/09/ES6-ES7-ES8-Feature/
         [action.storeName]: {
@@ -74,7 +76,7 @@ export default function onAction(state = defaultState, action) {
           pageIndex: action.pageIndex,
         }
       };
-    case Types.POPULAR_LOAD_MORE_FAIL: // 上拉加载更多失败
+    case Types.TRENDING_LOAD_MORE_FAIL: // 上拉加载更多失败
       return {
         ...state, //Object.assign @http://www.devio.org/2018/09/09/ES6-ES7-ES8-Feature/
         [action.storeName]: {

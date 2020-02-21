@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 // Platform: 是获取平台
 // ViewPropTypes 是做校验
-import { StyleSheet, View, ViewPropTypes, Text, StatusBar, Platform } from "react-native";
+import { StyleSheet, View, ViewPropTypes, Text, StatusBar, Platform, DeviceInfo } from "react-native";
 import {PropTypes} from "prop-types";
 
 const NAV_BAR_HEIGHT_IOS = 44; // 导航栏在ios中的高度
 const NAV_BAR_HEIGHT_ANDROID = 50; //导航栏在Android 中的高度;
-const STATUS_BAR_HEIGHT = 30; //状态栏的高度
+const STATUS_BAR_HEIGHT = 20; //状态栏的高度
+const STATUS_BAR_HEIGHT_IPHONEX = 44;//iphone x 的tabbar 高度
 
 let isIOS = Platform.OS === "ios" ? true : false;
 
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    height: isIOS ? NAV_BAR_HEIGHT_IOS : NAV_BAR_HEIGHT_ANDROID,
+    height: isIOS ?  NAV_BAR_HEIGHT_IOS : NAV_BAR_HEIGHT_ANDROID,
   },
   navBarTitleContainer: {
     alignItems: 'center',
@@ -100,6 +101,6 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   statusBar: {
-    height: isIOS ? STATUS_BAR_HEIGHT : 0,
+    height: isIOS ? (DeviceInfo.isIPhoneX_deprecated ? STATUS_BAR_HEIGHT_IPHONEX : STATUS_BAR_HEIGHT) : 0,
   },
 });
