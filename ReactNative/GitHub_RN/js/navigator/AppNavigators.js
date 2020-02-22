@@ -30,8 +30,9 @@ const MainNavigator = createStackNavigator({
     DetailPage: {
       screen: DetailPage,
       navigationOptions: {
-        title: '详情',
-        headerBackTitle: '返回',
+        // title: '详情',
+        // headerBackTitle: '返回',
+        header: null,
       }
     },
     FetchDemoPage: {

@@ -9,10 +9,10 @@ import { connect } from "react-redux";
 import PopularItem from "../common/PopularItem";
 import Toast from "react-native-easy-toast";
 import NavigationBar from "../common/NavigationBar";
-
+import { THEME_COLOR } from "../util/ViewUtil";
 const URL = 'https://api.github.com/search/repositories?q=';
 const QUERY_STR = '&sort=stars';
-const THEME_COLOR = 'skyblue';
+
 type Props = {};
 
 export default class PopularPage extends Component<Props> {
@@ -47,7 +47,7 @@ export default class PopularPage extends Component<Props> {
       let navigationBar = <NavigationBar
         title={'最热'}
         statusBar={statusBar}
-        // style={{backgroundColor: "yellow"}}
+        style={{backgroundColor: THEME_COLOR}}
       />;
 
       const TabNavigator = createAppContainer(createMaterialTopTabNavigator(
@@ -59,7 +59,7 @@ export default class PopularPage extends Component<Props> {
             // 默认是无法滚动
             scrollEnabled: true,
             style: {
-                backgroundColor: '#a0a',
+                backgroundColor: THEME_COLOR, //'#a0a',
                  height: 45,//fix 开启scrollEnabled后再Android上初次加载时闪烁问题
             },
             indicatorStyle: styles.indicatorStyle,
@@ -131,7 +131,10 @@ class PopularTab extends Component<Props> {
       return <PopularItem
         item={item}
         onSelect={() => {
-          console.log("我被选中了");
+          // console.log("我被选中了");
+          NavigationUtil.goPage({
+            projectMode: item
+          }, 'DetailPage');
         }}
       />
     }

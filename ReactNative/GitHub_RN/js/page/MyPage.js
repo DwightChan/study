@@ -4,6 +4,7 @@ import actions from "../action";
 import { connect } from "react-redux";
 import NavigationUtil from "../navigator/NavigationUtil";
 import NavigationBar from "../common/NavigationBar";
+import { THEME_COLOR } from "../util/ViewUtil";
 // import { TouchableOpacity } from "react-native-gesture-handler";
 import Feather from "react-native-vector-icons/Feather";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -58,7 +59,7 @@ class MyPage extends Component {
     let navigationBar = <NavigationBar
       title={'我的'}
       // statusBar={statusbar}
-      style={{backgroundColor: 'pink'}}
+      style={{backgroundColor: THEME_COLOR}}
       rightButton={this.getRightButton()}
       leftButton={this.getLeftButton()}
     />;

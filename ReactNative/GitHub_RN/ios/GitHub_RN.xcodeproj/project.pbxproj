@@ -20,6 +20,7 @@
 		3404AEF96D8624787A7336B5 /* libPods-GitHub_RNTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9EF459B762A908D34916AE /* libPods-GitHub_RNTests.a */; };
 		84DEF106003252636308D5BF /* libPods-GitHub_RN-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D335E6655CD27D6D622B3DA /* libPods-GitHub_RN-tvOSTests.a */; };
 		B45AD16323F3A62800565DAB /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = B45AD16223F3A62800565DAB /* Fonts */; };
+		B4DF284B240131B70090A208 /* libreact-native-webview.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DF284A240131B70090A208 /* libreact-native-webview.a */; };
 		CC15D86DAFACFEA3F519399F /* libPods-GitHub_RN-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C42F2214FB98AF0380F1BDFF /* libPods-GitHub_RN-tvOS.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		9DD7008E89E9E4E7BE12F294 /* Pods-GitHub_RN-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_RN-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-GitHub_RN-tvOSTests/Pods-GitHub_RN-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AC1ED3457D2288CA4A3F01F2 /* Pods-GitHub_RN-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_RN-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-GitHub_RN-tvOS/Pods-GitHub_RN-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B45AD16223F3A62800565DAB /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
+		B4DF284A240131B70090A208 /* libreact-native-webview.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-webview.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03624A1CABFC3282B7580CF /* Pods-GitHub_RN-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_RN-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-GitHub_RN-tvOSTests/Pods-GitHub_RN-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		C42F2214FB98AF0380F1BDFF /* libPods-GitHub_RN-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GitHub_RN-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C685BF4292AA6BFCCC64F328 /* Pods-GitHub_RNTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_RNTests.release.xcconfig"; path = "Target Support Files/Pods-GitHub_RNTests/Pods-GitHub_RNTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D96AA182D9F24DA11CB6019 /* libPods-GitHub_RN.a in Frameworks */,
+				B4DF284B240131B70090A208 /* libreact-native-webview.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +144,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B4DF284A240131B70090A208 /* libreact-native-webview.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				0A71A3C8676F5FD86A6A0F33 /* libPods-GitHub_RN.a */,
@@ -288,7 +292,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -318,6 +322,8 @@
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* GitHub_RN */,
@@ -327,6 +333,9 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		00E356EC1AD99517003FC87E /* Resources */ = {
@@ -651,6 +660,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitHub_RN.app/GitHub_RN";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+				);
 			};
 			name = Debug;
 		};
@@ -671,6 +683,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitHub_RN.app/GitHub_RN";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+				);
 			};
 			name = Release;
 		};
@@ -691,6 +706,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = GitHub_RN;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+				);
 			};
 			name = Debug;
 		};
@@ -710,6 +728,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = GitHub_RN;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+				);
 			};
 			name = Release;
 		};
@@ -738,6 +759,9 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+				);
 			};
 			name = Debug;
 		};
@@ -766,6 +790,9 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+				);
 			};
 			name = Release;
 		};
@@ -793,6 +820,9 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitHub_RN-tvOS.app/GitHub_RN-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+				);
 			};
 			name = Debug;
 		};
@@ -820,6 +850,9 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitHub_RN-tvOS.app/GitHub_RN-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+				);
 			};
 			name = Release;
 		};
