@@ -75,11 +75,11 @@ class MyPage extends Component {
                 onPress={() => this.props.onThemeChange('skyblue')}
               />
               { /* <Text>PopularTab</Text> */ } 
-      <Text style={styles.textPressStyle}
+      {/* <Text style={styles.textPressStyle}
         onPress={() => {
           NavigationUtil.goPage({}, 'DetailPage');
         }}
-      >{this.props.tabLabel}_跳转到详情页面</Text>
+      >{this.props.tabLabel}_跳转到详情页面</Text> */}
       <Button 
         title={"Fetch使用"}
         onPress={() => {

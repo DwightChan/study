@@ -10,6 +10,13 @@ import PopularItem from "../common/PopularItem";
 import Toast from "react-native-easy-toast";
 import NavigationBar from "../common/NavigationBar";
 import { THEME_COLOR } from "../util/ViewUtil";
+
+import FavoriteDao from "../expand/dao/FavoriteDao";
+import FavoriteUtil from "../util/FavoriteUtil";
+
+import DataStore, {FLAG_STORAGE} from "../expand/dao/DataStore";
+const favoriteDao = new FavoriteDao(FLAG_STORAGE.flag_popular);
+
 const URL = 'https://api.github.com/search/repositories?q=';
 const QUERY_STR = '&sort=stars';
 
@@ -91,16 +98,16 @@ class PopularTab extends Component<Props> {
       const store = this._store()
       const url = this.genFetchUrl(this.storeName);
       if (loadMore) {
-        console.log(`storeName:${this.storeName}, pageIndex:${store.pageIndex}, pageSize:${pageSize}, items:${store.imtes}, projectModes:${store.projectModes}`);
+        // console.log(`storeName:${this.storeName}, pageIndex:${store.pageIndex}, pageSize:${pageSize}, items:${store.imtes}, projectModels:${store.projectModels}`);
         store.pageIndex += 1;
-        onLoadMorePopular(this.storeName, store.pageIndex, pageSize, store.items, (msg) => {
+        onLoadMorePopular(this.storeName, store.pageIndex, pageSize, store.items, favoriteDao, (msg) => {
           console.log(msg);
           console.log("没有更多数据");
           this.refs.toast.show(msg);
         });
-        console.log(`storeName:${this.storeName}, pageIndex:${store.pageIndex}, pageSize:${pageSize}, projectModes:${store.projectModes.length}`);
+        // console.log(`storeName:${this.storeName}, pageIndex:${store.pageIndex}, pageSize:${pageSize}, projectModels:${store.projectModels.length}`);
       }else {
-        onRefreshPopular(this.storeName, url, pageSize);
+        onRefreshPopular(this.storeName, url, pageSize, FavoriteDao);
       }
     }
     /**
@@ -115,7 +122,7 @@ class PopularTab extends Component<Props> {
         store = {
           items: [],
           isLoading: false,
-          projectModes: [], //要显示的数据
+          projectModels: [], //要显示的数据
           hideLoadingMore: true, // 默认是隐藏加载更多
         }
       }
@@ -129,13 +136,16 @@ class PopularTab extends Component<Props> {
     renderItem(data) {
       const item = data.item;
       return <PopularItem
-        item={item}
-        onSelect={() => {
-          // console.log("我被选中了");
+        projectModel={item}
+        onSelect={(callBack) => {
+          console.log("我被选中了");
           NavigationUtil.goPage({
-            projectMode: item
+            projectModel: item,
+            flag: FLAG_STORAGE.flag_popular,
+            callBack,
           }, 'DetailPage');
         }}
+        onFavorite={(model) => FavoriteUtil.onFavorite(favoriteDao, model.item, model.isFavorite, FLAG_STORAGE.flag_popular)}
       />
     }
 
@@ -152,9 +162,9 @@ class PopularTab extends Component<Props> {
       let store = this._store();
       return (<View style={styles.container}>
         <FlatList
-          data={store.projectModes}
+          data={store.projectModels}
           renderItem={data => this.renderItem(data)}
-          keyExtractor={item => '' + item.id}
+          keyExtractor={item => '' + item.item.id}
           refreshControl={
             <RefreshControl
               title={'Loading'}
@@ -203,8 +213,8 @@ const mapStateToProps = state => ({
   popular: state.popular,
 });
 const mapDispatchToProps = dispatch => ({
-  onRefreshPopular: (storeName, url, pageSize) => dispatch(actions.onRefreshPopular(storeName, url, pageSize)),
-  onLoadMorePopular: (storeName, url, pageSize, items, callBack) => dispatch(actions.onLoadMorePopular(storeName, url, pageSize, items, callBack))
+  onRefreshPopular: (storeName, url, pageSize, favoriteDao) => dispatch(actions.onRefreshPopular(storeName, url, pageSize, favoriteDao)),
+  onLoadMorePopular: (storeName, url, pageSize, items, favoriteDao, callBack) => dispatch(actions.onLoadMorePopular(storeName, url, pageSize, items, favoriteDao, callBack))
 });
 //注意：connect只是个function，并不应定非要放在export后面
 const PopularTabPage = connect(mapStateToProps, mapDispatchToProps)(PopularTab)

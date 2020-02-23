@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import HTMLView from "react-native-htmlview";
+import BaseItem from "./BaseItem";
 
 /**
  * fullName: "coolsnowwolf/lede"
@@ -15,29 +16,18 @@ starCount: "7,584"
 forkCount: "6,846"
 __proto__: Object
  */
-export default class TrendingItem extends Component {
+export default class TrendingItem extends BaseItem {
   render() {
-      const {item} = this.props;
+      // const {item} = this.props;
+      const {projectModel} = this.props;
+      const {item} = projectModel;
       if (!item) return null;
-      let favoriteButton =
-          <TouchableOpacity
-              style={{padding: 6}}
-              onPress={() => {
-                console.log("我被点击了");
-              }}
-              underlayColor={'transparent'}
-          >
-              <FontAwesome
-                  name={'star-o'}
-                  size={26}
-                  style={{color: 'red'}}
-              />
-          </TouchableOpacity>;
+      
       let description = '<p>' + item.description + '</p>';
       // let description = '<p><a href="https://m-pre.irainbow7.com/#/login?dlogin=true">&hearts; nice job!</a></p>';
       return (
           <TouchableOpacity
-              onPress={this.props.onSelect}
+              onPress={() => this.onItemClick()}
           >
               <View style={styles.cell_container}>
                 <Text style={styles.title}>
@@ -68,7 +58,7 @@ export default class TrendingItem extends Component {
                               />
                           })}
                       </View>
-                      {favoriteButton}
+                      {this._favoriteIcon()}
                   </View>
               </View>
 
