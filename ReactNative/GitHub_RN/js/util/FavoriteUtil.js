@@ -12,7 +12,6 @@ export default class FavoriteUtil {
   static onFavorite(favoriteDao, item, isFavorite, flag) {
     const key = flag === FLAG_STORAGE.flag_trending ? item.fullName : item.id.toString();
     if (isFavorite) {
-      // import FavoriteDao from "../expand/dao/FavoriteDao";
       favoriteDao.saveFavoriteItem(key, JSON.stringify(item));
     }else {
       favoriteDao.removeFavoriteItem(key);

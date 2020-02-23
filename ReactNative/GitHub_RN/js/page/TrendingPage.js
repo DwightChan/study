@@ -23,6 +23,9 @@ import ViewUtil, {THEME_COLOR} from "../util/ViewUtil";
 import FavoriteDao from "../expand/dao/FavoriteDao";
 import FavoriteUtil from "../util/FavoriteUtil";
 
+import EventBus from "react-native-event-bus";
+import EventTypes from "../util/EventTypes";
+
 import DataStore, {FLAG_STORAGE} from "../expand/dao/DataStore";
 const favoriteDao = new FavoriteDao(FLAG_STORAGE.flag_trending);
 
@@ -142,26 +145,34 @@ class TrendingTab extends Component<Props> {
       const {tabLabel, timeSpan} = this.props;
       this.storeName = tabLabel;
       this.timeSpan = timeSpan;
+      this.isFavoriteChanged = false;
     }
 
     componentDidMount() {
       this.loadData();
-      // 这里添加监听动作
       this.timeSpanChangeListener = DeviceEventEmitter.addListener(EVENT_TYPE_TIME_SPAN_CHANGE, (timeSpan) => {
         this.timeSpan = timeSpan;
         this.loadData();
       });
+      EventBus.getInstance().addListener(EventTypes.favorite_changed_popular, this.favoriteChangeListener = () => {
+        this.isFavoriteChanged = true;
+      });
+      EventBus.getInstance().addListener(EventTypes.bottom_tab_select, this.bottomTabSelectedListener = () => {
+        if (data.to === 0 && this.isFavoriteChanged) {
+          this.loadData(null, true);
+        }
+      });
     }
-
     componentWillUnmount() {
-      // 一定要移除监听
       if (this.timeSpanChangeListener) {
         this.timeSpanChangeListener.remove();
       }
+      EventBus.getInstance().removeListener(this.favoriteChangeListener);
+      EventBus.getInstance().removeListener(this.bottomTabSelectedListener);
     }
 
-    loadData(loadMore) {
-      const {onRefreshTrending, onLoadMoreTrending} = this.props;
+    loadData(loadMore, refreshFavorite) {
+      const {onRefreshTrending, onLoadMoreTrending, onFlushTrendingFavorite} = this.props;
       const store = this._store()
       const url = this.genFetchUrl(this.storeName);
       if (loadMore) {
@@ -173,6 +184,9 @@ class TrendingTab extends Component<Props> {
           this.refs.toast.show(msg);
         });
         console.log(`storeName:${this.storeName}, pageIndex:${store.pageIndex}, pageSize:${pageSize}, projectModels:${store.projectModels.length}`);
+      }else if (refreshFavorite) {
+        onFlushTrendingFavorite(this.storeName, store.pageIndex, pageSize, store.items);
+        this.isFavorite = true;
       }else {
         onRefreshTrending(this.storeName, url, pageSize, favoriteDao);
       }
@@ -215,7 +229,7 @@ class TrendingTab extends Component<Props> {
             callBack,
           }, 'DetailPage');
         }}
-        onFavorite={(model) => FavoriteUtil.onFavorite(favoriteDao, model.item, model.isFavorite, FLAG_STORAGE.flag_trending)}
+        onFavorite={(item, isFavorite) => FavoriteUtil.onFavorite(favoriteDao, item, isFavorite, FLAG_STORAGE.flag_trending)}
       />
     }
 
@@ -284,7 +298,8 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
   onRefreshTrending: (storeName, url, pageSize, favoriteDao) => dispatch(actions.onRefreshTrending(storeName, url, pageSize, favoriteDao)),
-  onLoadMoreTrending: (storeName, url, pageSize, items, favoriteDao, callBack) => dispatch(actions.onLoadMoreTrending(storeName, url, pageSize, items, favoriteDao, callBack))
+  onLoadMoreTrending: (storeName, url, pageSize, items, favoriteDao, callBack) => dispatch(actions.onLoadMoreTrending(storeName, url, pageSize, items, favoriteDao, callBack)),
+  onFlushTrendingFavorite: (storeName, url, pageSize, items, favoriteDao) => dispatch(actions.onFlushTrendingFavorite(storeName, url, pageSize, items, favoriteDao))
 });
 //注意：connect只是个function，并不应定非要放在export后面
 const TrendingTabPage = connect(mapStateToProps, mapDispatchToProps)(TrendingTab)
