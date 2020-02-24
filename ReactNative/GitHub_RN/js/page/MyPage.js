@@ -34,7 +34,19 @@ class MyPage extends Component {
     </View>
   }
   onClick(menu) {
-
+    let RouteName, params = {};
+    switch (menu) {
+      case MORE_MENU.Tutorial:
+        RouteName = 'WebViewPage';
+        params.title = '教程';
+        params.url = 'https://coding.m.imooc.com/';
+        break;
+      default:
+        break;
+    }
+    if (RouteName) {
+      NavigationUtil.goPage(params,RouteName);
+    }
   }
   getItem(menu) {
     return ViewUtil.getMenuItem(() => this.onClick(menu), menu, THEME_COLOR, null);

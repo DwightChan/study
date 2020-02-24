@@ -58,6 +58,21 @@ export default class ViewUtil {
     return ViewUtil.getSettingItem(callBack, menu.name, color, menu.Icons, menu.icon, expandableIco)
   }
 
+  static getLeftBackButton(callBack) {
+    return <TouchableOpacity
+      style={{padding: 8, paddingLeft: 12}}
+      // 按下去的背景色为灰色
+      underlayColor={'gray'}
+      onPress={callBack}
+    >
+      <Ionicons 
+        name={'ios-arrow-back'}
+        // name={'arrow-back'}
+        size={26}
+        style={{color: 'white'}}
+      />
+    </TouchableOpacity>;
+  }
   /**
    * 获取分享按钮
    * @param {*} callBack 
