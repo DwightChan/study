@@ -41,7 +41,8 @@ class MyPage extends Component {
         params.title = '教程';
         params.url = 'https://coding.m.imooc.com/';
         break;
-      default:
+      case MORE_MENU.About:
+        RouteName = 'AboutPage';
         break;
     }
     if (RouteName) {
@@ -117,12 +118,12 @@ class MyPage extends Component {
           {this.getItem(MORE_MENU.Remove_Key)}
 
           {/* 设置 */}
-          <Text style={styles.line}>设置</Text>
+          <Text style={styles.groupTitle}>设置</Text>
           {/* 自定义主题 */}
           {this.getItem(MORE_MENU.Custom_Theme)}
           {/* 关于作者 */}
           <View style={GlobalStyles.line}/>
-          {this.getItem(MORE_MENU.About_Author)}
+          {this.getItem(MORE_MENU.About)}
           {/* 反馈 */}
           <View style={GlobalStyles.line}/>
           {this.getItem(MORE_MENU.Feedback)}
