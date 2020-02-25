@@ -3,12 +3,12 @@ import {StyleSheet, View, Text } from "react-native";
 import {createAppContainer} from 'react-navigation';
 import { createBottomTabNavigator, BottomTabBar } from "react-navigation-tabs";
 // 导入自定义控制页面
-import PopularPage from '../page/PopularPage';
-import TrendingPage from '../page/TrendingPage';
-import FavoritePage from '../page/FavoritePage';
+import PopularPage from '../page/PopularPage/index';
+import TrendingPage from '../page/TrendingPage/index';
+import FavoritePage from '../page/FavoritePage/index';
 import MyPage from '../page/MyPage';
 import GamePage from '../page/GamePage';
-import MaterialIcons from "react-native-vector-icons/MaterialIcons"
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import { connect } from "react-redux";
