@@ -1,10 +1,10 @@
 /**
- * aboutpage 加载的详情页面
+ * AboutPage 页面
  * 显示 自定义到导航栏, 导航栏有返回
  */
 
 import React, {Component} from "react";
-import { View, Text, StyleSheet, Button, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Button, TouchableOpacity, Linking } from "react-native";
 import {WebView} from "react-native-webview";
 import NavigationBar from "../../common/NavigationBar";
 import ViewUtil, {THEME_COLOR} from "../../util/ViewUtil";
@@ -42,6 +42,30 @@ export default class AboutPage extends Component<Props> {
         params.title = '教程';
         params.url = 'https://www.baidu.com';        
         break;
+        case MORE_MENU.About_Author:
+          RouteName = 'AboutMePage';
+          break;
+      case MORE_MENU.Feedback:
+        // 注意要打开其他应用, 除了 http 或者HTTPS 开头的 其他的都要在 ios中配置 LSApplicationQueriesSchemes
+        // 打开地图：Linking.openURL("geo:37.2122 , 12.222") 传入一个坐标
+        // 打电话：Linking.openURL("tel:10086") 传入一个电话号码
+        // 打开网站:Linking.openURL("http://www.baidu.com") 传入一个网址，http:// 不能少
+        // 发送短信:Linking.openURL("smsto:10086")
+        // 发送邮件：Linking.openURL("mailto:10000@qq. com")
+        // 打开其他APP：Linking.openURL('flutter://li.zhuoyuan') //其他app定义的scheme以及host。
+        const url = 'smsto:10086'//'mailto://crazycodeboy@gmail.com'; //'https:www.baidu.com';//'suncityGroup://'; // 
+        Linking.canOpenURL(url)
+          .then(support => {
+            debugger
+            if (!support) {
+              console.log('Can\'t handle url: ' + url);
+            } else {
+              Linking.openURL(url);
+            }
+          }).catch(e => {
+          console.error('An error occurred', e);
+        });
+        break;
       default:
         break;
     }
@@ -60,8 +84,9 @@ export default class AboutPage extends Component<Props> {
       {this.getItem(MORE_MENU.About_Author)}
       <View style={GlobalStyles.line}/>
       {this.getItem(MORE_MENU.Feedback)}
+      <View style={GlobalStyles.line}/>
     </View>
-    return this.aboutCommon.render(connect, this.state.data.app);
+    return this.aboutCommon.render(content, this.state.data.app);
   }
 }
 const styles = StyleSheet.create({
@@ -69,3 +94,28 @@ const styles = StyleSheet.create({
     flex: 1, 
   },
 });
+/*
+console.error: "An error occurred", Error: Unable to open URL: suncityGroup://. Add suncityGroup to LSApplicationQueriesSchemes in your Info.plist.
+
+_construct
+    construct.js:30:26
+Wrapper
+    wrapNativeSuper.js:26:23
+SyntheticError
+    index.bundle?platform=ios&dev=true&minify=false:28738:111
+reactConsoleErrorHandler
+    ExceptionsManager.js:135:52
+Linking.canOpenURL.then._catch$argument_0
+    AboutPage.js:59:24
+tryCallOne
+    core.js:37:14
+setImmediate$argument_0
+    core.js:123:25
+callImmediates
+    [native code]:0
+flushedQueue
+    [native code]:0
+invokeCallbackAndReturnFlushedQueue
+    [native code]:0
+
+*/

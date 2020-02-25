@@ -44,6 +44,9 @@ class MyPage extends Component {
       case MORE_MENU.About:
         RouteName = 'AboutPage';
         break;
+      case MORE_MENU.About_Author: 
+        RouteName = 'AboutMePage';
+        break;
     }
     if (RouteName) {
       NavigationUtil.goPage(params,RouteName);
@@ -123,7 +126,7 @@ class MyPage extends Component {
           {this.getItem(MORE_MENU.Custom_Theme)}
           {/* 关于作者 */}
           <View style={GlobalStyles.line}/>
-          {this.getItem(MORE_MENU.About)}
+          {this.getItem(MORE_MENU.About_Author)}
           {/* 反馈 */}
           <View style={GlobalStyles.line}/>
           {this.getItem(MORE_MENU.Feedback)}

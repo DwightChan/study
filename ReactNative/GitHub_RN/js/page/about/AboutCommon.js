@@ -6,7 +6,7 @@ import GlobalStyles from "../../res/styles/GlobalStyles";
 import ViewUtil, { THEME_COLOR } from "../../util/ViewUtil";
 import ParallaxScrollView from "react-native-parallax-scroll-view";
 
-export const FLAG_ABOUT = {falg_about: 'about', flag_about_me: 'about_me'};
+export const FLAG_ABOUT = {flag_about: 'about', flag_about_me: 'about_me'};
 
 export default class AboutCommon {
   constructor(props, updateState) {

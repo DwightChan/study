@@ -5,6 +5,7 @@ import HomePage from '../page/HomePage';
 import DetailPage from "../page/DetailPage";
 import WebViewPage from "../page/WebViewPage";
 import AboutPage from "../page/about/AboutPage";
+import AboutMePage from "../page/about/AboutMePage";
 import {createReactNavigationReduxMiddleware, createReduxContainer} from 'react-navigation-redux-helpers';
 import { connect } from "react-redux";
 
@@ -42,6 +43,12 @@ const MainNavigator = createStackNavigator({
     },
     AboutPage: {
       screen: AboutPage,
+      navigationOptions: {
+        header: null,
+      }
+    },
+    AboutMePage: {
+      screen: AboutMePage,
       navigationOptions: {
         header: null,
       }
