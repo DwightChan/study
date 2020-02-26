@@ -2,6 +2,7 @@ import { onThemeChange } from "./theme";
 import { onRefreshPopular, onLoadMorePopular, onFlushPopularFavorite } from "./popular";
 import { onRefreshTrending, onLoadMoreTrending, onFlushTrendingFavorite } from "./Trending";
 import { onLoadFavoriteData } from "./favorite";
+import { onLoadLanguage } from "./language";
 export default {
   // 修改主题
   onThemeChange,
@@ -18,4 +19,7 @@ export default {
   onLoadFavoriteData,
   onFlushPopularFavorite,
   onFlushTrendingFavorite,
+
+  // 加载语言
+  onLoadLanguage,
 }

@@ -4,19 +4,9 @@ import { createMaterialTopTabNavigator } from "react-navigation-tabs";
 import { createAppContainer } from "react-navigation" ;
 import NavigationUtil from "../../navigator/NavigationUtil";
 // import DetailPage from "../page/DetailPage";
-import actions from "../../action/index";
-import { connect } from "react-redux";
-import PopularItem from "../../common/PopularItem";
-import TrendingItem from "../../common/TrendingItem";
-import Toast from "react-native-easy-toast";
+
 import NavigationBar from "../../common/NavigationBar";
 import { THEME_COLOR } from "../../util/ViewUtil";
-
-import FavoriteDao from "../../expand/dao/FavoriteDao";
-import FavoriteUtil from "../../util/FavoriteUtil";
-
-import EventBus from "react-native-event-bus";
-import EventTypes from "../../util/EventTypes";
 import FavoriteTabPage from "./FavoriteTabPage";
 
 

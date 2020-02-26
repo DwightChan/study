@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text, RefreshControl, FlatList, ActivityIndicator, Platform } from "react-native";
-import { createMaterialTopTabNavigator } from "react-navigation-tabs";
-import { createAppContainer } from "react-navigation" ;
 import NavigationUtil from "../../navigator/NavigationUtil";
 // import DetailPage from "../page/DetailPage";
 import actions from "../../action/index";
 import { connect } from "react-redux";
 import PopularItem from "../../common/PopularItem";
 import Toast from "react-native-easy-toast";
-import NavigationBar from "../../common/NavigationBar";
 import { THEME_COLOR } from "../../util/ViewUtil";
 
 import FavoriteDao from "../../expand/dao/FavoriteDao";
@@ -174,7 +171,7 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
   onRefreshPopular: (storeName, url, pageSize, favoriteDao) => dispatch(actions.onRefreshPopular(storeName, url, pageSize, favoriteDao)),
-  onLoadMorePopular: (storeName, url, pageSize, items, favoriteDao, callBack) => dispatch(actions.onLoadMorePopular(storeName, url, pageSize, items, favoriteDao, callBack)),
+  onLoadMorePopular: (storeName, pageIndex, pageSize, items, favoriteDao, callBack) => dispatch(actions.onLoadMorePopular(storeName, pageIndex, pageSize, items, favoriteDao, callBack)),
   onFlushPopularFavorite: (storeName, url, pageSize, items, favoriteDao) => dispatch(actions.onFlushPopularFavorite(storeName, url, pageSize, items, favoriteDao))
 });
 //注意：connect只是个function，并不应定非要放在export后面
@@ -184,18 +181,6 @@ export default PopularTabPage = connect(mapStateToProps, mapDispatchToProps)(Pop
 const styles = StyleSheet.create({
   container: {
       flex: 1,
-  },
-  tabStyle: {
-      // minWidth: 50 //fix minWidth会导致tabStyle初次加载时闪烁
-      padding: 0
-  },
-  indicatorStyle: {
-      height: 2,
-      backgroundColor: 'white'
-  },
-  labelStyle: {
-      fontSize: 13,
-      margin: 0,
   },
   indicatorContainer: {
       alignItems: "center"
