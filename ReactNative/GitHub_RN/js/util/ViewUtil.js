@@ -57,7 +57,10 @@ export default class ViewUtil {
   static getMenuItem(callBack, menu, color, expandableIco) {
     return ViewUtil.getSettingItem(callBack, menu.name, color, menu.Icons, menu.icon, expandableIco)
   }
-
+  /**
+   * 左侧返回按钮
+   * @param {*} callBack 
+   */
   static getLeftBackButton(callBack) {
     return <TouchableOpacity
       style={{padding: 8, paddingLeft: 12}}
@@ -73,6 +76,21 @@ export default class ViewUtil {
       />
     </TouchableOpacity>;
   }
+
+  /**
+   * 获取右侧文字按钮
+   * @param title
+   * @param callBack
+   * @returns {XML}
+   */
+  static getRightButton(title, callBack) {
+    return <TouchableOpacity
+      style={{alignItems: 'center',}}
+      onPress={callBack}>
+      <Text style={{fontSize: 20, color: '#FFFFFF', marginRight: 10}}>{title}</Text>
+    </TouchableOpacity>
+  }
+
   /**
    * 获取分享按钮
    * @param {*} callBack 

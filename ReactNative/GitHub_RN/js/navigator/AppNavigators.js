@@ -8,6 +8,7 @@ import AboutPage from "../page/about/AboutPage";
 import AboutMePage from "../page/about/AboutMePage";
 import {createReactNavigationReduxMiddleware, createReduxContainer} from 'react-navigation-redux-helpers';
 import { connect } from "react-redux";
+import CustomKeyPage from "../page/CustomKeyPage";
 
 export const rootCom = 'Init';//设置根路由
 
@@ -49,6 +50,12 @@ const MainNavigator = createStackNavigator({
     },
     AboutMePage: {
       screen: AboutMePage,
+      navigationOptions: {
+        header: null,
+      }
+    },
+    CustomKeyPage: {
+      screen: CustomKeyPage,
       navigationOptions: {
         header: null,
       }
