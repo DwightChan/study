@@ -48,13 +48,20 @@ class TrendingPage extends Component<Props> {
 
     const {onLoadLanguage} = this.props;
     onLoadLanguage(FLAG_LANGUAGE.flag_language);
+    this.preKeys = [];
   }
 
   _getTabs() {
       const tabs = {};
       const {keys} = this.props;
-      this.preKeys = this.props;
-      keys.forEach((item, index) => {
+      this.preKeys = keys
+      // this.preKeys = keys.filter((item) => {
+      //   if (item.checked) {
+      //     return item;
+      //   }
+      // });
+      this.preKeys.forEach((item, index) => {
+        if (item.checked) {
           // 这里 tab${index} 是key 唯一标识
           tabs[`tab${index}`] = {
               screen: props => <TrendingTabPage {...props} timeSpan={this.state.timeSpan} tabLabel={item.name}/>,
@@ -62,6 +69,7 @@ class TrendingPage extends Component<Props> {
                   title: item.name,
               },
           };
+        }
       });
       return tabs;
   }

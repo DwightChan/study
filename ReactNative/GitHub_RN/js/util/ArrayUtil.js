@@ -1,5 +1,38 @@
 export default class ArrayUtil {
   /**
+   * 更新数组, 若item已存在, 则将其从数组中删除; 若不存在, 曾将其添加到数组中;
+   * @param {*} array 元数组
+   * @param {*} item 当个元素
+   */
+  static updateArray(array, item) {
+    for (let i = 0, len = array.length; i < len; i++) {
+      let temp = array[i];
+      if (item === temp) {
+        array.splice(i, 1);
+        return;
+      }
+    }
+    array.push(item)
+  }
+
+  /**
+   * 将数组中指定元素移除
+   * @param {*} array 
+   * @param {*} item 要移除的item
+   * @param {*} id 要对比的属性, 缺省则比较地址
+   * @returns {*}
+   */
+  static remove(array, item, id) {
+    if (!array) return;
+    for (let i = 0, l = array.length; i < array.length; i++) {
+      const val = array[i];
+      if (item === val || val && val[id] && val[id] === item[id]) {
+        array.splice(i, 1);
+      }
+    }
+    return array;
+  }
+  /**
    * 判断两个数组是否相等
    * @param {*} arr1 
    * @param {*} arr2 
