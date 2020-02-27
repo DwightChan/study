@@ -206,23 +206,6 @@ const styles = StyleSheet.create({
         flex: 1,
         // marginTop: 33,
     },
-    tabStyle: {
-        minWidth: 50,
-    },
-    indicatorStyle: {
-        height: 2,
-        backgroundColor: '#111',
-    },
-    labelStyle: {
-        fontSize: 13,
-        marginTop: 6,
-        marginBottom: 6,
-    },
-    textPressStyle: {
-        backgroundColor: '#ccc',
-        // width: 100,
-        height: 30,
-    },
     indicatorContainer: {
       alignItems: "center",
     },

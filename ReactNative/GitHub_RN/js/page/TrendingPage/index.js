@@ -179,20 +179,12 @@ const styles = StyleSheet.create({
   },
   indicatorStyle: {
       height: 2,
-      backgroundColor: '#111',
+      backgroundColor: 'white',
   },
   labelStyle: {
       fontSize: 13,
       marginTop: 6,
       marginBottom: 6,
-  },
-  textPressStyle: {
-      backgroundColor: '#ccc',
-      // width: 100,
-      height: 30,
-  },
-  indicatorContainer: {
-    alignItems: "center",
   },
   indicator: {
     color: 'red',
