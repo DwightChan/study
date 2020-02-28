@@ -10,6 +10,8 @@ import PopularTabPage from "./PopularTabPage";
 import actions from "../../action/index";
 import { connect } from "react-redux";
 import { FLAG_LANGUAGE } from "../../expand/dao/LanguageDao";
+import EventBus from "react-native-event-bus";
+import EventTypes from "../../util/EventTypes";
 
 const URL = 'https://api.github.com/search/repositories?q=';
 const QUERY_STR = '&sort=stars';
@@ -21,15 +23,28 @@ class PopularPage extends Component<Props> {
     super(props)
     console.log(NavigationUtil.navigation)
     // this.tabNames = ['Java', 'Android', 'iOS', 'React', 'React Native', 'PHP'];
+    this.loadData();
+  }
+
+  componentDidMount() {
+    EventBus.getInstance().addListener(EventTypes.bottom_tab_select, this.listener = data => {
+      console.log("data:" + JSON.stringify(data));
+      this.loadData();
+    });
+  }
+  componentWillUnmount() {
+    EventBus.getInstance().removeListener(this.listener);
+  }
+  loadData() {
     const {onLoadLanguage} = this.props;
     onLoadLanguage(FLAG_LANGUAGE.flag_key);
   }
-
+  componentwi
   _getTabs() {
     const tabs = {};
     const {keys} = this.props;
     keys.forEach((item, index) => {
-      if (item.checked) {
+      if (item && item.checked) {
         tabs[`tab${index}`] = {
           screen: props => <PopularTabPage {...props} tabLabel={item.name}/>,
           navigationOptions: {

@@ -53,7 +53,7 @@ class TrendingTab extends Component<Props> {
       EventBus.getInstance().addListener(EventTypes.favorite_changed_popular, this.favoriteChangeListener = () => {
         this.isFavoriteChanged = true;
       });
-      EventBus.getInstance().addListener(EventTypes.bottom_tab_select, this.bottomTabSelectedListener = () => {
+      EventBus.getInstance().addListener(EventTypes.bottom_tab_select, this.bottomTabSelectedListener = (data) => {
         if (data.to === 0 && this.isFavoriteChanged) {
           this.loadData(null, true);
         }

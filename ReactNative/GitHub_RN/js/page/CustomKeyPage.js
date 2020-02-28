@@ -99,12 +99,12 @@ class CustomKeyPage extends Component<Props> {
         ArrayUtil.remove(keys = CustomKeyPage._keys(this.props, true), this.changeValues[i], 'name');
       }
     }
+    NavigationUtil.goBack(this.props.navigation);
     // 更新本地的数据
     this.languageDao.save(keys || this.state.keys);
     const {onLoadLanguage} = this.props;
     // 更新store
     onLoadLanguage(this.params.flag);
-    NavigationUtil.goBack(this.props.navigation);
   }
 
   renderView() {
