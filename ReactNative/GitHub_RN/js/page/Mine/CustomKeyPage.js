@@ -1,19 +1,19 @@
 import React, {Component} from 'react';
 import {StyleSheet, ScrollView, Text, View, FlatList, RefreshControl, Alert} from 'react-native';
 import {connect} from 'react-redux';
-import actions from '../action/index'
-import NavigationUtil from '../navigator/NavigationUtil'
-import NavigationBar from '../common/NavigationBar';
-import FavoriteDao from "../expand/dao/FavoriteDao";
-import {FLAG_STORAGE} from "../expand/dao/DataStore";
-import {FLAG_LANGUAGE} from "../expand/dao/LanguageDao";
-import BackPressComponent from "../common/BackPressComponent";
-import LanguageDao from "../expand/dao/LanguageDao";
-import ViewUtil from "../util/ViewUtil";
+import actions from '../../action/index'
+import NavigationUtil from '../../navigator/NavigationUtil'
+import NavigationBar from '../../common/NavigationBar';
+import FavoriteDao from "../../expand/dao/FavoriteDao";
+import {FLAG_STORAGE} from "../../expand/dao/DataStore";
+import {FLAG_LANGUAGE} from "../../expand/dao/LanguageDao";
+import BackPressComponent from "../../common/BackPressComponent";
+import LanguageDao from "../../expand/dao/LanguageDao";
+import ViewUtil from "../../util/ViewUtil";
 import CheckBox from 'react-native-check-box'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import GlobalStyles from '../res/styles/GlobalStyles';
-import ArrayUtil from '../util/ArrayUtil';
+import GlobalStyles from '../../res/styles/GlobalStyles';
+import ArrayUtil from '../../util/ArrayUtil';
 
 const URL = 'https://api.github.com/search/repositories?q=';
 const QUERY_STR = '&sort=stars';

@@ -6,7 +6,7 @@ import { createBottomTabNavigator, BottomTabBar } from "react-navigation-tabs";
 import PopularPage from '../page/PopularPage/index';
 import TrendingPage from '../page/TrendingPage/index';
 import FavoritePage from '../page/FavoritePage/index';
-import MyPage from '../page/MyPage';
+import MyPage from '../page/Mine/MyPage';
 import GamePage from '../page/GamePage';
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Ionicons from 'react-native-vector-icons/Ionicons';

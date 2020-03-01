@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text, Button, TouchableOpacity, RefreshControl, ScrollView } from "react-native";
-import actions from "../action";
+import actions from "../../action";
 import { connect } from "react-redux";
-import NavigationUtil from "../navigator/NavigationUtil";
-import NavigationBar from "../common/NavigationBar";
-import { THEME_COLOR } from "../util/ViewUtil";
+import NavigationUtil from "../../navigator/NavigationUtil";
+import NavigationBar from "../../common/NavigationBar";
+import { THEME_COLOR } from "../../util/ViewUtil";
 // import { TouchableOpacity } from "react-native-gesture-handler";
 import Feather from "react-native-vector-icons/Feather";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { MORE_MENU } from "../common/MORE_MENU";
-import ViewUtil from "../util/ViewUtil";
-import GlobalStyles from "../res/styles/GlobalStyles";
-import types from "../action/types";
-import { FLAG_LANGUAGE } from "../expand/dao/LanguageDao";
+import { MORE_MENU } from "../../common/MORE_MENU";
+import ViewUtil from "../../util/ViewUtil";
+import GlobalStyles from "../../res/styles/GlobalStyles";
+import types from "../../action/types";
+import { FLAG_LANGUAGE } from "../../expand/dao/LanguageDao";
 
 class MyPage extends Component {
 

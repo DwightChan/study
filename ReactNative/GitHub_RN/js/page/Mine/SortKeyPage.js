@@ -1,20 +1,20 @@
 import React, {Component} from 'react';
 import {Alert, TouchableHighlight, StyleSheet, View, Text} from 'react-native';
 import {connect} from 'react-redux';
-import actions from '../action/index'
-import NavigationUtil from '../navigator/NavigationUtil'
-import NavigationBar from '../common/NavigationBar';
-import LanguageDao, {FLAG_LANGUAGE} from "../expand/dao/LanguageDao";
-import BackPressComponent from "../common/BackPressComponent";
-import ViewUtil from "../util/ViewUtil";
+import actions from '../../action/index'
+import NavigationUtil from '../../navigator/NavigationUtil'
+import NavigationBar from '../../common/NavigationBar';
+import LanguageDao, {FLAG_LANGUAGE} from "../../expand/dao/LanguageDao";
+import BackPressComponent from "../../common/BackPressComponent";
+import ViewUtil from "../../util/ViewUtil";
 import CheckBox from 'react-native-check-box'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import ArrayUtil from "../util/ArrayUtil";
+import ArrayUtil from "../../util/ArrayUtil";
 import SortableListView from 'react-native-sortable-listview';
-import { THEME_COLOR } from "../util/ViewUtil";
+import { THEME_COLOR } from "../../util/ViewUtil";
 import EventBus from "react-native-event-bus";
-import EventTypes from '../util/EventTypes';
+import EventTypes from '../../util/EventTypes';
 
 type Props = {};
 

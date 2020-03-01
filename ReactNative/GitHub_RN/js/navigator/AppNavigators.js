@@ -8,8 +8,8 @@ import AboutPage from "../page/about/AboutPage";
 import AboutMePage from "../page/about/AboutMePage";
 import {createReactNavigationReduxMiddleware, createReduxContainer} from 'react-navigation-redux-helpers';
 import { connect } from "react-redux";
-import CustomKeyPage from "../page/CustomKeyPage";
-import SortKeyPage from "../page/SortKeyPage";
+import CustomKeyPage from "../page/Mine/CustomKeyPage";
+import SortKeyPage from "../page/Mine/SortKeyPage";
 
 export const rootCom = 'Init';//设置根路由
 
