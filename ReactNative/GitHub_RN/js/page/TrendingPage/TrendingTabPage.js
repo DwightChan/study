@@ -10,7 +10,6 @@ import { StyleSheet,
 import { createMaterialTopTabNavigator } from "react-navigation-tabs";
 import { createAppContainer } from "react-navigation" ;
 import NavigationUtil from "../../navigator/NavigationUtil";
-// import DetailPage from "../page/DetailPage";
 import actions from "../../action/index";
 import { connect } from "react-redux";
 import TrendingItem from "../../common/TrendingItem";
@@ -115,13 +114,16 @@ class TrendingTab extends Component<Props> {
     
     renderItem(data) {
       const item = data.item;
+      const {theme} = this.props;
       return <TrendingItem
+        theme={theme}
         projectModel={item}
         onSelect={(callBack) => {
           console.log("我被选中了");
           NavigationUtil.goPage({
             projectModel: item,
             flag: FLAG_STORAGE.flag_trending,
+            theme: theme,
             callBack,
           }, 'DetailPage');
         }}

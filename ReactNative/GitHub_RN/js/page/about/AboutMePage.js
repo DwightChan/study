@@ -7,7 +7,7 @@ import React, {Component} from "react";
 import { View, Text, StyleSheet, Button, TouchableOpacity, Clipboard } from "react-native";
 import {WebView} from "react-native-webview";
 import NavigationBar from "../../common/NavigationBar";
-import ViewUtil, {THEME_COLOR} from "../../util/ViewUtil";
+import ViewUtil from "../../util/ViewUtil";
 import NavigationUtil from "../../navigator/NavigationUtil";
 import BackPressComponent from "../../common/BackPressComponent";
 import AboutCommon, {FLAG_ABOUT} from "./AboutCommon";
@@ -73,14 +73,14 @@ export default class AboutMePage extends Component<Props> {
   }
   
   getItem(menu) {
-    return ViewUtil.getMenuItem(() => this.onClick(menu), menu, THEME_COLOR);
+    return ViewUtil.getMenuItem(() => this.onClick(menu), menu, this.params.theme.themeColor);
   }
   _item(data, isShow, key) {
     return ViewUtil.getSettingItem(() => {
       this.setState({
         [key]: !this.state[key]
       })
-    }, data.name, THEME_COLOR, Ionicons, data.icon, isShow ? 'ios-arrow-up' : 'ios-arrow-down');
+    }, data.name, this.params.theme.themeColor, Ionicons, data.icon, isShow ? 'ios-arrow-up' : 'ios-arrow-down');
   }
   renderItems(dic, isShowAccount) {
     if (!dic) return null;
@@ -89,7 +89,7 @@ export default class AboutMePage extends Component<Props> {
       let title = isShowAccount ? dic[i].title + ':' + dic[i].account : dic[i].title;
       views.push(
         <View key={i}>
-          {ViewUtil.getSettingItem(() => this.onClick(dic[i]), title, THEME_COLOR)}
+          {ViewUtil.getSettingItem(() => this.onClick(dic[i]), title, this.params.theme.themeColor)}
           <View style={GlobalStyles.line}/>
         </View>
       )

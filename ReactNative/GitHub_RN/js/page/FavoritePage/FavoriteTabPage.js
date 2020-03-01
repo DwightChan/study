@@ -3,7 +3,6 @@ import { StyleSheet, View, Text, RefreshControl, FlatList, ActivityIndicator, Pl
 import { createMaterialTopTabNavigator } from "react-navigation-tabs";
 import { createAppContainer } from "react-navigation" ;
 import NavigationUtil from "../../navigator/NavigationUtil";
-// import DetailPage from "../../page/DetailPage";
 import actions from "../../action/index";
 import { connect } from "react-redux";
 import PopularItem from "../../common/PopularItem";
@@ -80,14 +79,17 @@ class FavoriteTab extends Component<Props> {
   }
 
   renderItem(data) {
+    const {theme} = this.props;
       const item = data.item;
       const Item = this.storeName === FLAG_STORAGE.flag_popular ? PopularItem : TrendingItem;
       return <Item
+          theme={theme}
           projectModel={item}
           onSelect={(callback) => {
               NavigationUtil.goPage({
                   projectModel: item,
                   flag:this.storeName,
+                  theme: theme,
                   callback,
               }, 'DetailPage')
           }}
@@ -97,6 +99,7 @@ class FavoriteTab extends Component<Props> {
 
   render() {
     let store = this._store();
+    const {theme} = this.props;
     return (
       <View style={styles.container}>
         <FlatList
@@ -106,11 +109,11 @@ class FavoriteTab extends Component<Props> {
           refreshControl={
             <RefreshControl
               title={'Loading'}
-              titleColor={THEME_COLOR}
-              colors={[THEME_COLOR]}
+              titleColor={theme.themeColor}
+              colors={[theme.themeColor]}
               refreshing={store.isLoading}
               onRefresh={() => this.loadData(true)}
-              tintColor={THEME_COLOR}
+              tintColor={theme.themeColor}
             />
           }
         />

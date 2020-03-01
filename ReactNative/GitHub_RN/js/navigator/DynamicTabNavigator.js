@@ -7,7 +7,6 @@ import PopularPage from '../page/PopularPage/index';
 import TrendingPage from '../page/TrendingPage/index';
 import FavoritePage from '../page/FavoritePage/index';
 import MyPage from '../page/Mine/MyPage';
-import GamePage from '../page/GamePage';
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -115,24 +114,9 @@ class TabBarComponent extends Component {
     };
   }
   render() {
-    // const {routes, index} = this.props.navigation.state;
-    // console.log(routes);
-    // console.log('----routes----');
-    // if (routes[index].params) {
-    //   const {theme} = routes[index].params;
-    //   // 以最新的 更新时间为主, 频繁被其他tab 之前的修改覆盖
-    //   if (theme && theme.updateTime > this.theme.updateTime) {
-    //     console.log(index);
-    //     console.log('----index----');
-    //     console.log(theme);
-    //     this.theme = theme;
-    //     // this.setTheme(...theme);
-    //   }
-    // }
     return <BottomTabBar
       {...this.props}
-      activeTintColor={this.props.theme}
-      style={{backgroundColor: '#124'}}
+      activeTintColor={this.props.theme.themeColor}
     />;
   }
 }

@@ -5,7 +5,6 @@ import { createAppContainer } from "react-navigation" ;
 import NavigationUtil from "../../navigator/NavigationUtil";
 
 import NavigationBar from "../../common/NavigationBar";
-import { THEME_COLOR } from "../../util/ViewUtil";
 import PopularTabPage from "./PopularTabPage";
 import actions from "../../action/index";
 import { connect } from "react-redux";
@@ -42,11 +41,11 @@ class PopularPage extends Component<Props> {
   componentwi
   _getTabs() {
     const tabs = {};
-    const {keys} = this.props;
+    const {keys, theme} = this.props;
     keys.forEach((item, index) => {
       if (item && item.checked) {
         tabs[`tab${index}`] = {
-          screen: props => <PopularTabPage {...props} tabLabel={item.name}/>,
+          screen: props => <PopularTabPage {...props} tabLabel={item.name} theme={theme}/>,
           navigationOptions: {
             title: item.name
           }
@@ -67,19 +66,19 @@ class PopularPage extends Component<Props> {
   }
 
   render() {
+    let {keys, theme} = this.props;
     let statusBar = {
-      backgroundColor: THEME_COLOR, //'orange',
+      backgroundColor: theme.themeColor, //'orange',
       // barStyle: 'light-content',
       barStyle: 'default',
       hidden: false,
     };
-
     let navigationBar = <NavigationBar
       title={'最热'}
       statusBar={statusBar}
-      style={{backgroundColor: THEME_COLOR}}
+      style={theme.styles.navBar}
     />;
-    let {keys} = this.props;
+    
     const TabNavigator = keys.length ? createAppContainer(createMaterialTopTabNavigator(
       this._getTabs(), {
         tabBarOptions: {
@@ -89,7 +88,7 @@ class PopularPage extends Component<Props> {
           // 默认是无法滚动
           scrollEnabled: true,
           style: {
-              backgroundColor: THEME_COLOR, //'#a0a',
+              backgroundColor: theme.themeColor, //'#a0a',
                 height: 45,//fix 开启scrollEnabled后再Android上初次加载时闪烁问题
           },
           indicatorStyle: styles.indicatorStyle,
@@ -108,6 +107,7 @@ class PopularPage extends Component<Props> {
 
 const mapPopularStateToProps = state => ({
   keys: state.language.keys,
+  theme: state.theme.theme,
 });
 const mapPopularDispatchToProps = dispatch => ({
   onLoadLanguage: (flag) => dispatch(actions.onLoadLanguage(flag))

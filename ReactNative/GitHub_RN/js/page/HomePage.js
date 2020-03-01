@@ -1,29 +1,26 @@
 import React, {Component} from 'react';
-import {BackHandler} from 'react-native';
+import {View} from 'react-native';
 import NavigationUtil from "../navigator/NavigationUtil";
 import DynamicTabNavigator from "../navigator/DynamicTabNavigator";
 import {NavigationActions} from "react-navigation";
 import connect from "react-redux/es/connect/connect";
 import BackPressComponent from "../common/BackPressComponent";
-
+import CustomTheme from "../page/CustomTheme";
+import actions from '../action';
 
 type Props = {};
 
 export default class HomePage extends Component<Props> {
-  constructor(props){
+  constructor(props) {
     super(props);
-    // 这里的{backPress: this.onBackPress()}
-    // 调用的是 () => {} 箭头函数, 所以函数体内部是 this 是这个 HomePage;
     this.backPress = new BackPressComponent({backPress: this.onBackPress()});
   }
 
   componentDidMount() {
-    // BackHandler.addEventListener("hardwareBackPress", this.onBackPress);
     this.backPress.componentDidMount();
   }
 
   componentWillUnmount() {
-    // BackHandler.removeEventListener("hardwareBackPress", this.onBackPress);
     this.backPress.componentWillUnmount();
   }
 
@@ -41,15 +38,21 @@ export default class HomePage extends Component<Props> {
     // dispatch(NavigationActions.back());
     return true;
   };
-  render() {
-    NavigationUtil.navigation = this.props.navigation;
-    return <DynamicTabNavigator/>
+
+  renderCustomThemeView() {
+    const {customThemeViewVisible, onShowCustomThemeView} = this.props;
+    return (<CustomTheme
+      visible={customThemeViewVisible}
+      {...this.props}
+      onClose={() => onShowCustomThemeView(false)}
+    />);
   }
 
+  render() {
+    NavigationUtil.navigation = this.props.navigation;
+    return <View style={{flex: 1}}>
+      <DynamicTabNavigator/>
+      {this.renderCustomThemeView()}
+    </View>;
+  }
 }
-
-// const mapStateToProps = state => ({
-//   nav:state.nav,
-//   theme:state.theme
-// });
-// export default connect(mapStateToProps)(HomePage);

@@ -10,7 +10,6 @@ import { StyleSheet,
 import { createMaterialTopTabNavigator } from "react-navigation-tabs";
 import { createAppContainer } from "react-navigation" ;
 import NavigationUtil from "../../navigator/NavigationUtil";
-// import DetailPage from "../page/DetailPage";
 import actions from "../../action/index";
 import { connect } from "react-redux";
 import TrendingItem from "../../common/TrendingItem";
@@ -53,7 +52,7 @@ class TrendingPage extends Component<Props> {
 
   _getTabs() {
       const tabs = {};
-      const {keys} = this.props;
+      const {keys, theme} = this.props;
       this.preKeys = keys
       // this.preKeys = keys.filter((item) => {
       //   if (item.checked) {
@@ -64,7 +63,7 @@ class TrendingPage extends Component<Props> {
         if (item.checked) {
           // 这里 tab${index} 是key 唯一标识
           tabs[`tab${index}`] = {
-              screen: props => <TrendingTabPage {...props} timeSpan={this.state.timeSpan} tabLabel={item.name}/>,
+              screen: props => <TrendingTabPage {...props} timeSpan={this.state.timeSpan} tabLabel={item.name} theme={theme}/>,
               navigationOptions: {
                   title: item.name,
               },
@@ -114,7 +113,10 @@ class TrendingPage extends Component<Props> {
   _tabNav() {
     // if(!this.tabNav) { //优化效率：根据需要选择是否重新创建建TabNavigator，通常tab改变后才重新创建
     //优化效率：根据需要选择是否重新创建建TabNavigator，通常tab改变后才重新创建
-    if (!this.tabNav || !ArrayUtil.isEqual(this.preKeys, this.props.keys)) {
+    const {theme} = this.props;
+    //注意：主题发生变化需要重新渲染top tab
+    if (theme !== this.theme || !this.tabNav || !ArrayUtil.isEqual(this.preKeys, this.props.keys)) {//优化效率：根据需要选择是否重新创建建TabNavigator，通常tab改变后才重新创建
+      this.theme = theme;
       this.tabNav = createAppContainer(createMaterialTopTabNavigator(
         this._getTabs(), {
           tabBarOptions: { 
@@ -122,7 +124,7 @@ class TrendingPage extends Component<Props> {
             upperCaseLabel: false, // 是否使用标签大写, 默认问 true,
             scrollEnabled: true, // 是否支持 选项卡滚动, 默认 false
             style: {
-              backgroundColor: '#678', // tabbar 的背景色
+              backgroundColor: theme.themeColor, // tabbar 的背景色
               height: 50, //fix 修复开启scrollEnabled后在 Android上初始化加载时闪烁问题
             },
             indicatorStyle: styles.indicatorStyle, // 标签指示器的样式
@@ -136,18 +138,20 @@ class TrendingPage extends Component<Props> {
   }
 
   render() {
+    const {keys, theme} = this.props;
     let statusBar = {
-      backgroundColor: THEME_COLOR, //'orange',
+      backgroundColor: theme.themeColor, //'orange',
       // barStyle: 'light-content',
       barStyle: 'default',
       hidden: false,
     };
+    
     let navigationBar = <NavigationBar
       titleView={this.renderTitleView()}
       statusBar={statusBar}
-      style={{backgroundColor: THEME_COLOR}}
+      style={theme.styles.navBar}
     />;
-    const {keys} = this.props;
+    
     const TabNavigator = (Array.isArray(keys) && keys.length) ? this._tabNav() : null;
     return (<View style={[styles.constainer]}>
       {navigationBar}
@@ -161,6 +165,7 @@ class TrendingPage extends Component<Props> {
 
 const mspTrendingStateToProps = state => ({
   keys: state.language.languages,
+  theme: state.theme.theme,
 });
 const mspTrendingDispatchToProps = dispatch => ({
   onLoadLanguage: (flag) => dispatch(actions.onLoadLanguage(flag))

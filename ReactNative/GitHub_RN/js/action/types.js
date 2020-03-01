@@ -3,7 +3,9 @@ export default {
   THEME_CHANGE: 'THEME_CHANGE',
   // 主题初始化
   THEME_INIT: 'THEME_INIT',
-
+  // 显示设置主题页面
+  SHOW_THEME_VIEW: "SHOW_THEME_VIEW",
+  
 
   // 加载Popular 页面数据
   POPULAR_REFRESH: "POPULAR_REFRESH",

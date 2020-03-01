@@ -7,7 +7,7 @@ import React, {Component} from "react";
 import { View, Text, StyleSheet, Button, TouchableOpacity, Linking } from "react-native";
 import {WebView} from "react-native-webview";
 import NavigationBar from "../../common/NavigationBar";
-import ViewUtil, {THEME_COLOR} from "../../util/ViewUtil";
+import ViewUtil from "../../util/ViewUtil";
 import NavigationUtil from "../../navigator/NavigationUtil";
 import BackPressComponent from "../../common/BackPressComponent";
 import AboutCommon, {FLAG_ABOUT} from "./AboutCommon";
@@ -21,6 +21,7 @@ type Props={}
 export default class AboutPage extends Component<Props> {
   constructor(props) {
     super(props)
+    this.params = this.props.navigation.state.params;
     // console.log(props);
     console.log(JSON.stringify(props.navigation.state.params));
     this.aboutCommon = new AboutCommon({
@@ -75,7 +76,7 @@ export default class AboutPage extends Component<Props> {
   }
   
   getItem(menu) {
-    return ViewUtil.getMenuItem(() => this.onClick(menu), menu, THEME_COLOR);
+    return ViewUtil.getMenuItem(() => this.onClick(menu), menu, this.params.theme.themeColor);
   }
   render() {
     const content = <View>

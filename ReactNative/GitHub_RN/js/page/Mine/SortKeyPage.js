@@ -164,11 +164,12 @@ class SortKeyPage extends Component<Props> {
   }
 
   render() {
+    const {theme} = this.params;
     let title = this.params.flag === FLAG_LANGUAGE.flag_language ? '语言排序' : '标签排序';
     let navigationBar = <NavigationBar 
       title={title}
       leftButton={ViewUtil.getLeftBackButton(() => this.onBackPress())}
-      style={{backgroundColor: THEME_COLOR}}
+      style={{backgroundColor: theme.themeColor}}
       rightButton={ViewUtil.getRightButton('保存', () => this.onSave())}
     />;
     return <View style={styles.container}>
