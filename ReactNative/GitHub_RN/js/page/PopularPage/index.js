@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, RefreshControl, FlatList, ActivityIndicator, Platform } from "react-native";
+import { StyleSheet, View, TouchableOpacity } from "react-native";
 import { createMaterialTopTabNavigator } from "react-navigation-tabs";
 import { createAppContainer } from "react-navigation" ;
 import NavigationUtil from "../../navigator/NavigationUtil";
@@ -11,6 +11,8 @@ import { connect } from "react-redux";
 import { FLAG_LANGUAGE } from "../../expand/dao/LanguageDao";
 import EventBus from "react-native-event-bus";
 import EventTypes from "../../util/EventTypes";
+import Ionicons from 'react-native-vector-icons/Ionicons'
+
 
 const URL = 'https://api.github.com/search/repositories?q=';
 const QUERY_STR = '&sort=stars';
@@ -38,7 +40,27 @@ class PopularPage extends Component<Props> {
     const {onLoadLanguage} = this.props;
     onLoadLanguage(FLAG_LANGUAGE.flag_key);
   }
-  componentwi
+
+  renderRightButton() {
+    const {theme} = this.props;
+    return <TouchableOpacity
+      onPress={() => {
+        NavigationUtil.goPage({theme}, 'SearchPage')
+      }}
+    >
+      <View style={{padding: 5, marginRight: 8}}>
+        <Ionicons
+          name={'ios-search'}
+          size={24}
+          style={{
+            marginRight: 8,
+            alignSelf: 'center',
+            color: 'white',
+          }}/>
+      </View>
+    </TouchableOpacity>
+  }
+
   _getTabs() {
     const tabs = {};
     const {keys, theme} = this.props;
@@ -77,6 +99,7 @@ class PopularPage extends Component<Props> {
       title={'最热'}
       statusBar={statusBar}
       style={theme.styles.navBar}
+      rightButton={this.renderRightButton()}
     />;
     
     const TabNavigator = keys.length ? createAppContainer(createMaterialTopTabNavigator(

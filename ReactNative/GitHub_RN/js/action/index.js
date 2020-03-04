@@ -3,6 +3,7 @@ import { onRefreshPopular, onLoadMorePopular, onFlushPopularFavorite } from "./p
 import { onRefreshTrending, onLoadMoreTrending, onFlushTrendingFavorite } from "./Trending";
 import { onLoadFavoriteData } from "./favorite";
 import { onLoadLanguage } from "./language";
+import { onSearch, onSearchCancel, onLoadMoreSearch } from "./search";
 export default {
   // 修改主题
   onThemeChange,
@@ -26,4 +27,9 @@ export default {
 
   // 加载语言
   onLoadLanguage,
+
+  // 搜索
+  onSearch,
+  onSearchCancel,
+  onLoadMoreSearch,
 }

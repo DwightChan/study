@@ -11,13 +11,11 @@ import { handleData, _projectModels } from "../ActionUtil";
  * @param favoriteDao
  */
 export function onRefreshPopular(storeName, url, pageSize, favoriteDao) {
-  console.log("进入方法 onRefreshPopular");
   return dispatch => {
     dispatch({type: Types.POPULAR_REFRESH, storeName: storeName});
     let dataStore = new DataStore();
     dataStore.fetchData(url, FLAG_STORAGE.flag_popular)// 异步action 与数据流
       .then(data => {
-        console.log("获取数据成功---", storeName);
         // handleData(dispatch, storeName, data, pageSize)
         handleData(Types.POPULAR_REFRESH_SUCCESS, dispatch, storeName, data, pageSize, favoriteDao)
       })

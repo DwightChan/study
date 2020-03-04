@@ -25,7 +25,6 @@ export function onLoadFavoriteData(flag, isShowLoading) {
                 dispatch({type: Types.FAVORITE_LOAD_SUCCESS, projectModels: resultData, storeName: flag});
             })
             .catch(e => {
-                console.log(e);
                 dispatch({type: Types.FAVORITE_LOAD_FAIL, error: e, storeName: flag});
             })
 
