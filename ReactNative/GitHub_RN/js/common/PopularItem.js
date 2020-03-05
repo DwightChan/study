@@ -52,25 +52,31 @@ export default class PopularItem extends Component {
 const styles = StyleSheet.create({
   cell_container: {
     padding: 10,
-    backgroundColor: 'white',
+    // backgroundColor: 'white',
+    backgroundColor: '#11aa00',
+    borderColor: 'black',
     marginLeft: 5,
   },
   row: {
     justifyContent: 'space-between',
     flexDirection: 'row',
     alignItems: 'center',
+    marginLeft: 5,
   },
   title: {
     fontSize: 16,
-    marginBottom: 2,
+    // marginBottom: 2,
+    // marginLeft: 5,
+    margin: 5,
     color: '#212121',
-    shadowOpacity: 0.5,
-    shadowColor: "#333",
+    // shadowOpacity: 0.5,
+    // shadowColor: "#333",
     // shadowOffset: 1,
   },
   description: {
       fontSize: 14,
       marginBottom: 2,
+      marginLeft: 5,
       color: '#757575',
   }
 });
