@@ -20,10 +20,10 @@ export default class PopularItem extends Component {
       />
     </TouchableOpacity>
     return (
-      <TouchableOpacity
+      <TouchableOpacity 
         onPress={this.props.onSelect}
       >
-        <View sytle={styles.cell_container}>
+        <View style={styles.cell_container}>
           <Text style={styles.title}>
             {item.full_name}
           </Text>
@@ -51,11 +51,20 @@ export default class PopularItem extends Component {
 
 const styles = StyleSheet.create({
   cell_container: {
+    backgroundColor: 'white',
+    // backgroundColor: 'skyblue',
     padding: 10,
-    // backgroundColor: 'white',
-    backgroundColor: '#11aa00',
-    borderColor: 'black',
     marginLeft: 5,
+    marginRight: 5,
+    marginVertical: 3,
+    borderColor: '#dddddd',
+    borderWidth: 0.5,
+    borderRadius: 2,
+    shadowColor: 'gray',
+    shadowOffset: {width: 0.5, height: 0.5},
+    shadowOpacity: 0.4,
+    shadowRadius: 1,
+    elevation: 2
   },
   row: {
     justifyContent: 'space-between',
@@ -78,5 +87,5 @@ const styles = StyleSheet.create({
       marginBottom: 2,
       marginLeft: 5,
       color: '#757575',
-  }
+  },
 });

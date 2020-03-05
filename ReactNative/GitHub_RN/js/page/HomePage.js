@@ -1,11 +1,55 @@
-import React,{ Component } from "react";
-import {StyleSheet, View, Text } from "react-native";
-import DynamicTabNavigator from '../navigator/DynamicTabNavigator'
+import React, {Component} from 'react';
+import {BackHandler} from 'react-native';
 import NavigationUtil from "../navigator/NavigationUtil";
+import DynamicTabNavigator from "../navigator/DynamicTabNavigator";
+import {NavigationActions} from "react-navigation";
+import connect from "react-redux/es/connect/connect";
+import BackPressComponent from "../common/BackPressComponent";
 
-export default class HomePage extends Component {
+
+type Props = {};
+
+export default class HomePage extends Component<Props> {
+  constructor(props){
+    super(props);
+    // 这里的{backPress: this.onBackPress()}
+    // 调用的是 () => {} 箭头函数, 所以函数体内部是 this 是这个 HomePage;
+    this.backPress = new BackPressComponent({backPress: this.onBackPress()});
+  }
+
+  componentDidMount() {
+    // BackHandler.addEventListener("hardwareBackPress", this.onBackPress);
+    this.backPress.componentDidMount();
+  }
+
+  componentWillUnmount() {
+    // BackHandler.removeEventListener("hardwareBackPress", this.onBackPress);
+    this.backPress.componentWillUnmount();
+  }
+
+  /**
+   * 处理 Android 中的物理返回键
+   * https://reactnavigation.org/docs/en/redux-integration.html#handling-the-hardware-back-button-in-android
+   * @returns {boolean}
+   */
+  onBackPress = () => {
+    // const {dispatch, nav} = this.props;
+    // //if (nav.index === 0) {
+    // if (nav.routes[1].index === 0) {//如果RootNavigator中的MainNavigator的index为0，则不处理返回事件
+    //     return false;
+    // }
+    // dispatch(NavigationActions.back());
+    return true;
+  };
   render() {
     NavigationUtil.navigation = this.props.navigation;
-    return <DynamicTabNavigator />;
+    return <DynamicTabNavigator/>
   }
+
 }
+
+// const mapStateToProps = state => ({
+//   nav:state.nav,
+//   theme:state.theme
+// });
+// export default connect(mapStateToProps)(HomePage);

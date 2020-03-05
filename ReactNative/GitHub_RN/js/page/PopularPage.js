@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, RefreshControl, FlatList, ActivityIndicator } from "react-native";
+import { StyleSheet, View, Text, RefreshControl, FlatList, ActivityIndicator, Platform } from "react-native";
 import { createMaterialTopTabNavigator } from "react-navigation-tabs";
 import { createAppContainer } from "react-navigation" ;
 import NavigationUtil from "../navigator/NavigationUtil";
@@ -8,11 +8,11 @@ import actions from "../action/index";
 import { connect } from "react-redux";
 import PopularItem from "../common/PopularItem";
 import Toast from "react-native-easy-toast";
-import Types from "../action/types";
-
+import NavigationBar from "../common/NavigationBar";
+import { THEME_COLOR } from "../util/ViewUtil";
 const URL = 'https://api.github.com/search/repositories?q=';
 const QUERY_STR = '&sort=stars';
-const THEME_COLOR = 'red';
+
 type Props = {};
 
 export default class PopularPage extends Component<Props> {
@@ -37,26 +37,40 @@ export default class PopularPage extends Component<Props> {
     }
 
     render() {
-        const TabNavigator = createAppContainer(createMaterialTopTabNavigator(
-          this._getTabs(), {
-            tabBarOptions: {
-              tabStyle: styles.tabStyle,
-              // 默认是大小字母
-              upperCaseLabel: false,
-              // 默认是无法滚动
-              scrollEnabled: true,
-              style: {
-                  backgroundColor: '#a0a',
-              },
-              indicatorStyle: styles.indicatorStyle,
-              labelStyle: styles.labelStyle,
+      let statusBar = {
+        backgroundColor: THEME_COLOR, //'orange',
+        // barStyle: 'light-content',
+        barStyle: 'default',
+        hidden: false,
+      };
+
+      let navigationBar = <NavigationBar
+        title={'最热'}
+        statusBar={statusBar}
+        style={{backgroundColor: THEME_COLOR}}
+      />;
+
+      const TabNavigator = createAppContainer(createMaterialTopTabNavigator(
+        this._getTabs(), {
+          tabBarOptions: {
+            tabStyle: styles.tabStyle,
+            // 默认是大小字母
+            upperCaseLabel: false,
+            // 默认是无法滚动
+            scrollEnabled: true,
+            style: {
+                backgroundColor: THEME_COLOR, //'#a0a',
+                 height: 45,//fix 开启scrollEnabled后再Android上初次加载时闪烁问题
             },
+            indicatorStyle: styles.indicatorStyle,
+            labelStyle: styles.labelStyle,
           },
-        ));
-        return (<View style={styles.constainer}>
-            <TabNavigator /> 
-          </View>
-        );
+        },
+      ));
+      return (<View style={styles.container}>
+        {navigationBar}
+        <TabNavigator /> 
+      </View>);
     }
 }
 
@@ -117,7 +131,10 @@ class PopularTab extends Component<Props> {
       return <PopularItem
         item={item}
         onSelect={() => {
-          console.log("我被选中了");
+          // console.log("我被选中了");
+          NavigationUtil.goPage({
+            projectMode: item
+          }, 'DetailPage');
         }}
       />
     }
@@ -133,14 +150,7 @@ class PopularTab extends Component<Props> {
     }
     render() {
       let store = this._store();
-      // if (store.type === Types.POPULAR_REFRESH_SUCCESS &&
-      //     store.hideLoadingMore === true) {
-      //   setTimeout(() => {
-      //     store.hideLoadingMore = false
-      //   }, 1000);
-      // }
-      // console.log("projectModes:", store.projectModes);
-      return (<View style={styles.constainer}>
+      return (<View style={styles.container}>
         <FlatList
           data={store.projectModes}
           renderItem={data => this.renderItem(data)}
@@ -201,38 +211,26 @@ const PopularTabPage = connect(mapStateToProps, mapDispatchToProps)(PopularTab)
 
 
 const styles = StyleSheet.create({
-    constainer: {
-        flex: 1,
-        marginTop: 30,
-        backgroundColor: '#f5fcff',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    tabStyle: {
-        // minWidth: 10,
-    },
-    indicatorStyle: {
-        height: 2,
-        backgroundColor: '#111',
-    },
-    labelStyle: {
-        fontSize: 13,
-        marginTop: 6,
-        marginBottom: 6,
-    },
-    textPressStyle: {
-        backgroundColor: '#ccc',
-        // width: 100,
-        height: 30,
-    },
-    indicatorContainer: {
-      alignItems: "center",
-    },
-    indicator: {
+  container: {
+      flex: 1,
+  },
+  tabStyle: {
+      // minWidth: 50 //fix minWidth会导致tabStyle初次加载时闪烁
+      padding: 0
+  },
+  indicatorStyle: {
+      height: 2,
+      backgroundColor: 'white'
+  },
+  labelStyle: {
+      fontSize: 13,
+      margin: 0,
+  },
+  indicatorContainer: {
+      alignItems: "center"
+  },
+  indicator: {
       color: 'red',
-      marginTop: 10,
-    }
+      margin: 10
+  }
 });
