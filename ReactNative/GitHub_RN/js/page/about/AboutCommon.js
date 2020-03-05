@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Image, Dimensions, StyleSheet, Platform, DeviceInfo } from "react-native";
 import BackPressComponent from "../../common/BackPressComponent";
 import NavigationUtil from "../../navigator/NavigationUtil";
-import GlobalStyles from "../../res/styles/GlobalStyles";
+import GlobalStyles, { STATUS_BAR_HEIGHT, NAV_BAR_HEIGHT, WINDOW } from "../../res/styles/GlobalStyles";
 import ViewUtil, { THEME_COLOR } from "../../util/ViewUtil";
 import ParallaxScrollView from "react-native-parallax-scroll-view";
 
@@ -110,16 +110,10 @@ export default class AboutCommon {
     )
   }
 }
-
-const window = Dimensions.get('window');
 const AVATAR_SIZE = 90;
 const PARALLAX_HEADER_HEIGHT = 270;
 
-const Navigation_Bar_Height = 44; //
-let isIOS = Platform.OS === "ios" ? true : false;
-//状态栏的高度: android 高度为0 , ios 20, ios x: 44
-const STATUS_BAR_HEIGHT = isIOS ? (DeviceInfo.isIPhoneX_deprecated ? 44 : 20) : 0; 
-const STICKY_HEADER_HEIGHT = STATUS_BAR_HEIGHT + Navigation_Bar_Height;
+const STICKY_HEADER_HEIGHT = STATUS_BAR_HEIGHT + NAV_BAR_HEIGHT;
 const styles = StyleSheet.create({
   container: {
       flex: 1,
@@ -129,14 +123,13 @@ const styles = StyleSheet.create({
       position: 'absolute',
       top: 0,
       left: 0,
-      width: window.width,
+      width: WINDOW.width,
       height: PARALLAX_HEADER_HEIGHT
   },
   stickySection: {
     height: STICKY_HEADER_HEIGHT,
-    width: window.width,
+    width: WINDOW.width,
     justifyContent: 'flex-end',
-    // backgroundColor: '#123',
   },
   stickySectionText: {
     color: 'white',

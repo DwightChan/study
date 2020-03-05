@@ -160,7 +160,6 @@ class TrendingTab extends Component<Props> {
           ListFooterComponent={() => this.getInndicator()}
           // 已经被拉到底
           onEndReached={() => {
-            console.log('----onEndReached----', new Date());
             // this.loadData(true);
             // this.canLoadMore = false
             setTimeout(() => {

@@ -36,16 +36,17 @@ export default class AboutPage extends Component<Props> {
     this.backPress = new BackPressComponent({backPress: () => this.onBackPress()});
   }
   onClick(menu) {
-    let RouteName, params = {};
+    const {theme} = this.params;
+    let RouteName, params = {theme};
     switch (menu) {
       case MORE_MENU.Tutorial:
         RouteName = 'WebViewPage';
         params.title = '教程';
         params.url = 'https://www.baidu.com';        
         break;
-        case MORE_MENU.About_Author:
-          RouteName = 'AboutMePage';
-          break;
+      case MORE_MENU.About_Author:
+        RouteName = 'AboutMePage';
+        break;
       case MORE_MENU.Feedback:
         // 注意要打开其他应用, 除了 http 或者HTTPS 开头的 其他的都要在 ios中配置 LSApplicationQueriesSchemes
         // 打开地图：Linking.openURL("geo:37.2122 , 12.222") 传入一个坐标
@@ -95,28 +96,3 @@ const styles = StyleSheet.create({
     flex: 1, 
   },
 });
-/*
-console.error: "An error occurred", Error: Unable to open URL: suncityGroup://. Add suncityGroup to LSApplicationQueriesSchemes in your Info.plist.
-
-_construct
-    construct.js:30:26
-Wrapper
-    wrapNativeSuper.js:26:23
-SyntheticError
-    index.bundle?platform=ios&dev=true&minify=false:28738:111
-reactConsoleErrorHandler
-    ExceptionsManager.js:135:52
-Linking.canOpenURL.then._catch$argument_0
-    AboutPage.js:59:24
-tryCallOne
-    core.js:37:14
-setImmediate$argument_0
-    core.js:123:25
-callImmediates
-    [native code]:0
-flushedQueue
-    [native code]:0
-invokeCallbackAndReturnFlushedQueue
-    [native code]:0
-
-*/

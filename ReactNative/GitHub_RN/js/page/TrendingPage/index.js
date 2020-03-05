@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import { StyleSheet,
   View, 
   Text, 
-  RefreshControl, 
-  FlatList, 
-  ActivityIndicator, 
   TouchableOpacity,
   DeviceEventEmitter } from "react-native";
 import { createMaterialTopTabNavigator } from "react-navigation-tabs";
@@ -12,23 +9,10 @@ import { createAppContainer } from "react-navigation" ;
 import NavigationUtil from "../../navigator/NavigationUtil";
 import actions from "../../action/index";
 import { connect } from "react-redux";
-import TrendingItem from "../../common/TrendingItem";
-import Toast from "react-native-easy-toast";
 import NavigationBar from "../../common/NavigationBar";
 import TrendingDialog, { TimeSpans } from "../../common/TrendingDialog";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import ViewUtil, {THEME_COLOR} from "../../util/ViewUtil";
-
-import FavoriteDao from "../../expand/dao/FavoriteDao";
-import FavoriteUtil from "../../util/FavoriteUtil";
-
-import EventBus from "react-native-event-bus";
-import EventTypes from "../../util/EventTypes";
-
 import TrendingTabPage from "./TrendingTabPage";
-
-import DataStore, {FLAG_STORAGE} from "../../expand/dao/DataStore";
-const favoriteDao = new FavoriteDao(FLAG_STORAGE.flag_trending);
 import ArrayUtil from "../../util/ArrayUtil";
 import { FLAG_LANGUAGE } from "../../expand/dao/LanguageDao";
 

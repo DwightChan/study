@@ -1,9 +1,5 @@
 import React, {Component} from 'react'
 import {Modal, TouchableHighlight,Platform, ScrollView, StyleSheet, Text, View} from 'react-native'
-// import ThemeDao from "../expand/dao/ThemeDao";
-// import GlobalStyles from "../res/styles/GlobalStyles";
-// import ThemeFactory, {ThemeFlags} from "../res/styles/ThemeFactory";
-// import actions from "../action";
 import {connect} from "react-redux";
 import ThemeDao from "../expand/dao/ThemeDao";
 import GlobalStyles, {STATUS_BAR_HEIGHT} from "../res/styles/GlobalStyles";

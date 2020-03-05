@@ -17,7 +17,6 @@ export function onRefreshTrending(storeName, url, pageSize, favoriteDao) {
     let dataStore = new DataStore();
     dataStore.fetchData(url, FLAG_STORAGE.flag_trending)// 异步action 与数据流
       .then(data => {
-        console.log("获取数据成功---", storeName);
         // handleData(dispatch, storeName, data, pageSize)
         handleData(Types.TRENDING_REFRESH_SUCCESS, dispatch, storeName, data, pageSize, favoriteDao)
       })
