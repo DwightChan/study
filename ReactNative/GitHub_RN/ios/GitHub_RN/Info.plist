@@ -72,5 +72,14 @@
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
 	</array>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>suncityGroup</string>
+		<string>mailto</string>
+		<string>tel</string>
+		<string>smsto</string>
+	</array>
 </dict>
 </plist>

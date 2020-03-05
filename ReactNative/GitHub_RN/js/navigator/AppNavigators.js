@@ -3,9 +3,9 @@ import {createStackNavigator} from 'react-navigation-stack';
 import WelcomePage from '../page/WelcomePage';
 import HomePage from '../page/HomePage';
 import DetailPage from "../page/DetailPage";
-import FetchDemoPage from "../page/FetchDemoPage";
-import AsyncStorageDemoPage from "../page/AsyncStorageDemoPage";
-import DataStoreDemoPage from "../page/DataStoreDemoPage";
+import WebViewPage from "../page/WebViewPage";
+import AboutPage from "../page/about/AboutPage";
+import AboutMePage from "../page/about/AboutMePage";
 import {createReactNavigationReduxMiddleware, createReduxContainer} from 'react-navigation-redux-helpers';
 import { connect } from "react-redux";
 
@@ -35,25 +35,22 @@ const MainNavigator = createStackNavigator({
         header: null,
       }
     },
-    FetchDemoPage: {
-      screen: FetchDemoPage,
+    WebViewPage: {
+      screen: WebViewPage,
       navigationOptions: {
-        title: 'FetchDemoPage',
-        headerBackTitle: '返回',
+        header: null,
       }
     },
-    AsyncStorageDemoPage: {
-      screen: AsyncStorageDemoPage,
+    AboutPage: {
+      screen: AboutPage,
       navigationOptions: {
-        title: 'AsyncStorageDemoPage',
-        headerBackTitle: '返回',
+        header: null,
       }
     },
-    DataStoreDemoPage: {
-      screen: DataStoreDemoPage,
+    AboutMePage: {
+      screen: AboutMePage,
       navigationOptions: {
-        title: '离线缓存',
-        headerBackTitle: '返回',
+        header: null,
       }
     }
 });

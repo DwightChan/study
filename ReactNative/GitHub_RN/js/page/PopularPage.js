@@ -185,13 +185,14 @@ class PopularTab extends Component<Props> {
           keyExtractor={item => '' + item.item.id}
           refreshControl={
             <RefreshControl
-              title={'Loading'}
+              title={'下拉加载更多'}
               titleColor={THEME_COLOR}
               colors={[THEME_COLOR]}
               refreshing={store.isLoading}
               onRefresh={() => this.loadData()}
               tintColor={THEME_COLOR}
-            />
+            >
+            </RefreshControl>
           }
           ListFooterComponent={() => this.getInndicator()}
           // 已经被拉到底
