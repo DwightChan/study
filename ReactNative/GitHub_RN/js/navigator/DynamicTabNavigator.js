@@ -68,7 +68,7 @@ const TABS = { // 这里配合页面的路由
   },
 };
 
-class DynamicTabNaivgator extends Component {
+class DynamicTabNaivgator extends Component<Props> {
   constructor(props) {
     super(props);
     console.disableYellowBox = true; // 关闭黄色警告弹框;
@@ -99,17 +99,11 @@ class DynamicTabNaivgator extends Component {
       }
     }, PopularPage, TrendingPage, FavoritePage, MyPage};
     PopularPage.navigationOptions.tabBarLabel = '最热123'; // 动态修改 tab 属性
-    return this.Tabs = createAppContainer(createBottomTabNavigator(
-      // tabs,
-      {
-        ...tabs
+    return this.Tabs = createAppContainer(createBottomTabNavigator(tabs, {
+      tabBarComponent: props => {
+        return <TabBarComponent theme={this.props.theme} {...props}/>;
       },
-      {
-        tabBarComponent: props => {
-          return <TabBarComponent theme={this.props.theme} {...props}/>;
-        },
-      }
-    ));
+    }));
   }
 
   render() {
@@ -120,13 +114,13 @@ class DynamicTabNaivgator extends Component {
 }
 
 class TabBarComponent extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.theme = {
-  //     tintColor: props.activeTintColor,
-  //     updateTime: new Date().getTime(),
-  //   };
-  // }
+  constructor(props) {
+    super(props);
+    this.theme = {
+      tintColor: props.activeTintColor,
+      updateTime: new Date().getTime(),
+    };
+  }
   render() {
     // const {routes, index} = this.props.navigation.state;
     // console.log(routes);
@@ -144,7 +138,6 @@ class TabBarComponent extends Component {
     // }
     return <BottomTabBar
       {...this.props}
-      // activeTintColor={this.theme.tintColor || this.props.activeTintColor}
       activeTintColor={this.props.theme}
     />;
   }

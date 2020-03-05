@@ -5,7 +5,6 @@ export default class NavigationUtil {
    * @param page 要跳转到页面名称(页面路由名称)
    */
   static goPage(params, page) {
-    console.log('---goPage---');
     const navigation = NavigationUtil.navigation;
     if (!navigation) {
       console.log('NavigationUtil.navigaiton can not be ull');
