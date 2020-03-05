@@ -13,22 +13,22 @@ import Utils from "../util/Utils";
 export function handleData(actionType, dispatch, storeName, data, pageSize, favoriteDao) {
     let fixItems = [];
     if (data && data.data) {
-        if (Array.isArray(data.data)) {
-            fixItems = data.data;
-        } else if (Array.isArray(data.data.items)) {
-            fixItems = data.data.items;
-        }
+      if (Array.isArray(data.data)) {
+        fixItems = data.data;
+      } else if (Array.isArray(data.data.items)) {
+        fixItems = data.data.items;
+      }
     }
     //第一次要加载的数据
     let showItems = pageSize > fixItems.length ? fixItems : fixItems.slice(0, pageSize);
     _projectModels(showItems,favoriteDao,projectModels=>{
-        dispatch({
-            type: actionType,
-            items: fixItems,
-            projectModels:projectModels,
-            storeName,
-            pageIndex: 1
-        })
+      dispatch({
+        type: actionType,
+        items: fixItems,
+        projectModels:projectModels,
+        storeName,
+        pageIndex: 1
+      })
     });
 }
 

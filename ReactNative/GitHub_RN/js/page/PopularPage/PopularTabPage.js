@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text, RefreshControl, FlatList, ActivityIndicator, Platform } from "react-native";
 import NavigationUtil from "../../navigator/NavigationUtil";
-// import DetailPage from "../page/DetailPage";
 import actions from "../../action/index";
 import { connect } from "react-redux";
 import PopularItem from "../../common/PopularItem";
@@ -36,7 +35,7 @@ class PopularTab extends Component<Props> {
       EventBus.getInstance().addListener(EventTypes.favorite_changed_popular, this.favoriteChangeListener = () => {
         this.isFavoriteChanged = true;
       });
-      EventBus.getInstance().addListener(EventTypes.bottom_tab_select, this.bottomTabSelectedListener = () => {
+      EventBus.getInstance().addListener(EventTypes.bottom_tab_select, this.bottomTabSelectedListener = (data) => {
         if (data.to === 0 && this.isFavoriteChanged) {
           this.loadData(null, true);
         }
@@ -91,13 +90,16 @@ class PopularTab extends Component<Props> {
     
     renderItem(data) {
       const item = data.item;
+      const {theme} = this.props;
       return <PopularItem
+        theme={theme}
         projectModel={item}
         onSelect={(callBack) => {
           console.log("我被选中了");
           NavigationUtil.goPage({
             projectModel: item,
             flag: FLAG_STORAGE.flag_popular,
+            theme: theme,
             callBack,
           }, 'DetailPage');
         }}
@@ -168,6 +170,7 @@ class PopularTab extends Component<Props> {
 
 const mapStateToProps = state => ({
   popular: state.popular,
+  // theme: state.theme,
 });
 const mapDispatchToProps = dispatch => ({
   onRefreshPopular: (storeName, url, pageSize, favoriteDao) => dispatch(actions.onRefreshPopular(storeName, url, pageSize, favoriteDao)),

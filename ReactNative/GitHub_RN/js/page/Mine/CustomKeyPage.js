@@ -1,23 +1,22 @@
 import React, {Component} from 'react';
 import {StyleSheet, ScrollView, Text, View, FlatList, RefreshControl, Alert} from 'react-native';
 import {connect} from 'react-redux';
-import actions from '../action/index'
-import NavigationUtil from '../navigator/NavigationUtil'
-import NavigationBar from '../common/NavigationBar';
-import FavoriteDao from "../expand/dao/FavoriteDao";
-import {FLAG_STORAGE} from "../expand/dao/DataStore";
-import {FLAG_LANGUAGE} from "../expand/dao/LanguageDao";
-import BackPressComponent from "../common/BackPressComponent";
-import LanguageDao from "../expand/dao/LanguageDao";
-import ViewUtil from "../util/ViewUtil";
+import actions from '../../action/index'
+import NavigationUtil from '../../navigator/NavigationUtil'
+import NavigationBar from '../../common/NavigationBar';
+import FavoriteDao from "../../expand/dao/FavoriteDao";
+import {FLAG_STORAGE} from "../../expand/dao/DataStore";
+import {FLAG_LANGUAGE} from "../../expand/dao/LanguageDao";
+import BackPressComponent from "../../common/BackPressComponent";
+import LanguageDao from "../../expand/dao/LanguageDao";
+import ViewUtil from "../../util/ViewUtil";
 import CheckBox from 'react-native-check-box'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import GlobalStyles from '../res/styles/GlobalStyles';
-import ArrayUtil from '../util/ArrayUtil';
+import GlobalStyles from '../../res/styles/GlobalStyles';
+import ArrayUtil from '../../util/ArrayUtil';
 
 const URL = 'https://api.github.com/search/repositories?q=';
 const QUERY_STR = '&sort=stars';
-const THEME_COLOR = '#678';
 const favoriteDao = new FavoriteDao(FLAG_STORAGE.flag_popular);
 type Props = {};
 
@@ -99,12 +98,12 @@ class CustomKeyPage extends Component<Props> {
         ArrayUtil.remove(keys = CustomKeyPage._keys(this.props, true), this.changeValues[i], 'name');
       }
     }
+    NavigationUtil.goBack(this.props.navigation);
     // 更新本地的数据
     this.languageDao.save(keys || this.state.keys);
     const {onLoadLanguage} = this.props;
     // 更新store
     onLoadLanguage(this.params.flag);
-    NavigationUtil.goBack(this.props.navigation);
   }
 
   renderView() {
@@ -161,11 +160,12 @@ class CustomKeyPage extends Component<Props> {
   }
 
   _checkedImage(checked) {
+    const {theme} = this.params;
     return <Ionicons
       name={checked ? 'ios-checkbox' : 'md-square-outline'}
       size={20}
       style={{
-        color: THEME_COLOR,
+        color: theme.themeColor,
       }}/>
   }
 
@@ -182,13 +182,14 @@ class CustomKeyPage extends Component<Props> {
   }
 
   render() {
+    const {theme} = this.params;
     let title = this.isRemoveKey ? '标签移除' : '自定义标签';
     title = this.params.flag === FLAG_LANGUAGE.flag_language ? '自定义语言' : title;
     let rightButtonTitle = this.isRemoveKey ? '移除' : '保存';
     let navigationBar = <NavigationBar
       title={title}
       leftButton={ViewUtil.getLeftBackButton(() => this.onBack())}
-      style={{backgroundColor: THEME_COLOR}}
+      style={theme.styles.navBar}
       rightButton={ViewUtil.getRightButton(rightButtonTitle, () => this.onSave())}
     />;
     return <View style={styles.container}>

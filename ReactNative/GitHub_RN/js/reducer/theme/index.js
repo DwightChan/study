@@ -1,7 +1,9 @@
 import Types from "../../action/types";
+import ThemeFactory, { ThemeFlags } from "../../res/styles/ThemeFactory";
 
 const defaultState = {
-  theme: 'orange',
+  theme: ThemeFactory.createTheme(ThemeFlags.Default),
+  onShowCustomThemeView: false,
 };
 
 // export default function onAction(state = defaultState) {
@@ -12,6 +14,11 @@ export default function onAction(state = defaultState, action) {
       return {
         ...state,
         theme: action.theme
+      }
+    case Types.SHOW_THEME_VIEW: 
+      return {
+        ...state,
+        customThemeViewVisible: action.customThemeViewVisible,
       }
     default: 
       return state;

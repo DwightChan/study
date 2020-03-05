@@ -5,11 +5,12 @@ import { createAppContainer } from "react-navigation" ;
 import NavigationUtil from "../../navigator/NavigationUtil";
 
 import NavigationBar from "../../common/NavigationBar";
-import { THEME_COLOR } from "../../util/ViewUtil";
 import PopularTabPage from "./PopularTabPage";
 import actions from "../../action/index";
 import { connect } from "react-redux";
 import { FLAG_LANGUAGE } from "../../expand/dao/LanguageDao";
+import EventBus from "react-native-event-bus";
+import EventTypes from "../../util/EventTypes";
 
 const URL = 'https://api.github.com/search/repositories?q=';
 const QUERY_STR = '&sort=stars';
@@ -21,17 +22,30 @@ class PopularPage extends Component<Props> {
     super(props)
     console.log(NavigationUtil.navigation)
     // this.tabNames = ['Java', 'Android', 'iOS', 'React', 'React Native', 'PHP'];
+    this.loadData();
+  }
+
+  componentDidMount() {
+    EventBus.getInstance().addListener(EventTypes.bottom_tab_select, this.listener = data => {
+      console.log("data:" + JSON.stringify(data));
+      this.loadData();
+    });
+  }
+  componentWillUnmount() {
+    EventBus.getInstance().removeListener(this.listener);
+  }
+  loadData() {
     const {onLoadLanguage} = this.props;
     onLoadLanguage(FLAG_LANGUAGE.flag_key);
   }
-
+  componentwi
   _getTabs() {
     const tabs = {};
-    const {keys} = this.props;
+    const {keys, theme} = this.props;
     keys.forEach((item, index) => {
-      if (item.checked) {
+      if (item && item.checked) {
         tabs[`tab${index}`] = {
-          screen: props => <PopularTabPage {...props} tabLabel={item.name}/>,
+          screen: props => <PopularTabPage {...props} tabLabel={item.name} theme={theme}/>,
           navigationOptions: {
             title: item.name
           }
@@ -52,19 +66,19 @@ class PopularPage extends Component<Props> {
   }
 
   render() {
+    let {keys, theme} = this.props;
     let statusBar = {
-      backgroundColor: THEME_COLOR, //'orange',
+      backgroundColor: theme.themeColor, //'orange',
       // barStyle: 'light-content',
       barStyle: 'default',
       hidden: false,
     };
-
     let navigationBar = <NavigationBar
       title={'最热'}
       statusBar={statusBar}
-      style={{backgroundColor: THEME_COLOR}}
+      style={theme.styles.navBar}
     />;
-    let {keys} = this.props;
+    
     const TabNavigator = keys.length ? createAppContainer(createMaterialTopTabNavigator(
       this._getTabs(), {
         tabBarOptions: {
@@ -74,7 +88,7 @@ class PopularPage extends Component<Props> {
           // 默认是无法滚动
           scrollEnabled: true,
           style: {
-              backgroundColor: THEME_COLOR, //'#a0a',
+              backgroundColor: theme.themeColor, //'#a0a',
                 height: 45,//fix 开启scrollEnabled后再Android上初次加载时闪烁问题
           },
           indicatorStyle: styles.indicatorStyle,
@@ -93,6 +107,7 @@ class PopularPage extends Component<Props> {
 
 const mapPopularStateToProps = state => ({
   keys: state.language.keys,
+  theme: state.theme.theme,
 });
 const mapPopularDispatchToProps = dispatch => ({
   onLoadLanguage: (flag) => dispatch(actions.onLoadLanguage(flag))

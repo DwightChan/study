@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import theme from "./theme";
+import theme from "./theme/index";
 import popular from "./popular";
 import trending from "./trending";
 import favorite from "./favorite";

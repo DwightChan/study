@@ -7,7 +7,7 @@ import React, {Component} from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 import {WebView} from "react-native-webview";
 import NavigationBar from "../common/NavigationBar";
-import ViewUtil, {THEME_COLOR} from "../util/ViewUtil";
+import ViewUtil from "../util/ViewUtil";
 import NavigationUtil from "../navigator/NavigationUtil";
 import BackPressComponent from "../common/BackPressComponent";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -99,11 +99,12 @@ export default class DetailPage extends Component<Props> {
     })
   }
   render() {
+    const {theme} = this.params;
     const titleLayoutStyle = this.state.title.length > 20 ? {paddingRight: 30} : null
     let navigationBar = <NavigationBar
       leftButton={ViewUtil.getLeftBackButton(() => this.onBack())}
       title={this.state.title}
-      style={{backgroundColor: THEME_COLOR}}
+      style={{backgroundColor: theme.themeColor}}
       titleLayoutStyle={titleLayoutStyle}
       rightButton={this.renderRightButton()}
     />;

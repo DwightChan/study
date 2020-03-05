@@ -10,7 +10,6 @@ import { StyleSheet,
 import { createMaterialTopTabNavigator } from "react-navigation-tabs";
 import { createAppContainer } from "react-navigation" ;
 import NavigationUtil from "../../navigator/NavigationUtil";
-// import DetailPage from "../page/DetailPage";
 import actions from "../../action/index";
 import { connect } from "react-redux";
 import TrendingItem from "../../common/TrendingItem";
@@ -53,7 +52,7 @@ class TrendingTab extends Component<Props> {
       EventBus.getInstance().addListener(EventTypes.favorite_changed_popular, this.favoriteChangeListener = () => {
         this.isFavoriteChanged = true;
       });
-      EventBus.getInstance().addListener(EventTypes.bottom_tab_select, this.bottomTabSelectedListener = () => {
+      EventBus.getInstance().addListener(EventTypes.bottom_tab_select, this.bottomTabSelectedListener = (data) => {
         if (data.to === 0 && this.isFavoriteChanged) {
           this.loadData(null, true);
         }
@@ -115,13 +114,16 @@ class TrendingTab extends Component<Props> {
     
     renderItem(data) {
       const item = data.item;
+      const {theme} = this.props;
       return <TrendingItem
+        theme={theme}
         projectModel={item}
         onSelect={(callBack) => {
           console.log("我被选中了");
           NavigationUtil.goPage({
             projectModel: item,
             flag: FLAG_STORAGE.flag_trending,
+            theme: theme,
             callBack,
           }, 'DetailPage');
         }}
@@ -205,23 +207,6 @@ const styles = StyleSheet.create({
     constainer: {
         flex: 1,
         // marginTop: 33,
-    },
-    tabStyle: {
-        minWidth: 50,
-    },
-    indicatorStyle: {
-        height: 2,
-        backgroundColor: '#111',
-    },
-    labelStyle: {
-        fontSize: 13,
-        marginTop: 6,
-        marginBottom: 6,
-    },
-    textPressStyle: {
-        backgroundColor: '#ccc',
-        // width: 100,
-        height: 30,
     },
     indicatorContainer: {
       alignItems: "center",

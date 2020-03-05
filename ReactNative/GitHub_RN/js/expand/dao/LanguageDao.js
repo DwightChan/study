@@ -39,9 +39,9 @@ export default class LanguageDao {
    * 保存语言或标签
    * @param {*} objectData 
    */
-  async save(objectData) {
+  save(objectData) {
     let stringData = JSON.stringify(objectData);
-    await AsyncStorage.setItem(this.flag, stringData, (error, result) => {
+    AsyncStorage.setItem(this.flag, stringData, (error, result) => {
       if (!error) {
         console.log("保存成功:", result);
       }else {

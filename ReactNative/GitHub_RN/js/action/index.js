@@ -1,4 +1,4 @@
-import { onThemeChange } from "./theme";
+import { onThemeChange, onShowCustomThemeView, onThemeInit} from "./theme";
 import { onRefreshPopular, onLoadMorePopular, onFlushPopularFavorite } from "./popular";
 import { onRefreshTrending, onLoadMoreTrending, onFlushTrendingFavorite } from "./Trending";
 import { onLoadFavoriteData } from "./favorite";
@@ -6,6 +6,10 @@ import { onLoadLanguage } from "./language";
 export default {
   // 修改主题
   onThemeChange,
+  // 显示自定义主题的view
+  onShowCustomThemeView,
+  // 主题颜色初始化
+  onThemeInit,
 
   // 热门页面数据加载
   onRefreshPopular,

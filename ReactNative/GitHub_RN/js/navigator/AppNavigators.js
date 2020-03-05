@@ -8,7 +8,8 @@ import AboutPage from "../page/about/AboutPage";
 import AboutMePage from "../page/about/AboutMePage";
 import {createReactNavigationReduxMiddleware, createReduxContainer} from 'react-navigation-redux-helpers';
 import { connect } from "react-redux";
-import CustomKeyPage from "../page/CustomKeyPage";
+import CustomKeyPage from "../page/Mine/CustomKeyPage";
+import SortKeyPage from "../page/Mine/SortKeyPage";
 
 export const rootCom = 'Init';//设置根路由
 
@@ -59,6 +60,12 @@ const MainNavigator = createStackNavigator({
       navigationOptions: {
         header: null,
       }
+    },
+    SortKeyPage: {
+      screen: SortKeyPage,
+      navigationOptions: {
+        header: null,
+      }
     }
 });
 export const RootNavigator = createSwitchNavigator({
@@ -76,16 +83,23 @@ export const RootNavigator = createSwitchNavigator({
  * 检测订阅者是否存在@https://github.com/react-navigation/react-navigation-redux-helpers/blob/master/src/middleware.js#L97
  * @type {Middleware}
  */
+// export const middleware = state => createReactNavigationReduxMiddleware(
+//   state => state.nav,
+//   'root',
+// );
 export const middleware = createReactNavigationReduxMiddleware(
   state => state.nav,
   'root',
 );
-
+//  navStateSelector: (state: S) => NavigationState,
+// key?: string,
 /**
  * 2.将根导航器组件传递给 reduxifyNavigator 函数,
  * 并返回一个将navigation state 和 dispatch 函数作为 props的新组件；
  * 注意：要在createReactNavigationReduxMiddleware之后执行
  */
+// const AppWithNavigationState = createReduxContainer(RootNavigator, 'root');
+// const AppWithNavigationState = reduxifyNavigator(RootNavigator, 'root');
 const AppWithNavigationState = createReduxContainer(RootNavigator, 'root');
 
 /**
