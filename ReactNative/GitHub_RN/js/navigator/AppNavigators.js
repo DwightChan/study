@@ -3,6 +3,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 import WelcomePage from '../page/WelcomePage';
 import HomePage from '../page/HomePage';
 import DetailPage from "../page/DetailPage";
+import FetchDemoPage from "../page/FetchDemoPage";
 
 const InitNavigator = createStackNavigator(
     {
@@ -27,6 +28,13 @@ const MainNavigator = createStackNavigator({
       screen: DetailPage,
       navigationOptions: {
         title: '详情',
+        headerBackTitle: '返回',
+      }
+    },
+    FetchDemoPage: {
+      screen: FetchDemoPage,
+      navigationOptions: {
+        title: 'FetchDemoPage',
         headerBackTitle: '返回',
       }
     }
