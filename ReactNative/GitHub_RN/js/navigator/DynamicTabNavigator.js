@@ -1,14 +1,14 @@
 import React,{ Component } from "react";
-import {StyleSheet, View, Text } from "react-native";
+import {StyleSheet, View, Text, Image } from "react-native";
 import {createAppContainer} from 'react-navigation';
 import { createBottomTabNavigator, BottomTabBar } from "react-navigation-tabs";
 // 导入自定义控制页面
-import PopularPage from '../page/PopularPage';
-import TrendingPage from '../page/TrendingPage';
-import FavoritePage from '../page/FavoritePage';
+import PopularPage from '../page/PopularPage/index';
+import TrendingPage from '../page/TrendingPage/index';
+import FavoritePage from '../page/FavoritePage/index';
 import MyPage from '../page/MyPage';
 import GamePage from '../page/GamePage';
-import MaterialIcons from "react-native-vector-icons/MaterialIcons"
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import { connect } from "react-redux";
@@ -78,32 +78,13 @@ class DynamicTabNaivgator extends Component<Props> {
       return this.Tabs;
     }
     const {PopularPage, TrendingPage, FavoritePage, MyPage} = TABS;
-    const tabs = {GamePage: {
-      screen: GamePage,
-      navigationOptions: {
-        tabBarLabel: '打印设备',
-        tabBarIcon: ({tintColor, focused}) => (
-          <Ionicons
-            name={'md-add-circle'}
-            // name={'md-alarm'}
-            // name={'md-trending-up'}
-            size={26}
-            style={{color: tintColor}}
-          />
-          // <MaterialIcons
-          //   name={'print'}
-          //   size={ 26 }
-          //   color={{color: tintColor}}
-          // />
-        ),
-      }
-    }, PopularPage, TrendingPage, FavoritePage, MyPage};
+    const tabs = {PopularPage, TrendingPage, FavoritePage, MyPage};
     // const tabs = {PopularPage, TrendingPage, FavoritePage, MyPage};
     PopularPage.navigationOptions.tabBarLabel = '最热123'; // 动态修改 tab 属性
     return this.Tabs = createAppContainer(createBottomTabNavigator(tabs, {
       tabBarComponent: props => {
         return <TabBarComponent theme={this.props.theme} {...props}/>;
-      },
+      }
     }));
   }
 
@@ -140,6 +121,7 @@ class TabBarComponent extends Component {
     return <BottomTabBar
       {...this.props}
       activeTintColor={this.props.theme}
+      style={{backgroundColor: '#124'}}
     />;
   }
 }

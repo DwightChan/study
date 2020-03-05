@@ -9,134 +9,30 @@ import { StyleSheet,
   DeviceEventEmitter } from "react-native";
 import { createMaterialTopTabNavigator } from "react-navigation-tabs";
 import { createAppContainer } from "react-navigation" ;
-import NavigationUtil from "../navigator/NavigationUtil";
+import NavigationUtil from "../../navigator/NavigationUtil";
 // import DetailPage from "../page/DetailPage";
-import actions from "../action/index";
+import actions from "../../action/index";
 import { connect } from "react-redux";
-import TrendingItem from "../common/TrendingItem";
+import TrendingItem from "../../common/TrendingItem";
 import Toast from "react-native-easy-toast";
-import NavigationBar from "../common/NavigationBar";
-import TrendingDialog, { TimeSpans } from "../common/TrendingDialog";
+import NavigationBar from "../../common/NavigationBar";
+import TrendingDialog, { TimeSpans } from "../../common/TrendingDialog";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import ViewUtil, {THEME_COLOR} from "../util/ViewUtil";
+import ViewUtil, {THEME_COLOR} from "../../util/ViewUtil";
 
-import FavoriteDao from "../expand/dao/FavoriteDao";
-import FavoriteUtil from "../util/FavoriteUtil";
+import FavoriteDao from "../../expand/dao/FavoriteDao";
+import FavoriteUtil from "../../util/FavoriteUtil";
 
 import EventBus from "react-native-event-bus";
-import EventTypes from "../util/EventTypes";
+import EventTypes from "../../util/EventTypes";
 
-import DataStore, {FLAG_STORAGE} from "../expand/dao/DataStore";
+import DataStore, {FLAG_STORAGE} from "../../expand/dao/DataStore";
 const favoriteDao = new FavoriteDao(FLAG_STORAGE.flag_trending);
 
 const EVENT_TYPE_TIME_SPAN_CHANGE = "EVENT_TYPE_TIME_SPAN_CHANGE"
 const URL = 'https://github.com/trending/';
 // const QUERY_STR = '?since=daily';
 type Props = {};
-
-export default class TrendingPage extends Component<Props> {
-  constructor(props) {
-    super(props)
-    console.log(NavigationUtil.navigation)
-    this.tabNames = ['', 'C', 'C#', 'swift', 'Java', 'PHP', 'JavaScript'];
-    this.state = {
-      timeSpan: TimeSpans[0],
-    }
-  }
-
-  _getTabs() {
-      const tabs = {};
-      this.tabNames.forEach((item, index) => {
-          // 这里 tab${index} 是key 唯一标识
-          tabs[`tab${index}`] = {
-              screen: props => <TrendingTabPage {...props} timeSpan={this.state.timeSpan} tabLabel={item}/>,
-              navigationOptions: {
-                  title: item === '' ? "All" : item,
-              },
-          };
-      });
-      return tabs;
-  }
-
-  onSelectTimeSpan(tab) {
-    this.dialog.dismiss();
-    this.setState({
-      timeSpan: tab
-    })
-    // 发送事件
-    DeviceEventEmitter.emit(EVENT_TYPE_TIME_SPAN_CHANGE, tab);
-  }
-
-  renderTrendingDialog() {
-    return <TrendingDialog
-      ref={dialog => this.dialog = dialog}
-      onSelect={tab => this.onSelectTimeSpan(tab)}
-
-    />
-  }
-
-  renderTitleView() {
-    return (<View>
-      <TouchableOpacity
-        underlayColor='transparent'
-        onPress={() => this.dialog.show()}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Text style={{
-            fontSize: 18,
-            color: '#FFFFFF',
-            fontWeight: '400'
-          }}>趋势 {this.state.timeSpan.showText}</Text>
-          <MaterialIcons
-            name={'arrow-drop-down'}
-            size={22}
-            style={{color: 'white'}}
-          />
-        </View>
-      </TouchableOpacity>
-    </View>);
-  }
-
-  _tabNav() {
-    if(!this.tabNav) { //优化效率：根据需要选择是否重新创建建TabNavigator，通常tab改变后才重新创建
-      this.tabNav = createAppContainer(createMaterialTopTabNavigator(
-        this._getTabs(), {
-          tabBarOptions: { 
-            tabStyle: styles.tabStyle,
-            upperCaseLabel: false, // 是否使用标签大写, 默认问 true,
-            scrollEnabled: true, // 是否支持 选项卡滚动, 默认 false
-            style: {
-              backgroundColor: '#678', // tabbar 的背景色
-              height: 50, //fix 修复开启scrollEnabled后在 Android上初始化加载时闪烁问题
-            },
-            indicatorStyle: styles.indicatorStyle, // 标签指示器的样式
-            labelStyle: styles.labelStyle, // 文字的样式
-          }
-        }
-      ));
-    }
-    return this.tabNav;
-  }
-
-  render() {
-    let statusBar = {
-      backgroundColor: THEME_COLOR, //'orange',
-      // barStyle: 'light-content',
-      barStyle: 'default',
-      hidden: false,
-    };
-    let navigationBar = <NavigationBar
-      titleView={this.renderTitleView()}
-      statusBar={statusBar}
-      style={{backgroundColor: THEME_COLOR}}
-    />;
-    const TabNavigator = this._tabNav();
-    return (<View style={[styles.constainer]}>
-      {navigationBar}
-      <TabNavigator />
-      {this.renderTrendingDialog()}
-    </View>);
-  }
-}
 
 const pageSize = 10; // 设置为常量, 防止修改
 class TrendingTab extends Component<Props> {
@@ -302,7 +198,7 @@ const mapDispatchToProps = dispatch => ({
   onFlushTrendingFavorite: (storeName, url, pageSize, items, favoriteDao) => dispatch(actions.onFlushTrendingFavorite(storeName, url, pageSize, items, favoriteDao))
 });
 //注意：connect只是个function，并不应定非要放在export后面
-const TrendingTabPage = connect(mapStateToProps, mapDispatchToProps)(TrendingTab)
+export default TrendingTabPage = connect(mapStateToProps, mapDispatchToProps)(TrendingTab)
 
 
 const styles = StyleSheet.create({
