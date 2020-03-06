@@ -96,7 +96,7 @@ class PopularPage extends Component<Props> {
       hidden: false,
     };
     let navigationBar = <NavigationBar
-      title={'最热'}
+      title={'最热6'}
       statusBar={statusBar}
       style={theme.styles.navBar}
       rightButton={this.renderRightButton()}

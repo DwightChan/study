@@ -20,6 +20,8 @@
 		3404AEF96D8624787A7336B5 /* libPods-GitHub_RNTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9EF459B762A908D34916AE /* libPods-GitHub_RNTests.a */; };
 		84DEF106003252636308D5BF /* libPods-GitHub_RN-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D335E6655CD27D6D622B3DA /* libPods-GitHub_RN-tvOSTests.a */; };
 		B45AD16323F3A62800565DAB /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = B45AD16223F3A62800565DAB /* Fonts */; };
+		B48B1D0624128A4E003CA11C /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = B48B1D0424128A4E003CA11C /* main.jsbundle */; };
+		B48B1D0724128A4E003CA11C /* assets in Resources */ = {isa = PBXBuildFile; fileRef = B48B1D0524128A4E003CA11C /* assets */; };
 		B4DF284B240131B70090A208 /* libreact-native-webview.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DF284A240131B70090A208 /* libreact-native-webview.a */; };
 		CC15D86DAFACFEA3F519399F /* libPods-GitHub_RN-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C42F2214FB98AF0380F1BDFF /* libPods-GitHub_RN-tvOS.a */; };
 /* End PBXBuildFile section */
@@ -42,10 +44,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* GitHub_RNTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitHub_RNTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* GitHub_RNTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GitHub_RNTests.m; sourceTree = "<group>"; };
+		0112FCD4F70C38830893FCCA /* Pods-GitHub_RN-tvOSTests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_RN-tvOSTests.staging.xcconfig"; path = "Target Support Files/Pods-GitHub_RN-tvOSTests/Pods-GitHub_RN-tvOSTests.staging.xcconfig"; sourceTree = "<group>"; };
 		0A71A3C8676F5FD86A6A0F33 /* libPods-GitHub_RN.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GitHub_RN.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* GitHub_RN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub_RN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = GitHub_RN/AppDelegate.h; sourceTree = "<group>"; };
@@ -57,12 +59,16 @@
 		1D335E6655CD27D6D622B3DA /* libPods-GitHub_RN-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GitHub_RN-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E47B1E0B4A5D006451C7 /* GitHub_RN-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHub_RN-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* GitHub_RN-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GitHub_RN-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40864ED338D964ABF2218397 /* Pods-GitHub_RN-tvOS.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_RN-tvOS.staging.xcconfig"; path = "Target Support Files/Pods-GitHub_RN-tvOS/Pods-GitHub_RN-tvOS.staging.xcconfig"; sourceTree = "<group>"; };
 		666638B74A82C83A6F35F826 /* Pods-GitHub_RN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_RN.debug.xcconfig"; path = "Target Support Files/Pods-GitHub_RN/Pods-GitHub_RN.debug.xcconfig"; sourceTree = "<group>"; };
 		775FF379B013DBA128A04974 /* Pods-GitHub_RN-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_RN-tvOS.release.xcconfig"; path = "Target Support Files/Pods-GitHub_RN-tvOS/Pods-GitHub_RN-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		7D9EF459B762A908D34916AE /* libPods-GitHub_RNTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GitHub_RNTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		87ABC4A0E355A70E18BC906B /* Pods-GitHub_RN.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_RN.staging.xcconfig"; path = "Target Support Files/Pods-GitHub_RN/Pods-GitHub_RN.staging.xcconfig"; sourceTree = "<group>"; };
 		9DD7008E89E9E4E7BE12F294 /* Pods-GitHub_RN-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_RN-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-GitHub_RN-tvOSTests/Pods-GitHub_RN-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AC1ED3457D2288CA4A3F01F2 /* Pods-GitHub_RN-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_RN-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-GitHub_RN-tvOS/Pods-GitHub_RN-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B45AD16223F3A62800565DAB /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
+		B48B1D0424128A4E003CA11C /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = ../bundles/ios/main.jsbundle; sourceTree = "<group>"; };
+		B48B1D0524128A4E003CA11C /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; name = assets; path = ../bundles/ios/assets; sourceTree = "<group>"; };
 		B4DF284A240131B70090A208 /* libreact-native-webview.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-webview.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03624A1CABFC3282B7580CF /* Pods-GitHub_RN-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_RN-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-GitHub_RN-tvOSTests/Pods-GitHub_RN-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		C42F2214FB98AF0380F1BDFF /* libPods-GitHub_RN-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GitHub_RN-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +77,7 @@
 		E4F506A66D8EF22EB865FCA9 /* Pods-GitHub_RN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_RN.release.xcconfig"; path = "Target Support Files/Pods-GitHub_RN/Pods-GitHub_RN.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		EE9EB0E091A22F49ADB9C4D2 /* Pods-GitHub_RNTests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub_RNTests.staging.xcconfig"; path = "Target Support Files/Pods-GitHub_RNTests/Pods-GitHub_RNTests.staging.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +137,8 @@
 		13B07FAE1A68108700A75B9A /* GitHub_RN */ = {
 			isa = PBXGroup;
 			children = (
-				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
+				B48B1D0524128A4E003CA11C /* assets */,
+				B48B1D0424128A4E003CA11C /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -200,6 +208,10 @@
 				C03624A1CABFC3282B7580CF /* Pods-GitHub_RN-tvOSTests.release.xcconfig */,
 				C69936E634BFE919D654FB95 /* Pods-GitHub_RNTests.debug.xcconfig */,
 				C685BF4292AA6BFCCC64F328 /* Pods-GitHub_RNTests.release.xcconfig */,
+				87ABC4A0E355A70E18BC906B /* Pods-GitHub_RN.staging.xcconfig */,
+				40864ED338D964ABF2218397 /* Pods-GitHub_RN-tvOS.staging.xcconfig */,
+				0112FCD4F70C38830893FCCA /* Pods-GitHub_RN-tvOSTests.staging.xcconfig */,
+				EE9EB0E091A22F49ADB9C4D2 /* Pods-GitHub_RNTests.staging.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -344,9 +356,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B48B1D0724128A4E003CA11C /* assets in Resources */,
 				B45AD16323F3A62800565DAB /* Fonts in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				B48B1D0624128A4E003CA11C /* main.jsbundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,11 +699,13 @@
 			baseConfigurationReference = 666638B74A82C83A6F35F826 /* Pods-GitHub_RN.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODEPUSH_KEY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GitHub_RN/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -706,10 +722,12 @@
 			baseConfigurationReference = E4F506A66D8EF22EB865FCA9 /* Pods-GitHub_RN.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODEPUSH_KEY = "Qd8-cfPW8Kfqa6e03FcwLQZUAA3pv4-H5_xKdT";
 				CURRENT_PROJECT_VERSION = 1;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = GitHub_RN/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -934,6 +952,152 @@
 			};
 			name = Release;
 		};
+		B48B1CFB2412761F003CA11C /* Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Staging;
+		};
+		B48B1CFC2412761F003CA11C /* Staging */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87ABC4A0E355A70E18BC906B /* Pods-GitHub_RN.staging.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODEPUSH_KEY = "wf1yd_4FTZ-zneSNls_ImCMmtzfnhB_lB2PH_";
+				CURRENT_PROJECT_VERSION = 1;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = GitHub_RN/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = GitHub_RN;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Staging;
+		};
+		B48B1CFD2412761F003CA11C /* Staging */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE9EB0E091A22F49ADB9C4D2 /* Pods-GitHub_RNTests.staging.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COPY_PHASE_STRIP = NO;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = GitHub_RNTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitHub_RN.app/GitHub_RN";
+			};
+			name = Staging;
+		};
+		B48B1CFE2412761F003CA11C /* Staging */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40864ED338D964ABF2218397 /* Pods-GitHub_RN-tvOS.staging.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "GitHub_RN-tvOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.GitHub_RN-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Staging;
+		};
+		B48B1CFF2412761F003CA11C /* Staging */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0112FCD4F70C38830893FCCA /* Pods-GitHub_RN-tvOSTests.staging.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "GitHub_RN-tvOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.GitHub_RN-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GitHub_RN-tvOS.app/GitHub_RN-tvOS";
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+			};
+			name = Staging;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -942,6 +1106,7 @@
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
 				00E356F71AD99517003FC87E /* Release */,
+				B48B1CFD2412761F003CA11C /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -951,6 +1116,7 @@
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
 				13B07F951A680F5B00A75B9A /* Release */,
+				B48B1CFC2412761F003CA11C /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -960,6 +1126,7 @@
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
 				2D02E4981E0B4A5E006451C7 /* Release */,
+				B48B1CFE2412761F003CA11C /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -969,6 +1136,7 @@
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
 				2D02E49A1E0B4A5E006451C7 /* Release */,
+				B48B1CFF2412761F003CA11C /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -978,6 +1146,7 @@
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
+				B48B1CFB2412761F003CA11C /* Staging */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
