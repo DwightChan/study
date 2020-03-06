@@ -11,6 +11,7 @@ import {createReactNavigationReduxMiddleware, createReduxContainer} from 'react-
 import { connect } from "react-redux";
 import CustomKeyPage from "../page/Mine/CustomKeyPage";
 import SortKeyPage from "../page/Mine/SortKeyPage";
+import CodePushPage from '../page/CodePushPage';
 
 export const rootCom = 'Init';//设置根路由
 
@@ -73,7 +74,13 @@ const MainNavigator = createStackNavigator({
       navigationOptions: {
         header: null,
       }
-    }
+    },
+    CodePushPage: {
+      screen: CodePushPage,
+      navigationOptions: {
+          header: null,// 可以通过将header设为null 来禁用StackNavigator的Navigation Bar
+      }
+  },
 });
 export const RootNavigator = createSwitchNavigator({
     Init: InitNavigator,

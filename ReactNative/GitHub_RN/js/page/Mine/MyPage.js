@@ -72,6 +72,9 @@ class MyPage extends Component {
         RouteName = 'SortKeyPage';
         params.flag = FLAG_LANGUAGE.flag_language;
         break;
+      case MORE_MENU.CodePush:
+        RouteName = 'CodePushPage';
+        break;
 
     }
     if (RouteName) {
@@ -168,7 +171,8 @@ class MyPage extends Component {
         {/* 反馈 */}
         <View style={GlobalStyles.line}/>
         {this.getItem(MORE_MENU.Feedback)}
-
+        <View style={GlobalStyles.line}/>
+        {this.getItem(MORE_MENU.CodePush)}
       </ScrollView>
       {this.renderCustomThemeView()}
     </View>)
