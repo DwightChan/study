@@ -2,14 +2,18 @@
  * @Author: hqxc-Dwight hqxc.dwight@gmail.com
  * @Date: 2024-06-28 15:33:08
  * @LastEditors: hqxc-Dwight hqxc.dwight@gmail.com
- * @LastEditTime: 2024-06-28 15:47:39
+ * @LastEditTime: 2024-06-28 17:41:31
  * @FilePath: /study/Go/180/basic/basic.go
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+	"math/cmplx"
+)
 
 // var aa = 3
 // // 在包内变量不能使用 := 省略 var
@@ -50,6 +54,55 @@ func variableShorter() {
 	fmt.Println(a, b, c, s)
 }
 
+func euler() {
+	fmt.Printf("%.3f\n",
+		cmplx.Exp(1i*math.Pi)+1)
+	fmt.Println(cmplx.Pow(math.E, 1i*math.Pi) + 1)
+}
+
+func triangle() {
+	var a, b int = 3, 4
+	var c int
+	c = int(math.Sqrt(float64(a*a + b*b)))
+	fmt.Println(c)
+}
+
+func consts() {
+	const (
+		filename = "abc.txt"
+		a, b     = 3, 4
+	)
+	var c int
+	c = int(math.Sqrt(a*a + b*b))
+	fmt.Println(filename, c)
+}
+
+// 在go 语言中没有特定的枚举类型
+// 因此通常用 产量来定义的
+func enums() {
+	const (
+		// iota 是自增值
+		cpp = iota
+		_
+		python
+		golang
+		javascript
+	)
+
+	const (
+		// 后面都是用相同的公式
+		b = 1 << (10 * iota)
+		kb
+		mb
+		gb
+		tb
+		pb
+	)
+
+	fmt.Println(cpp, javascript, python, golang)
+	fmt.Println(b, kb, mb, gb, tb, pb)
+}
+
 func main() {
 
 	fmt.Println("hello world")
@@ -57,4 +110,8 @@ func main() {
 	variableInitialValue()
 	variableTypeDeduction()
 	variableShorter()
+	euler()
+	triangle()
+	consts()
+	enums()
 }
