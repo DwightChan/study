@@ -2,7 +2,7 @@
  * @Author: Dwight Dwight@gmail.com
  * @Date: 2024-07-01 02:43:35
  * @LastEditors: Dwight Dwight@gmail.com
- * @LastEditTime: 2024-07-01 03:43:10
+ * @LastEditTime: 2024-07-02 02:51:33
  * @FilePath: /study/Go/180/container/tree/treeentry/entry.go
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -59,10 +59,18 @@ func main() {
 	root.Right.Left.SetValue(4)
 
 	root.Traverse()
-	fmt.Println()
-	myRoot := myTreeNode{&root}
-	myRoot.postOrder()
-	fmt.Println()
 
-	testSparse()
+	nodeCount := 0
+
+	root.TraverseFunc(func(node *tree.Node) {
+		fmt.Println(node.Value)
+		nodeCount++
+	})
+	fmt.Println("Node count:", nodeCount)
+	// fmt.Println()
+	// myRoot := myTreeNode{&root}
+	// myRoot.postOrder()
+	// fmt.Println()
+
+	// testSparse()
 }
