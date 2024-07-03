@@ -49,10 +49,11 @@ func TestSubstr(t *testing.T) {
 // 指令终端输出 go test -bench Substr
 // 通过 -bench 参数可以指定要运行的测试函数
 // 指令终端输出 go test -bench Substr -cpuprofile cpu.out
+// 需要安装 graphviz 才能生成图片 go tool pprof cpu.out --pdf
+// 安装 graphviz 指令终端输出 brew install graphviz
+// 通过 go tool pprof cpu.out 可以查看 CPU 信息文件
 // 通过 -cpuprofile 参数可以生成 CPU 信息文件
 // 指令终端输出 go tool pprof cpu.out
-// 需要先安装 graphviz 才能生成图片 go tool pprof cpu.out --pdf
-// 通过 go tool pprof cpu.out 可以查看 CPU 信息文件
 // 指令终端输出 top
 // 通过 top 可以查看 CPU 信息文件
 // 指令终端输出 list lengthOfNonRepeatingSubStr
