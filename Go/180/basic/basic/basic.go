@@ -1,8 +1,8 @@
 /*
  * @Author: Dwight dwight@gmail.com
  * @Date: 2024-06-28 15:33:08
- * @LastEditors: Dwight dwight@gmail.com
- * @LastEditTime: 2024-06-28 17:41:31
+ * @LastEditors: Dwight Dwight@gmail.com
+ * @LastEditTime: 2024-07-03 04:02:21
  * @FilePath: /study/Go/180/basic/basic.go
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -60,11 +60,20 @@ func euler() {
 	fmt.Println(cmplx.Pow(math.E, 1i*math.Pi) + 1)
 }
 
+//	func triangle() {
+//		var a, b int = 3, 4
+//		var c int
+//		c = int(math.Sqrt(float64(a*a + b*b)))
+//		fmt.Println(c)
+//	}
 func triangle() {
 	var a, b int = 3, 4
-	var c int
-	c = int(math.Sqrt(float64(a*a + b*b)))
-	fmt.Println(c)
+	fmt.Println(calcTriangle(a, b))
+}
+
+func calcTriangle(a, b int) int {
+	c := int(math.Sqrt(float64(a*a + b*b)))
+	return c
 }
 
 func consts() {
@@ -72,8 +81,7 @@ func consts() {
 		filename = "abc.txt"
 		a, b     = 3, 4
 	)
-	var c int
-	c = int(math.Sqrt(a*a + b*b))
+	c := int(math.Sqrt(a*a + b*b))
 	fmt.Println(filename, c)
 }
 
