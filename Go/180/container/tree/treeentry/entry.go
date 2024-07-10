@@ -2,7 +2,7 @@
  * @Author: Dwight Dwight@gmail.com
  * @Date: 2024-07-01 02:43:35
  * @LastEditors: Dwight Dwight@gmail.com
- * @LastEditTime: 2024-07-02 02:51:33
+ * @LastEditTime: 2024-07-11 05:08:29
  * @FilePath: /study/Go/180/container/tree/treeentry/entry.go
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -73,4 +73,13 @@ func main() {
 	// fmt.Println()
 
 	// testSparse()
+
+	c := root.TraverseWithChannel()
+	maxNode := 0
+	for node := range c {
+		if node.Value > maxNode {
+			maxNode = node.Value
+		}
+	}
+	fmt.Println("Max node value:", maxNode)
 }
