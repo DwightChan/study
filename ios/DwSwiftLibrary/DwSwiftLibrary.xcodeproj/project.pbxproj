@@ -19,6 +19,14 @@
 		427D3ECB2B0A0F9E00DE6D61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427D3ECA2B0A0F9E00DE6D61 /* ContentView.swift */; };
 		B40D7DE42BFD8E2000E5F74A /* DWLinearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40D7DE32BFD8E2000E5F74A /* DWLinearView.swift */; };
 		B42784D62B2AB96B00FBF701 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42784D52B2AB96B00FBF701 /* CustomTextField.swift */; };
+		B433531A2C48B89E005262DA /* DiceNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43353192C48B89E005262DA /* DiceNumberView.swift */; };
+		B433531C2C48CE19005262DA /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B433531B2C48CE19005262DA /* LottieView.swift */; };
+		B433531F2C48CE48005262DA /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B433531E2C48CE48005262DA /* Lottie */; };
+		B43353282C48D0A3005262DA /* loudou.json in Resources */ = {isa = PBXBuildFile; fileRef = B43353222C48D0A3005262DA /* loudou.json */; };
+		B43353292C48D0A3005262DA /* img_1.png in Resources */ = {isa = PBXBuildFile; fileRef = B43353242C48D0A3005262DA /* img_1.png */; };
+		B433532A2C48D0A3005262DA /* img_0.png in Resources */ = {isa = PBXBuildFile; fileRef = B43353252C48D0A3005262DA /* img_0.png */; };
+		B433532B2C48D0A3005262DA /* img_2.png in Resources */ = {isa = PBXBuildFile; fileRef = B43353262C48D0A3005262DA /* img_2.png */; };
+		B433532C2C48D0A3005262DA /* img_3.png in Resources */ = {isa = PBXBuildFile; fileRef = B43353272C48D0A3005262DA /* img_3.png */; };
 		B43FFD932BB2B14200911F1A /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43FFD922BB2B14200911F1A /* CarouselView.swift */; };
 		B459A9242B8F08920028D524 /* DWCircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B459A9232B8F08920028D524 /* DWCircularProgressView.swift */; };
 		B4FFE5472C41B32800CB06BC /* DWSphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FFE5462C41B32800CB06BC /* DWSphere.swift */; };
@@ -60,6 +68,13 @@
 		427D3ECA2B0A0F9E00DE6D61 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B40D7DE32BFD8E2000E5F74A /* DWLinearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWLinearView.swift; sourceTree = "<group>"; };
 		B42784D52B2AB96B00FBF701 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		B43353192C48B89E005262DA /* DiceNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceNumberView.swift; sourceTree = "<group>"; };
+		B433531B2C48CE19005262DA /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		B43353222C48D0A3005262DA /* loudou.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loudou.json; sourceTree = "<group>"; };
+		B43353242C48D0A3005262DA /* img_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_1.png; sourceTree = "<group>"; };
+		B43353252C48D0A3005262DA /* img_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_0.png; sourceTree = "<group>"; };
+		B43353262C48D0A3005262DA /* img_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_2.png; sourceTree = "<group>"; };
+		B43353272C48D0A3005262DA /* img_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_3.png; sourceTree = "<group>"; };
 		B43FFD922BB2B14200911F1A /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		B459A9232B8F08920028D524 /* DWCircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWCircularProgressView.swift; sourceTree = "<group>"; };
 		B4FFE5462C41B32800CB06BC /* DWSphere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWSphere.swift; sourceTree = "<group>"; };
@@ -72,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B433531F2C48CE48005262DA /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +115,7 @@
 				427D3EB02B0A0D0500DE6D61 /* DwSwiftLibraryTests */,
 				427D3EBA2B0A0D0500DE6D61 /* DwSwiftLibraryUITests */,
 				427D3E982B0A0D0300DE6D61 /* Products */,
+				82633D9B3749FAF137A5F01F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +132,7 @@
 		427D3E992B0A0D0300DE6D61 /* DwSwiftLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				B43353202C48D082005262DA /* Resources */,
 				427D3E9A2B0A0D0300DE6D61 /* AppDelegate.swift */,
 				427D3E9C2B0A0D0300DE6D61 /* SceneDelegate.swift */,
 				427D3E9E2B0A0D0300DE6D61 /* ViewController.swift */,
@@ -129,6 +147,8 @@
 				B40D7DE32BFD8E2000E5F74A /* DWLinearView.swift */,
 				B4FFE54B2C41BF5B00CB06BC /* DWAngularGradient.swift */,
 				B4FFE5462C41B32800CB06BC /* DWSphere.swift */,
+				B43353192C48B89E005262DA /* DiceNumberView.swift */,
+				B433531B2C48CE19005262DA /* LottieView.swift */,
 				B4FFE54D2C42AC8100CB06BC /* Extensions */,
 			);
 			path = DwSwiftLibrary;
@@ -149,6 +169,42 @@
 				427D3EBD2B0A0D0500DE6D61 /* DwSwiftLibraryUITestsLaunchTests.swift */,
 			);
 			path = DwSwiftLibraryUITests;
+			sourceTree = "<group>";
+		};
+		82633D9B3749FAF137A5F01F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B43353202C48D082005262DA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B43353212C48D0A3005262DA /* 漏斗json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B43353212C48D0A3005262DA /* 漏斗json */ = {
+			isa = PBXGroup;
+			children = (
+				B43353222C48D0A3005262DA /* loudou.json */,
+				B43353232C48D0A3005262DA /* images */,
+			);
+			name = "漏斗json";
+			path = "DwSwiftLibrary/New Group/漏斗json";
+			sourceTree = SOURCE_ROOT;
+		};
+		B43353232C48D0A3005262DA /* images */ = {
+			isa = PBXGroup;
+			children = (
+				B43353242C48D0A3005262DA /* img_1.png */,
+				B43353252C48D0A3005262DA /* img_0.png */,
+				B43353262C48D0A3005262DA /* img_2.png */,
+				B43353272C48D0A3005262DA /* img_3.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		B4FFE54D2C42AC8100CB06BC /* Extensions */ = {
@@ -183,6 +239,9 @@
 			dependencies = (
 			);
 			name = DwSwiftLibrary;
+			packageProductDependencies = (
+				B433531E2C48CE48005262DA /* Lottie */,
+			);
 			productName = DwSwiftLibrary;
 			productReference = 427D3E972B0A0D0300DE6D61 /* DwSwiftLibrary.app */;
 			productType = "com.apple.product-type.application";
@@ -255,6 +314,9 @@
 				Base,
 			);
 			mainGroup = 427D3E8E2B0A0D0300DE6D61;
+			packageReferences = (
+				B433531D2C48CE48005262DA /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 427D3E982B0A0D0300DE6D61 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -273,7 +335,12 @@
 			files = (
 				427D3EA72B0A0D0500DE6D61 /* LaunchScreen.storyboard in Resources */,
 				427D3EA42B0A0D0500DE6D61 /* Assets.xcassets in Resources */,
+				B433532A2C48D0A3005262DA /* img_0.png in Resources */,
+				B433532C2C48D0A3005262DA /* img_3.png in Resources */,
 				427D3EA22B0A0D0300DE6D61 /* Main.storyboard in Resources */,
+				B433532B2C48D0A3005262DA /* img_2.png in Resources */,
+				B43353292C48D0A3005262DA /* img_1.png in Resources */,
+				B43353282C48D0A3005262DA /* loudou.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,11 +360,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3F97ABDD3DC3D037D9742321 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DwSwiftLibrary-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		427D3E932B0A0D0300DE6D61 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B433531A2C48B89E005262DA /* DiceNumberView.swift in Sources */,
 				427D3E9F2B0A0D0300DE6D61 /* ViewController.swift in Sources */,
 				B4FFE54C2C41BF5B00CB06BC /* DWAngularGradient.swift in Sources */,
 				427D3E9B2B0A0D0300DE6D61 /* AppDelegate.swift in Sources */,
@@ -305,6 +398,7 @@
 				427D3ECB2B0A0F9E00DE6D61 /* ContentView.swift in Sources */,
 				427D3E9D2B0A0D0300DE6D61 /* SceneDelegate.swift in Sources */,
 				B459A9242B8F08920028D524 /* DWCircularProgressView.swift in Sources */,
+				B433531C2C48CE19005262DA /* LottieView.swift in Sources */,
 				B40D7DE42BFD8E2000E5F74A /* DWLinearView.swift in Sources */,
 				B43FFD932BB2B14200911F1A /* CarouselView.swift in Sources */,
 				B42784D62B2AB96B00FBF701 /* CustomTextField.swift in Sources */,
@@ -497,7 +591,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -505,6 +599,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.miyu.baby.miyu-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -525,7 +623,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -533,6 +631,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.miyu.baby.miyu-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -551,6 +653,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.miyu.baby.miyu-swiftTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -570,6 +676,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.miyu.baby.miyu-swiftTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -587,6 +697,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.miyu.baby.miyu-swiftUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -604,6 +718,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.miyu.baby.miyu-swiftUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -651,6 +769,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B433531D2C48CE48005262DA /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B433531E2C48CE48005262DA /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B433531D2C48CE48005262DA /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 427D3E8F2B0A0D0300DE6D61 /* Project object */;
 }

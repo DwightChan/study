@@ -140,45 +140,45 @@ struct DWSphere: View {
             //            .padding()
             // 设置透明图 0.6
             
-            // 控制按钮
-            HStack {
-                Button("增大宽度") {
-                    manager.width += 10
-                }
-                .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(10)
-
-                Button("减少宽度") {
-                    manager.width -= 10
-                }
-                .padding()
-                .background(Color.red)
-                .foregroundColor(.white)
-                .cornerRadius(10)
-            }
-            // 控制按钮
-            HStack {
-                Button("增大高度") {
-                    manager.height += 10
-                }
-                .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(10)
-
-                Button("减少高度") {
-                    manager.height -= 10
-                }
-    
-                .padding()
-                .background(Color.red)
-                .foregroundColor(.white)
-                .cornerRadius(10)
-            }
-            Toggle("Enable Rotation", isOn: $manager.allowsCameraControl)
-                            .padding()
+//            // 控制按钮
+//            HStack {
+//                Button("增大宽度") {
+//                    manager.width += 10
+//                }
+//                .padding()
+//                .background(Color.blue)
+//                .foregroundColor(.white)
+//                .cornerRadius(10)
+//
+//                Button("减少宽度") {
+//                    manager.width -= 10
+//                }
+//                .padding()
+//                .background(Color.red)
+//                .foregroundColor(.white)
+//                .cornerRadius(10)
+//            }
+//            // 控制按钮
+//            HStack {
+//                Button("增大高度") {
+//                    manager.height += 10
+//                }
+//                .padding()
+//                .background(Color.blue)
+//                .foregroundColor(.white)
+//                .cornerRadius(10)
+//
+//                Button("减少高度") {
+//                    manager.height -= 10
+//                }
+//    
+//                .padding()
+//                .background(Color.red)
+//                .foregroundColor(.white)
+//                .cornerRadius(10)
+//            }
+//            Toggle("Enable Rotation", isOn: $manager.allowsCameraControl)
+//                            .padding()
 
         }
     }
@@ -192,7 +192,7 @@ struct DWSphere_Previews: PreviewProvider {
             
 //        Sphere(ShereManager(width: 30, height: 30))
             // 设置背景颜色
-            .background(.black)
+//            .background(.black)
         
     }
 }

@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 
 class DWLinearGradientManager: ObservableObject {
     @Published var colors = [Color]()

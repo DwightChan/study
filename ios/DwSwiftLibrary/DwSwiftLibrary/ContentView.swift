@@ -22,6 +22,12 @@ struct ContentView: View {
     var body: some View {
         VStack {
             
+            LottieViewContentView()
+                .frame(width: 50, height: 50)
+            LottieView(filename: "loudou.json")
+                .frame(width: 200, height: 200)
+//                .background(Color.black)
+//                .background(Color.black)
             DWCircularProgressView()
                 .frame(width: 120, height: 120)
                 .padding(.top, 20)
@@ -29,6 +35,7 @@ struct ContentView: View {
             DWLinearGradient()
             DWAngularGradient()
             DWSphere(DWShereManager(width: 200, height: 200))
+            
             
         }
         /// 并设置到父组件的左右两边间距 为15 用margin
