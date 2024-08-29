@@ -74,6 +74,7 @@ func main() {
 
 	// testSparse()
 
+	// 使用 channel 遍历
 	c := root.TraverseWithChannel()
 	maxNode := 0
 	for node := range c {
