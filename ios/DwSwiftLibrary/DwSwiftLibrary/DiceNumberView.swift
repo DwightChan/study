@@ -12,33 +12,46 @@ class DiceNumberManager: ObservableObject {
     // 添加需要的属性
     @Published var no: String = "0"
     let action = ((indexPath: IndexPath) -> ()).self
-    @Published var actived: Bool = false
+    @Published var actived: Bool = false 
+    {
+        didSet {
+            showImags = actived ? selectedImags : normalImags
+        }
+    }
     @Published var indexPath: IndexPath = IndexPath(row: 0, section: 0)
     @Published var className: String = ""
     @Published var image: UIImage = UIImage(named: "dice_00_nor")!
-    @Published var imgs: [UIImage] = []
+    /// 显示的图片
+    @Published var showImags: [UIImage] = []
+    // normal 的图片
+    @Published var normalImags: [UIImage] = []
+    // 选中的图片
+    @Published var selectedImags: [UIImage] = []
     
-    @Published var itemSize: CGSize = CGSize(width: 20, height: 20)
+    @Published var itemSize: CGSize = CGSize(width: 40, height: 40)
     
     init(no: String = "1",
          actived: Bool = false,
+         itemSize: CGSize = CGSize(width: 40, height: 40),
          indexPath: IndexPath = IndexPath(row: 0, section: 0),
          className: String = "") {
         self.no = no
-        self.actived = actived
         self.indexPath = indexPath
         self.className = className
-        
+        self.itemSize = itemSize
         // 字符串分个字符
         no.forEach { (char) in
+            
             if char == "*" {
-                let img = UIImage(named: "dice_00_nor")!
-                imgs.append(img)
+                normalImags.append(UIImage(named: "dice_00_nor")!)
+                selectedImags.append(UIImage(named: "dice_00_sel")!)
             } else {
-                let img = UIImage(named: "dice_0\(char)_nor")!
-                imgs.append(img)
+                normalImags.append(UIImage(named: "dice_0\(char)_nor")!)
+                selectedImags.append(UIImage(named: "dice_0\(char)_sel")!)
             }
         }
+        // 设置选择的图片
+        self.actived = actived
     }
 }
 
@@ -262,34 +275,63 @@ struct DiceNumberView: View {
         VStack {
             switch manager.no.count {
             case 1:
-                ForEach(manager.imgs, id: \.self) { image in
+                ForEach(manager.showImags, id: \.self) { image in
                     Image(uiImage: image)
                         .resizable()
                         .frame(width: manager.itemSize.width, height: manager.itemSize.height)
                 }
             case 2:
                 HStack {
-                    ForEach(manager.imgs, id: \.self) { image in
+                    ForEach(manager.showImags, id: \.self) { image in
                         Image(uiImage: image)
                             .resizable()
                             .frame(width: manager.itemSize.width, height: manager.itemSize.height)
                     }
                 }
             case 3:
-                HStack {
-                    ForEach(manager.imgs, id: \.self) { image in
-                        Image(uiImage: image)
+                // 如果 no 是3个字符 并且 3个字符 都一样
+                // 如果 no 是3个字符 并且 3个字符 都不一样
+                // 如果 no 是3个字符 并且 2个字符 一摸一样，不一样
+                // 使用正则表达式，写出上面的逻辑判断
+                // 123  234 345 456
+                // 111 222 333 444 555 666
+                // 11* 22* 33* 44* 55* 66*
+                if manager.no.contains("*") {
+                    Image(uiImage: manager.showImags[2])
+                        .resizable()
+                        .frame(width: manager.itemSize.width, height: manager.itemSize.height)
+                    HStack {
+                        Image(uiImage: manager.showImags[0])
+                            .resizable()
+                            .frame(width: manager.itemSize.width, height: manager.itemSize.height)
+                        Image(uiImage: manager.showImags[1])
+                            .resizable()
+                            .frame(width: manager.itemSize.width, height: manager.itemSize.height)
+                    }
+                } else {
+                    Image(uiImage: manager.showImags[0])
+                        .resizable()
+                        .frame(width: manager.itemSize.width, height: manager.itemSize.height)
+                    HStack {
+                        Image(uiImage: manager.showImags[1])
+                            .resizable()
+                            .frame(width: manager.itemSize.width, height: manager.itemSize.height)
+                        Image(uiImage: manager.showImags[2])
                             .resizable()
                             .frame(width: manager.itemSize.width, height: manager.itemSize.height)
                     }
                 }
             default:
-                ForEach(manager.imgs, id: \.self) { image in
+                ForEach(manager.showImags, id: \.self) { image in
                     Image(uiImage: image)
                         .resizable()
                         .frame(width: manager.itemSize.width, height: manager.itemSize.height)
                 }
             }
+        }
+        // 点击了之后的操作
+        .onTapGesture {
+            manager.actived.toggle()
         }
 
     }
@@ -300,18 +342,13 @@ struct DiceNumberView: View {
 struct DeceNumberView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            DiceNumberView(DiceNumberManager(no: "1"))
+            DiceNumberView(DiceNumberManager(no: "1", actived: true))
             DiceNumberView(DiceNumberManager(no: "2"))
+            DiceNumberView(DiceNumberManager(no: "11", actived: true))
+            DiceNumberView(DiceNumberManager(no: "222"))
+            DiceNumberView(DiceNumberManager(no: "11*", actived: true, itemSize: CGSize(width: 30, height: 30)))
+            DiceNumberView(DiceNumberManager(no: "123"))
             DiceNumberView(DiceNumberManager(no: "3"))
-            DiceNumberView(DiceNumberManager(no: "4"))
-            DiceNumberView(DiceNumberManager(no: "5"))
-            DiceNumberView(DiceNumberManager(no: "6"))
-            DiceNumberView(DiceNumberManager(no: "11"))
-            DiceNumberView(DiceNumberManager(no: "22"))
-            DiceNumberView(DiceNumberManager(no: "3"))
-            DiceNumberView(DiceNumberManager(no: "4"))
-            DiceNumberView(DiceNumberManager(no: "5"))
-            DiceNumberView(DiceNumberManager(no: "6"))
         }
     }
 }

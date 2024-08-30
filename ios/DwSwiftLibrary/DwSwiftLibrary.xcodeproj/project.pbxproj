@@ -28,6 +28,7 @@
 		B433532B2C48D0A3005262DA /* img_2.png in Resources */ = {isa = PBXBuildFile; fileRef = B43353262C48D0A3005262DA /* img_2.png */; };
 		B433532C2C48D0A3005262DA /* img_3.png in Resources */ = {isa = PBXBuildFile; fileRef = B43353272C48D0A3005262DA /* img_3.png */; };
 		B43FFD932BB2B14200911F1A /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43FFD922BB2B14200911F1A /* CarouselView.swift */; };
+		B4400C6F2C4F408100DEEE62 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4400C6E2C4F408100DEEE62 /* Temp.swift */; };
 		B459A9242B8F08920028D524 /* DWCircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B459A9232B8F08920028D524 /* DWCircularProgressView.swift */; };
 		B4FFE5472C41B32800CB06BC /* DWSphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FFE5462C41B32800CB06BC /* DWSphere.swift */; };
 		B4FFE54C2C41BF5B00CB06BC /* DWAngularGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FFE54B2C41BF5B00CB06BC /* DWAngularGradient.swift */; };
@@ -76,6 +77,7 @@
 		B43353262C48D0A3005262DA /* img_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_2.png; sourceTree = "<group>"; };
 		B43353272C48D0A3005262DA /* img_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_3.png; sourceTree = "<group>"; };
 		B43FFD922BB2B14200911F1A /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
+		B4400C6E2C4F408100DEEE62 /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
 		B459A9232B8F08920028D524 /* DWCircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWCircularProgressView.swift; sourceTree = "<group>"; };
 		B4FFE5462C41B32800CB06BC /* DWSphere.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DWSphere.swift; sourceTree = "<group>"; };
 		B4FFE54B2C41BF5B00CB06BC /* DWAngularGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DWAngularGradient.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				B43353192C48B89E005262DA /* DiceNumberView.swift */,
 				B433531B2C48CE19005262DA /* LottieView.swift */,
 				B4FFE54D2C42AC8100CB06BC /* Extensions */,
+				B4400C6E2C4F408100DEEE62 /* Temp.swift */,
 			);
 			path = DwSwiftLibrary;
 			sourceTree = "<group>";
@@ -360,31 +363,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		3F97ABDD3DC3D037D9742321 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DwSwiftLibrary-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		427D3E932B0A0D0300DE6D61 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -397,6 +375,7 @@
 				B4FFE5502C42AC9C00CB06BC /* Color+DW.swift in Sources */,
 				427D3ECB2B0A0F9E00DE6D61 /* ContentView.swift in Sources */,
 				427D3E9D2B0A0D0300DE6D61 /* SceneDelegate.swift in Sources */,
+				B4400C6F2C4F408100DEEE62 /* Temp.swift in Sources */,
 				B459A9242B8F08920028D524 /* DWCircularProgressView.swift in Sources */,
 				B433531C2C48CE19005262DA /* LottieView.swift in Sources */,
 				B40D7DE42BFD8E2000E5F74A /* DWLinearView.swift in Sources */,
