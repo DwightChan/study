@@ -12,6 +12,9 @@ import (
 	"180/errhandling/filelistingserver/filelisting"
 	"log"
 	"net/http"
+	// 这里是为了方便查看性能分析数据
+	// _ 表示只引入包的 init 函数
+	_ "net/http/pprof"
 	"os"
 )
 

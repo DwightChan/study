@@ -23,10 +23,16 @@ type OrderItem struct {
 }
 
 type Order struct {
-	ID         string      `json:"id"`
-	Items      []OrderItem `json:"items"`
-	TotalPrice float64     `json:"total_price"`
-	CreateAt   time.Time   `json:"-"`
+	// ID is the unique identifier of the order.
+	ID string `json:"id"`
+	// json:"items" means the field name in json is "items".
+	// 输出的时候 json:"items" 表示输出的时候这个字段名是 "items"
+	Items []OrderItem `json:"items"`
+	// TotalPrice is the total price of the order.
+	TotalPrice float64 `json:"total_price"`
+	// 输出的时候 json:"-" 表示不输出这个字段
+	// CreatedAt time.Time `json:"-"`
+	CreateAt time.Time `json:"-"`
 }
 
 func main() {
@@ -97,6 +103,14 @@ func parseNLP() {
 			]
 		}
 	`
+	// m := make(map[string]interface{})
+	// err := json.Unmarshal([]byte(res), &m)
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// //fmt.Printf("%+v\n", m)
+	// // 这里有两个 强转换, 第一个是 m["data"] 是一个数组, 第二个是数组里面的元素是一个 map
+	// fmt.Printf("%+v\n", m["data"].([]interface{})[2].(map[string]interface{})["synonym"])
 	m := struct {
 		Data []struct {
 			Synonym string `json:"synonym"`
@@ -108,6 +122,7 @@ func parseNLP() {
 	if err != nil {
 		panic(err)
 	}
+/	// 这里的 %+v 是格式化输出, 会输出结构体的字段名
 
 	fmt.Printf("%+v, %+v\n", m.Data[2].Synonym, m.Data[2].Tag)
 }
