@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 
 @SpringBootTest
@@ -81,5 +82,34 @@ class SpringbootMybatisQuickstartApplicationTests {
 	public void testGetById() {
 		Emp emp = empMapper.getById(1);
 		System.out.println(emp);
+	}
+
+
+	//根据条件查询员工
+	@Test
+	public void testList(){
+		List<Emp> empList = empMapper.list("张", (short) 1, LocalDate.of(2010, 1, 1), LocalDate.of(2020, 1, 1));
+		//List<Emp> empList = empMapper.list("张", null, null, null);
+		//List<Emp> empList = empMapper.list("张", (short)1, null, null);
+		//List<Emp> empList = empMapper.list(null, (short)1, null, null);
+//		List<Emp> empList = empMapper.list(null, null, null, null);
+		System.out.println(empList);
+	}
+
+	@Test
+	public void testUpdate2() {
+		// 构造员工对象
+		Emp emp = new Emp();
+		emp.setId(19);
+		emp.setUsername("Tom2222233");
+
+		// 执行更新员工操作
+		empMapper.update2(emp);
+	}
+
+	@Test
+	public void testDeleteByIds() {
+		List<Integer> ids = Arrays.asList(13,14, 15);
+		empMapper.deleteByIds(ids);
 	}
 }

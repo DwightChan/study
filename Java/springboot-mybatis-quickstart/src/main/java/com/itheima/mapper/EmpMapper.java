@@ -4,6 +4,9 @@ package com.itheima.mapper;
 import com.itheima.pojo.Emp;
 import org.apache.ibatis.annotations.*;
 
+import java.time.LocalDate;
+import java.util.List;
+
 @Mapper
 public interface EmpMapper {
 
@@ -42,7 +45,8 @@ public interface EmpMapper {
     @Select("select id, username, password, name, gender, image, job, entrydate, dept_id , create_time, update_time from emp where id = #{id}")
     public Emp getById(Integer id);
 
-
+    //条件查询员工
+    //方式一
 //    @Select("select * from emp " +
 //            "where name like '%${name}%' " +
 //            "and gender = #{gender} " +
@@ -50,10 +54,21 @@ public interface EmpMapper {
 //            "order by update_time desc")
 //    public List<Emp> list(String name, Short gender, LocalDate begin, LocalDate end);
 
-    @Select("select * from emp " +
-            "where name like concat('%',#{name},'%') " +
-            "and gender = #{gender} " +
-            "and entrydate between #{begin} and #{end} " +
-            "order by update_time desc")
+    //方式二
+//    @Select("select * from emp " +
+//            "where name like concat('%',#{name},'%') " +
+//            "and gender = #{gender} " +
+//            "and entrydate between #{begin} and #{end} " +
+//            "order by update_time desc")
+
+    // 动态条件查询
     public List<Emp> list(String name, Short gender, LocalDate begin, LocalDate end);
+
+    // 动态更新员工
+    public void update2(Emp emp);
+
+    // 批量删除员工
+    public void deleteByIds(List<Integer> ids);
+
+
 }
