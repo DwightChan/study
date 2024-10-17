@@ -2,13 +2,14 @@
  * @Author: Dwight Dwight@gmail.com
  * @Date: 2024-10-17 20:47:35
  * @LastEditors: Dwight Dwight@gmail.com
- * @LastEditTime: 2024-10-18 00:21:28
+ * @LastEditTime: 2024-10-18 00:33:28
  * @FilePath: /flutter_base_demo/lib/main.dart
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 import 'package:flutter/material.dart';
 import 'package:flutter_base_demo/flutter_layout_page.dart';
 import 'package:flutter_base_demo/gesture_page.dart';
+import 'package:flutter_base_demo/launch_page.dart';
 import 'package:flutter_base_demo/less_group_page.dart';
 import 'package:flutter_base_demo/plugin_use.dart';
 import 'package:flutter_base_demo/res_page.dart';
@@ -36,12 +37,13 @@ class MyApp extends StatelessWidget {
         body: RouteNavigator(),
       ),
       routes: <String, WidgetBuilder>{
-        'less': (BuildContext context) =>  LessGroupPage(),
-        'ful': (BuildContext context) =>  StatefullGroup(),
-        'layout': (BuildContext context) =>  FlutterLayoutPage(),
-        'gesture': (BuildContext context) =>  Gesturepage(),
-        'plugin': (BuildContext context) =>  PluginUse(),
-        'res': (BuildContext context) =>  ResPage(),
+        'plugin': (BuildContext context) => PluginUse(),
+        'less': (BuildContext context) => LessGroupPage(),
+        'ful': (BuildContext context) => StatefullGroup(),
+        'layout': (BuildContext context) => FlutterLayoutPage(),
+        'gesture': (BuildContext context) => Gesturepage(),
+        'res': (BuildContext context) => ResPage(),
+        'launch': (BuildContext context) => Launchpage(),
       },
     );
   }
@@ -61,7 +63,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
   
     return Container(
       child: Column(
-        children: [
+        children: <Widget>[
           SwitchListTile(
             title: Text("${byName ? '' : '不'}通过路由名跳转"),
             value: byName,
@@ -70,13 +72,12 @@ class _RouteNavigatorState extends State<RouteNavigator> {
                 byName = value;
               });
             }),
-          _item('StatelessWidget与基础组件', LessGroupPage(), 'less'),
-          _item('StatefulWidget与基础组件', StatefullGroup(), 'ful'),
-          _item('如何进行Flutter布局开发', FlutterLayoutPage(), 'layout'),
-          _item('如何检测用户手势以及处理点击事件？', Gesturepage(), 'gesture'),
           _item('如何使用Flutter包和插件？', PluginUse(), 'plugin'),
-          _item('如何导入和使用资源文件？', ResPage(), 'res'),
-
+          _item('如何检测用户手势以及处理点击事件？', Gesturepage(), 'gesture'),
+          _item('StateFulWidget 与基础组件', StatefullGroup(), 'ful'),
+          _item('如何进行Flutter布局开发', FlutterLayoutPage(), 'layout'),
+          _item('如何导入和使用Flutter的资源文件？', ResPage(), 'res'),
+          _item('如何打开第三方应用？', Launchpage(), 'launch'),
         ],
       ),
     );
