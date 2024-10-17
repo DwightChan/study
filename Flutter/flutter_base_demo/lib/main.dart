@@ -1,12 +1,21 @@
+/*
+ * @Author: Dwight Dwight@gmail.com
+ * @Date: 2024-10-17 20:47:35
+ * @LastEditors: Dwight Dwight@gmail.com
+ * @LastEditTime: 2024-10-18 00:21:28
+ * @FilePath: /flutter_base_demo/lib/main.dart
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import 'package:flutter/material.dart';
 import 'package:flutter_base_demo/flutter_layout_page.dart';
 import 'package:flutter_base_demo/gesture_page.dart';
 import 'package:flutter_base_demo/less_group_page.dart';
 import 'package:flutter_base_demo/plugin_use.dart';
+import 'package:flutter_base_demo/res_page.dart';
 import 'package:flutter_base_demo/statefull_group_page.dart';
 
 void main() {
-  runApp(const Gesturepage());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,113 +27,73 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: '初始化基础项目'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('如何创建和使用Flutter 的路由和导航？')
+        ),
+        body: RouteNavigator(),
+      ),
+      routes: <String, WidgetBuilder>{
+        'less': (BuildContext context) =>  LessGroupPage(),
+        'ful': (BuildContext context) =>  StatefullGroup(),
+        'layout': (BuildContext context) =>  FlutterLayoutPage(),
+        'gesture': (BuildContext context) =>  Gesturepage(),
+        'plugin': (BuildContext context) =>  PluginUse(),
+        'res': (BuildContext context) =>  ResPage(),
+      },
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
+class RouteNavigator extends StatefulWidget {
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<RouteNavigator> createState() => _RouteNavigatorState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _RouteNavigatorState extends State<RouteNavigator> {
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  bool byName = false;
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+  
+    return Container(
+      child: Column(
+        children: [
+          SwitchListTile(
+            title: Text("${byName ? '' : '不'}通过路由名跳转"),
+            value: byName,
+            onChanged: (value) {
+              setState(() {
+                byName = value;
+              });
+            }),
+          _item('StatelessWidget与基础组件', LessGroupPage(), 'less'),
+          _item('StatefulWidget与基础组件', StatefullGroup(), 'ful'),
+          _item('如何进行Flutter布局开发', FlutterLayoutPage(), 'layout'),
+          _item('如何检测用户手势以及处理点击事件？', Gesturepage(), 'gesture'),
+          _item('如何使用Flutter包和插件？', PluginUse(), 'plugin'),
+          _item('如何导入和使用资源文件？', ResPage(), 'res'),
+
+        ],
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
+    );
+  }
+
+  _item(String title, page, String routeName) {
+    return Container(
+      child: ElevatedButton(
+        onPressed: () {
+          if (byName) {
+            Navigator.pushNamed(context, routeName);
+          } else {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => page));
+          }
+        },
+        child: Text(title),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

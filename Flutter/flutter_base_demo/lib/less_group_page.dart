@@ -2,7 +2,7 @@
  * @Author: Dwight Dwight@gmail.com
  * @Date: 2024-10-17 21:15:05
  * @LastEditors: Dwight Dwight@gmail.com
- * @LastEditTime: 2024-10-17 21:23:40
+ * @LastEditTime: 2024-10-18 00:05:26
  * @FilePath: /flutter_base_demo/lib/less_group_page.dart
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -26,7 +26,14 @@ class LessGroupPage extends StatelessWidget {
         home: Scaffold(
           appBar: AppBar(
             title: Text('StatelessWidget与基础组件'),
+                      leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back),
           ),
+          ),
+          
           body: Container(
             decoration: BoxDecoration(color: Colors.white),
             alignment: Alignment.center,
