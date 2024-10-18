@@ -2,7 +2,7 @@
  * @Author: Dwight Dwight@gmail.com
  * @Date: 2024-10-17 20:47:35
  * @LastEditors: Dwight Dwight@gmail.com
- * @LastEditTime: 2024-10-18 00:33:28
+ * @LastEditTime: 2024-10-18 11:02:02
  * @FilePath: /flutter_base_demo/lib/main.dart
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -11,6 +11,7 @@ import 'package:flutter_base_demo/flutter_layout_page.dart';
 import 'package:flutter_base_demo/gesture_page.dart';
 import 'package:flutter_base_demo/launch_page.dart';
 import 'package:flutter_base_demo/less_group_page.dart';
+import 'package:flutter_base_demo/photo_app_page.dart';
 import 'package:flutter_base_demo/plugin_use.dart';
 import 'package:flutter_base_demo/res_page.dart';
 import 'package:flutter_base_demo/statefull_group_page.dart';
@@ -44,7 +45,9 @@ class MyApp extends StatelessWidget {
         'gesture': (BuildContext context) => Gesturepage(),
         'res': (BuildContext context) => ResPage(),
         'launch': (BuildContext context) => Launchpage(),
+        'photo': (BuildContext context) => PhotoApp(),
       },
+
     );
   }
 }
@@ -78,6 +81,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
           _item('如何进行Flutter布局开发', FlutterLayoutPage(), 'layout'),
           _item('如何导入和使用Flutter的资源文件？', ResPage(), 'res'),
           _item('如何打开第三方应用？', Launchpage(), 'launch'),
+          _item('【实战尝鲜】拍照app开发', PhotoApp(), 'photo'),
         ],
       ),
     );
