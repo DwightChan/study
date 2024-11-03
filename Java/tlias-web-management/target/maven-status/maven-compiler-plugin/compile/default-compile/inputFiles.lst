@@ -1,0 +1,13 @@
+/Users/dk/Desktop/github/study/Java/tlias-web-management/src/main/java/com/itheima/TliasWebManagementApplication.java
+/Users/dk/Desktop/github/study/Java/tlias-web-management/src/main/java/com/itheima/controller/DeptController.java
+/Users/dk/Desktop/github/study/Java/tlias-web-management/src/main/java/com/itheima/controller/EmpController.java
+/Users/dk/Desktop/github/study/Java/tlias-web-management/src/main/java/com/itheima/mapper/DeptMapper.java
+/Users/dk/Desktop/github/study/Java/tlias-web-management/src/main/java/com/itheima/mapper/EmpMapper.java
+/Users/dk/Desktop/github/study/Java/tlias-web-management/src/main/java/com/itheima/pojo/Dept.java
+/Users/dk/Desktop/github/study/Java/tlias-web-management/src/main/java/com/itheima/pojo/Emp.java
+/Users/dk/Desktop/github/study/Java/tlias-web-management/src/main/java/com/itheima/pojo/PageBean.java
+/Users/dk/Desktop/github/study/Java/tlias-web-management/src/main/java/com/itheima/pojo/Result.java
+/Users/dk/Desktop/github/study/Java/tlias-web-management/src/main/java/com/itheima/service/DeptService.java
+/Users/dk/Desktop/github/study/Java/tlias-web-management/src/main/java/com/itheima/service/EmpService.java
+/Users/dk/Desktop/github/study/Java/tlias-web-management/src/main/java/com/itheima/service/impl/DeptServiceImpl.java
+/Users/dk/Desktop/github/study/Java/tlias-web-management/src/main/java/com/itheima/service/impl/EmpServiceImpl.java
